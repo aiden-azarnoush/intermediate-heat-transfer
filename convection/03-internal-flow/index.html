@@ -1,0 +1,1725 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Lecture notes on convection and thermal radiation, by Aiden Azarnoush">
+      
+      
+        <meta name="author" content="Aiden Azarnoush">
+      
+      
+        <link rel="canonical" href="https://aiden-azarnoush.github.io/intermediate-heat-transfer/convection/03-internal-flow/">
+      
+      
+        <link rel="prev" href="../02-external-flow-flat-plates-wedges-and-the-integral-method/">
+      
+      
+        <link rel="next" href="../04-natural-convection/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Internal Flow - Intermediate Heat Transfer</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Serif+4:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Source Serif 4";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#internal-flow" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Intermediate Heat Transfer" class="md-header__button md-logo" aria-label="Intermediate Heat Transfer" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Intermediate Heat Transfer
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Internal Flow
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/aiden-azarnoush/intermediate-heat-transfer" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    aiden-azarnoush/intermediate-heat-transfer
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Intermediate Heat Transfer" class="md-nav__button md-logo" aria-label="Intermediate Heat Transfer" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Intermediate Heat Transfer
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/aiden-azarnoush/intermediate-heat-transfer" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    aiden-azarnoush/intermediate-heat-transfer
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../conduction/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part I · Conduction
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part I · Conduction
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conduction/01-introduction-to-conduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to Conduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conduction/02-steady-one-dimensional-conduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Steady One-Dimensional Conduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conduction/03-transient-conduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transient Conduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part II · Convection
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part II · Convection
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-introduction-to-convection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to Convection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-external-flow-flat-plates-wedges-and-the-integral-method/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    External Flow: Flat Plates, Wedges, and the Integral Method
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Internal Flow
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Internal Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#internal-flow-heat-transfer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internal Flow Heat Transfer
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Internal Flow Heat Transfer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#thermal-analysis-of-internal-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Thermal Analysis of Internal Flow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#energy-analysis-of-internal-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Energy Analysis of Internal Flow
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#internal-flow-analysis-and-temperature-distributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internal Flow Analysis and Temperature Distributions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Internal Flow Analysis and Temperature Distributions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#energy-balance-in-internal-flows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Energy Balance in Internal Flows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case-1-constant-heat-flux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Case 1: Constant Heat Flux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case-2-constant-surface-temperature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Case 2: Constant Surface Temperature
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#log-mean-temperature-difference-lmtd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Log Mean Temperature Difference (LMTD)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#entry-length-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entry Length Considerations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nusselt-numbers-for-internal-flows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nusselt Numbers for Internal Flows
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-natural-convection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Natural Convection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-boiling-and-condensation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Boiling and Condensation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-turbulent-flow-and-turbulence-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Turbulent Flow and Turbulence Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-case-study-thermal-management-in-formula-one/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Case Study: Thermal Management in Formula One
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../radiation/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part III · Thermal Radiation
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part III · Thermal Radiation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../radiation/01-fundamentals-of-thermal-radiation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals of Thermal Radiation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../radiation/02-radiation-intensity-surface-properties-and-blackbody-radiati/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Radiation Intensity, Surface Properties, and Blackbody Radiation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../radiation/03-kirchhoff-s-law-and-view-factors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kirchhoff's Law and View Factors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../radiation/04-radiation-exchange-between-surfaces/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Radiation Exchange Between Surfaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../radiation/05-applications-and-advanced-topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Applications and Advanced Topics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="internal-flow">Internal Flow<a class="headerlink" href="#internal-flow" title="Permanent link">&para;</a></h1>
+<h2 id="internal-flow-heat-transfer">Internal Flow Heat Transfer<a class="headerlink" href="#internal-flow-heat-transfer" title="Permanent link">&para;</a></h2>
+<p>Internal flows differ fundamentally from external flows in several important ways:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>External Flow</strong></th>
+<th style="text-align: left;"><strong>Internal Flow</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Heat transfer between surface and free-stream temperature <span class="arithmatex">\(T_\infty\)</span></td>
+<td style="text-align: left;">Heat transfer between surface and local bulk temperature (varying temperature)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Boundary layer grows continuously</td>
+<td style="text-align: left;">Boundary layers grow until they meet, becoming fully developed</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(\text{Re}_x\)</span> varies with position along surface</td>
+<td style="text-align: left;"><span class="arithmatex">\(\text{Re}_D\)</span> is constant throughout the flow</td>
+</tr>
+<tr>
+<td style="text-align: left;">changing <span class="arithmatex">\(\operatorname{Re}_{x,c}\)</span> lead to different types of flows</td>
+<td style="text-align: left;">Same flow type for all <span class="arithmatex">\(\operatorname{Re}_{D,c}\)</span> at different <span class="arithmatex">\(x\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(h_x = q''_x/(T_s - \textcolor{red}{T_\infty})\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(h_x = q''_x/(T_s - \textcolor{red}{T_m})\)</span></td>
+</tr>
+</tbody>
+</table>
+<figure>
+<img alt="Laminar, hydrodynamic boundary layer development in a circular tube." src="../../assets/convection/pics/velocity_BL_in_pipe.png" width="72%" />
+
+<figcaption>Laminar, hydrodynamic boundary layer development in a circular tube.</figcaption>
+</figure>
+<p>For internal flows, the boundary layer development creates distinct flow regions:</p>
+<ul>
+<li>
+<p>Hydrodynamic entrance region (developing velocity profile)</p>
+</li>
+<li>
+<p>Hydrodynamic fully developed region (constant velocity profile)</p>
+</li>
+</ul>
+<figure>
+<img alt="Thermal boundary layer development in a circular tube." src="../../assets/convection/pics/thermal_BL_in_pipe.png" width="72%" />
+
+<figcaption>Thermal boundary layer development in a circular tube.</figcaption>
+</figure>
+<p>Similarly for thermal boundary layers</p>
+<ul>
+<li>
+<p>Thermal entrance region (developing temperature profile)</p>
+</li>
+<li>
+<p>Thermally fully developed region (constant shape temperature profile)</p>
+</li>
+</ul>
+<h4 id="internal-flow-concepts-for-pipe-flow">Internal Flow Concepts for Pipe Flow<a class="headerlink" href="#internal-flow-concepts-for-pipe-flow" title="Permanent link">&para;</a></h4>
+<p>When fluid enters a pipe, boundary layers develop along the walls. Eventually, these boundary layers meet at the centerline, and the flow becomes fully developed.</p>
+<p>The critical Reynolds number for circular pipe flow is approximately </p>
+<div class="arithmatex">\[
+\operatorname{Re}_{D,c} = 2300
+\]</div>
+<p>Regarding flow type in pipes: </p>
+<div class="arithmatex">\[
+\begin{array}{rcl}
+    0-2300: &amp;&amp; \text{Laminar} 
+    \\
+    2300-10^{4}: &amp;&amp; \text{Transition} 
+    \\
+    &gt;10^{4} : &amp;&amp; \text{Turbulent}
+    \end{array}
+\]</div>
+<p>However, for heat transfer purposes, any flow with <span class="arithmatex">\(\text{Re}_D &gt; 2300\)</span> is treated as turbulent because even transitional flows exhibit significant mixing that dominates over molecular diffusion.</p>
+<div class="admonition abstract">
+<p class="admonition-title">Definition</p>
+<p>For flow in circular pipe: </p>
+<div class="arithmatex">\[
+\left\{\begin{array}{ll}
+             \text{Laminar: }&amp;  \frac{x_{fd,h}}{D} \approx 0.05\text{Re}_D
+             \\[1.5em]
+             \text{Turbulent: }&amp; \frac{x_{fd,h}}{D} \approx 10
+        \end{array}
+        \right.
+\]</div>
+</div>
+<h5 id="mean-velocity">Mean velocity:<a class="headerlink" href="#mean-velocity" title="Permanent link">&para;</a></h5>
+<p>Mean velocity can be defined as </p>
+<div class="arithmatex">\[
+u_m  = \frac{1}{A}\int u\; dA
+\]</div>
+<p>for cicular pipe: </p>
+<div class="arithmatex">\[
+u_m   = \frac{2}{r^2_D}\int_0^{r_0}\,u(r,x)\, rdr
+\]</div>
+<ul>
+<li><strong>mass flow rate:</strong> </li>
+</ul>
+<div class="arithmatex">\[
+\dot{m} = \rho u_m A_c
+\]</div>
+<p>where <span class="arithmatex">\(u_m\)</span> is mean velocity and <span class="arithmatex">\(A_c = \pi D^4/4\)</span>. It can be shown</p>
+<div class="admonition abstract">
+<p class="admonition-title">Definition</p>
+<div class="arithmatex">\[
+u_m = \frac{\dot{m}}{\rho A_c} = \frac{\dot{m}}{\rho \pi R^2}
+\]</div>
+</div>
+<ul>
+<li><strong>Reynolds number:</strong></li>
+</ul>
+<div class="admonition abstract">
+<p class="admonition-title">Definition</p>
+<div class="arithmatex">\[
+\operatorname{Re}=\frac{\rho \,u_m D_h}{\mu}=\frac{4 \dot{m}}{\pi D \mu}
+\]</div>
+</div>
+<p>where <span class="arithmatex">\(D_h = 4A/P\)</span> called hydraulic diameter. For uniform pipe, <span class="arithmatex">\(u_m = u_{in}\)</span>.</p>
+<h4 id="velocity-profile-in-fully-developed-flow">Velocity Profile in Fully Developed Flow<a class="headerlink" href="#velocity-profile-in-fully-developed-flow" title="Permanent link">&para;</a></h4>
+<p>For fully developed laminar flow in a circular pipe, the velocity profile is parabolic: </p>
+<div class="arithmatex">\[
+\frac{u(r)}{u_m} = 2\left[1-\left(\frac{r}{R}\right)^2\right]
+\]</div>
+<p>The maximum velocity at the centerline is twice the mean velocity: </p>
+<div class="arithmatex">\[
+u_{max} = 2u_m
+\]</div>
+<p>The mean velocity is related to the pressure gradient by: </p>
+<div class="arithmatex">\[
+\begin{aligned}
+        u_m &amp;= -\frac{R^2}{8\mu}\frac{dP}{dx}
+        \\[0.5em]
+        \frac{\Delta P}{L} &amp;= \frac{32 \mu}{D^2} u_m
+        \\[0.5em]
+        \frac{\Delta P}{L} &amp;=\frac{32 \mu}{D^2} \,\frac{\dot{m}}{\rho \pi R^2}
+        \\[0.5em]
+        \frac{\Delta P}{L} &amp;=\frac{32 \mu}{D^2} \,\frac{\dot{V}}{\pi R^2}
+    \end{aligned}
+\]</div>
+<p>yielding</p>
+<div class="admonition abstract">
+<p class="admonition-title">Definition</p>
+<div class="arithmatex">\[
+\frac{\Delta P}{L} =\frac{128 \mu \dot{V}}{\pi D^4}
+\]</div>
+</div>
+<h4 id="friction-factor">Friction Factor<a class="headerlink" href="#friction-factor" title="Permanent link">&para;</a></h4>
+<p>The friction factor can be defined in two ways:</p>
+<ol>
+<li>Darcy (or Moody) friction factor: </li>
+</ol>
+<div class="arithmatex">\[
+f = -\frac{dP/dx \cdot D}{\rho u_m^2/2}
+\]</div>
+<ol>
+<li>Fanning friction factor: </li>
+</ol>
+<div class="arithmatex">\[
+C_f = \frac{\tau_s}{\rho u_m^2/2}
+\]</div>
+<p>For a fully developed circular pipe in laminar flow with smooth surface4, the relationship is: </p>
+<div class="arithmatex">\[
+f = \frac{64}{\text{Re}_D} \quad \text{and} \quad C_f = \frac{16}{\text{Re}_D}
+\]</div>
+<p>Note that <span class="arithmatex">\(f = 4C_f\)</span> for pipe flow. It’s crucial to identify which definition is being used in a specific context.</p>
+<h3 id="thermal-analysis-of-internal-flow">Thermal Analysis of Internal Flow<a class="headerlink" href="#thermal-analysis-of-internal-flow" title="Permanent link">&para;</a></h3>
+<p>There are two cases:</p>
+<ol>
+<li>
+<p>constant surface temperature</p>
+</li>
+<li>
+<p>constant heat flux</p>
+</li>
+</ol>
+<p>Each case has their own equation and properties.</p>
+<div class="admonition abstract">
+<p class="admonition-title">Definition</p>
+<p>The thermal entry length: </p>
+<div class="arithmatex">\[
+\left\{\begin{array}{ll}
+             \text{Laminar: }&amp;  \frac{x_{fd,t}}{D} \approx 0.05\,\text{Re}_D\cdot\text{Pr}
+             \\[1.5em]
+             \text{Turbulent: }&amp; \frac{x_{fd,t}}{D} \approx 10
+        \end{array}
+        \right.
+\]</div>
+</div>
+<h4 id="bulk-temperature">Bulk Temperature<a class="headerlink" href="#bulk-temperature" title="Permanent link">&para;</a></h4>
+<p>The bulk (or mean) temperature is defined as the mixing cup temperature that would result if the flow at a given cross-section were collected and mixed adiabatically.</p>
+<div class="admonition abstract">
+<p class="admonition-title">Definition</p>
+<p>General formula: </p>
+<div class="arithmatex">\[
+\dot{m} c_p T_m=\int_{A c} \rho u\, c_p \, T \,d A_c
+\]</div>
+<p>If <span class="arithmatex">\(c_p\)</span> and <span class="arithmatex">\(\rho\)</span> are constant and given <span class="arithmatex">\(\dot{m} = \rho u_m A_c\)</span>, we’ll have </p>
+<div class="arithmatex">\[
+T_m=\frac{2}{u_m r_n^2} \int_0^{r_0} u\cdot T\cdot r\ d r
+\]</div>
+</div>
+<h4 id="newtons-cooling-law-for-internal-flow">Newton’s cooling law for internal flow<a class="headerlink" href="#newtons-cooling-law-for-internal-flow" title="Permanent link">&para;</a></h4>
+<p>We no longer have <span class="arithmatex">\(T_\infty\)</span>, but we have <span class="arithmatex">\(T_m\)</span> which is not constant: </p>
+<div class="arithmatex">\[
+h(x) = \frac{q_s''}{T_s - T_m(x)}
+\]</div>
+<h4 id="thermally-fully-developed-condition">Thermally Fully Developed Condition<a class="headerlink" href="#thermally-fully-developed-condition" title="Permanent link">&para;</a></h4>
+<p>A flow is considered thermally fully developed when the dimensionless temperature profile no longer changes with axial position: </p>
+<div class="arithmatex">\[
+\frac{\partial}{\partial x}\left[\frac{T_s(x) - T(r,x)}{T_s(x) - T_m(x)}\right] = 0
+\]</div>
+<p>This implies that while temperatures may change with position, the shape of the temperature profile remains constant.</p>
+<h4 id="convection-heat-transfer-coefficient-in-fully-developed-region">Convection heat transfer coefficient in fully developed region<a class="headerlink" href="#convection-heat-transfer-coefficient-in-fully-developed-region" title="Permanent link">&para;</a></h4>
+<p>For the case of constant surface temperature, in the thermally fully developed region, this simplifies to: </p>
+<div class="arithmatex">\[
+\frac{\partial}{\partial x}\left[\frac{T(r,x) - T_s}{T_m(x) - T_s}\right] = 0 \longrightarrow \frac{T(r,x) - T_s}{T_m(x) - T_s} = f(r)
+\]</div>
+<p>So </p>
+<div class="arithmatex">\[
+\frac{\partial T / \partial r \,(r=r_0) }{T_s - T_m} = f'(r) = constant
+\]</div>
+<p>A mathematical consequence of thermal fully developed flow is that the local heat transfer coefficient becomes constant: </p>
+<div class="arithmatex">\[
+q''_s = h\,(T_s-T_m) = k \frac{\partial T}{\partial r} \Bigl\vert_{r_0} \Rightarrow \frac{\left.\frac{\partial T}{\partial r}\right|_{r_0}}{T_s-T_m}=\frac{h}{k}=\text { constant }
+\]</div>
+<p>which means <span class="arithmatex">\(h\)</span> is constant.</p>
+<figure>
+<img alt="Axial variation of the convection heat transfer coefficient for flow in a tube." src="../../assets/convection/pics/h_vs_x.png" width="72%" />
+
+<figcaption>Axial variation of the convection heat transfer coefficient for flow in a tube.</figcaption>
+</figure>
+<h3 id="energy-analysis-of-internal-flow">Energy Analysis of Internal Flow<a class="headerlink" href="#energy-analysis-of-internal-flow" title="Permanent link">&para;</a></h3>
+<h4 id="key-assumptions">Key Assumptions<a class="headerlink" href="#key-assumptions" title="Permanent link">&para;</a></h4>
+<p>For most internal flow analyses, we make the following assumptions:</p>
+<ol>
+<li><strong>Neglect axial conduction</strong> - Justified by comparing advection to axial conduction: </li>
+</ol>
+<div class="arithmatex">\[
+\frac{\text{advection}}{\text{axial conduction}} = \frac{\rho c_p u_m T_m}{k\frac{dT_m}{dx}} \gg 1
+\]</div>
+<p>For typical water flow at 1 m/s with temperature change of 100°C over 1 m: </p>
+<div class="arithmatex">\[
+\frac{\text{advection}}{\text{axial conduction}} \approx \frac{1000 \times 4000 \times 1 \times 50}{0.6 \times 100} \approx 3.3 \times 10^6
+\]</div>
+<p>This means axial conduction contributes less than one part per million to the heat transfer.</p>
+<ol>
+<li>
+<p><strong>Incompressible flow</strong> - Valid for liquids and gases at low speeds</p>
+</li>
+<li>
+<p><strong>Constant properties</strong> - Can be evaluated at the bulk temperature or film temperature</p>
+</li>
+<li>
+<p><strong>No internal heat generation</strong> - Unless specifically considered in the problem</p>
+</li>
+</ol>
+<h2 id="internal-flow-analysis-and-temperature-distributions">Internal Flow Analysis and Temperature Distributions<a class="headerlink" href="#internal-flow-analysis-and-temperature-distributions" title="Permanent link">&para;</a></h2>
+<h3 id="energy-balance-in-internal-flows">Energy Balance in Internal Flows<a class="headerlink" href="#energy-balance-in-internal-flows" title="Permanent link">&para;</a></h3>
+<p>For internal flows, we perform an energy balance on a control volume between <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(x+dx\)</span>:</p>
+<figure>
+<img alt="Control volume for internal flow in a tube." src="../../assets/convection/pics/control_volume_pipe.png" width="72%" />
+
+<figcaption>Control volume for internal flow in a tube.</figcaption>
+</figure>
+<p>Energy in:</p>
+<ul>
+<li>
+<p>Advection: <span class="arithmatex">\(\dot{m}c_pT_m\)</span></p>
+</li>
+<li>
+<p>Heat through surface: <span class="arithmatex">\(q''_sP\,dx\)</span></p>
+</li>
+</ul>
+<p>Energy out:</p>
+<ul>
+<li>Advection: <span class="arithmatex">\(\dot{m}c_p(T_m + dT_m)\)</span></li>
+</ul>
+<p>For steady state, the balance yields: </p>
+<div class="arithmatex">\[
+q''_sP\,dx = \dot{m}c_p\,dT_m
+\]</div>
+<p>Or: </p>
+<div class="arithmatex">\[
+\boxed{
+        \frac{dT_m}{dx} = \frac{q''_sP}{\dot{m}c_p}
+        }
+\]</div>
+<p>Using the definition of heat transfer coefficient: </p>
+<div class="arithmatex">\[
+q''_s = h(T_s - T_m)
+\]</div>
+<p>The energy balance becomes: </p>
+<div class="arithmatex">\[
+\boxed{
+        \frac{dT_m}{dx} = \frac{hP}{\dot{m}c_p}(T_s - T_m)
+        }
+\]</div>
+<h3 id="case-1-constant-heat-flux">Case 1: Constant Heat Flux<a class="headerlink" href="#case-1-constant-heat-flux" title="Permanent link">&para;</a></h3>
+<p>For constant heat flux (<span class="arithmatex">\(q''_s = \text{constant}\)</span>), the mean temperature increases linearly: </p>
+<div class="arithmatex">\[
+\frac{dT_m}{dx} = \frac{q''_sP}{\dot{m}c_p} = \text{constant}
+\]</div>
+<p>Therefore: </p>
+<div class="arithmatex">\[
+T_m(x) = T_{m,i} + \frac{q''_sP}{\dot{m}c_p}x
+\]</div>
+<p>where <span class="arithmatex">\(T_{m,i}\)</span> is the inlet temperature.</p>
+<p>The surface temperature can be determined from:</p>
+<div class="admonition abstract">
+<p class="admonition-title">Definition</p>
+<div class="arithmatex">\[
+T_s(x) = T_m(x) + \frac{q''_s}{h(x)}
+\]</div>
+</div>
+<p>In the fully developed region where <span class="arithmatex">\(h\)</span> is constant, the surface temperature also increases linearly with the same slope as the bulk temperature, maintaining a constant temperature difference: </p>
+<div class="arithmatex">\[
+T_s(x) - T_m(x) = \frac{q''_s}{h} = \text{constant for } x &gt; x_{fd,t}
+\]</div>
+<p>In the entrance region, the heat transfer coefficient is higher, resulting in a smaller temperature difference near the inlet. The surface temperature profile will have a non-linear portion in the entrance region before becoming linear in the fully developed region.</p>
+<h3 id="case-2-constant-surface-temperature">Case 2: Constant Surface Temperature<a class="headerlink" href="#case-2-constant-surface-temperature" title="Permanent link">&para;</a></h3>
+<p>For constant surface temperature (<span class="arithmatex">\(T_s = \text{constant}\)</span>), the energy balance is: </p>
+<div class="arithmatex">\[
+\frac{dT_m}{dx} = \frac{\bar{h}P}{\dot{m}c_p}(T_s - T_m)
+\]</div>
+<p>Assuming <span class="arithmatex">\(\bar{h}\)</span> is constant (valid for the fully developed region), this can be integrated:</p>
+<div class="admonition abstract">
+<p class="admonition-title">Definition</p>
+<div class="arithmatex">\[
+\frac{T_s - T_m(x)}{T_s - T_{m,i}} = \exp \left(-\frac{\bar{h}\,P }{\dot{m} c_p}\,x \right)
+\]</div>
+</div>
+<p>The mean temperature approaches the surface temperature exponentially, Figure <a href="#fig:delta_T_vs_x_pipe" data-reference-type="ref" data-reference="fig:delta_T_vs_x_pipe">1</a>. It can be proven over a pipe of length <span class="arithmatex">\(L\)</span></p>
+<div class="admonition abstract">
+<p class="admonition-title">Definition</p>
+<div class="arithmatex">\[
+\frac{\Delta T_0}{\Delta T_i}=\frac{T_s-T_{m, 0}}{T_s-T_{m, i}}=\exp \left(-\frac{P L}{\dot{m} c_p} \bar{h}\right)
+\]</div>
+</div>
+<p>The total heat transfer rate is:</p>
+<div class="admonition abstract">
+<p class="admonition-title">Definition</p>
+<div class="arithmatex">\[
+\begin{aligned}
+            q &amp;= \dot{m}c_p[T_m(x) - T_i] = \dot{m}c_p(T_s - T_i)(1 - e^{-\frac{\bar{h}P}{\dot{m}c_p}\,x})
+            \\[0.5em]
+            q &amp;= \dot{m}c_p \Delta T = \rho c_p u_m A_c\Delta T
+        \end{aligned}
+\]</div>
+</div>
+<figure>
+<img alt="Axial temperature variations for heat transfer in a tube. (a) Constant surface heat flux. (b) Constant surface temperature." src="../../assets/convection/pics/axial_temp_pipe.png" width="72%" />
+
+<figcaption>Axial temperature variations for heat transfer in a tube. (a) Constant surface heat flux. (b) Constant surface temperature.</figcaption>
+</figure>
+<h3 id="log-mean-temperature-difference-lmtd">Log Mean Temperature Difference (LMTD)<a class="headerlink" href="#log-mean-temperature-difference-lmtd" title="Permanent link">&para;</a></h3>
+<p>For heat exchanger applications, it’s useful to define the log mean temperature difference: </p>
+<div class="arithmatex">\[
+\Delta T_{lm} = \frac{\Delta T_i - \Delta T_o}{\ln(\Delta T_i/\Delta T_o)}
+\]</div>
+<p>where:</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(\Delta T_i = T_s - T_i\)</span> (inlet temperature difference)</p>
+</li>
+<li>
+<p><span class="arithmatex">\(\Delta T_o = T_s - T_o\)</span> (outlet temperature difference)</p>
+</li>
+</ul>
+<p>This allows the total heat transfer to be expressed simply as: </p>
+<div class="arithmatex">\[
+\begin{aligned}
+        q_{c a n \nu} &amp;=\dot{m} c_{p}\, \Delta T_{l m} \cdot \ln \left(\Delta T_0 / \Delta T_i\right) \cdot(-1)
+        \\[1em]
+        &amp; = \dot{m} c_p \cdot \Delta T_{l m} \cdot\left(-\frac{P L}{\dot{m} c_p} \bar{h}\right)(-1)
+        \\[0.5em]
+        &amp; = \bar{h} \cdot PL\cdot \Delta_{lm}
+        \\[0.5em]
+        &amp; = \bar{h}A_s \Delta T_{lm}
+    \end{aligned}
+\]</div>
+<div class="admonition abstract">
+<p class="admonition-title">Definition</p>
+<div class="arithmatex">\[
+q_{conv} = \bar{h}A_s \Delta T_{lm}
+\]</div>
+</div>
+<p>The LMTD is useful for heat exchanger design because:</p>
+<ul>
+<li>
+<p>It represents an effective temperature difference for the entire heat exchanger</p>
+</li>
+<li>
+<p>It’s convenient for experimental measurements (only need inlet and outlet temperatures)</p>
+</li>
+<li>
+<p>It simplifies heat exchanger calculations</p>
+</li>
+</ul>
+<h4 id="internal-heat-flow-summary">Internal heat flow summary<a class="headerlink" href="#internal-heat-flow-summary" title="Permanent link">&para;</a></h4>
+<figure>
+<img alt="Internal heat flow summary" src="../../assets/convection/pics/internal_heat_flow_summary.png" width="72%" />
+
+<figcaption>Internal heat flow summary</figcaption>
+</figure>
+<h3 id="entry-length-considerations">Entry Length Considerations<a class="headerlink" href="#entry-length-considerations" title="Permanent link">&para;</a></h3>
+<p>While the entry region has higher heat transfer coefficients, it’s often a small portion of the total heat exchanger length. Most practical applications focus on the fully developed region because:</p>
+<ul>
+<li>
+<p>The entry region is usually short compared to the total length</p>
+</li>
+<li>
+<p>Outlet temperature is often more important than high local heat transfer rates</p>
+</li>
+<li>
+<p>For cooling systems with radiators, higher outlet temperatures can reduce radiator size</p>
+</li>
+<li>
+<p>Mathematical analysis is much simpler in the fully developed region</p>
+</li>
+</ul>
+<p>For typical fluids like air or water with Prandtl numbers around 1, the hydrodynamic and thermal entry lengths are similar. For turbulent flow, the entry length is approximately 10 pipe diameters.</p>
+<h3 id="nusselt-numbers-for-internal-flows">Nusselt Numbers for Internal Flows<a class="headerlink" href="#nusselt-numbers-for-internal-flows" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Determine where the flow is fully developed (both hydrodynamically and thermally)</p>
+</li>
+<li>
+<p>Identify whether the flow is laminar or turbulent based on Reynolds number</p>
+</li>
+<li>
+<p>Select the appropriate Nusselt number correlation based on flow regime.</p>
+</li>
+</ol>
+<div class="admonition abstract">
+<p class="admonition-title">Definition</p>
+<p>For fully developed flow we have:</p>
+<ul>
+<li>
+<p><strong>Laminar flow</strong> (<span class="arithmatex">\(\text{Re}_D &lt; 2300\)</span>):</p>
+<ul>
+<li>
+<p>For constant surface temperature: <span class="arithmatex">\(\text{Nu}_D = 3.66\)</span></p>
+</li>
+<li>
+<p>For constant heat flux: <span class="arithmatex">\(\text{Nu}_D = 4.36\)</span></p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Turbulent flow</strong> (<span class="arithmatex">\(\text{Re}_D &gt; 2300\)</span>):</p>
+<ul>
+<li><em>Dittus-Boelter</em> equation: </li>
+</ul>
+</li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+                        \text{Nu}_D &amp;= 0.023\,\text{Re}_D^{0.8}\cdot\text{Pr}^n
+                        \\[1em]
+                        &amp;\left[\begin{array}{l}
+                        0.6 \lesssim \operatorname{Pr} \lesssim 160 \\
+                        R e_D \gtrsim 10,000 \\
+                        L / D \gtrsim 10
+                        \end{array}\right]        
+                        \end{aligned}
+\]</div>
+<div class="highlight"><pre><span></span><code>-   $n = 0.3$ for cooling ($T_s &lt; T_m$)
+
+-   $n = 0.4$ for heating ($T_s &gt; T_m$)
+</code></pre></div>
+</div>
+<p>Note that in real applications, pipe surfaces may have conditions between constant temperature and constant heat flux. The true Nusselt number would typically fall between the two limiting values provided for laminar flow.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../02-external-flow-flat-plates-wedges-and-the-integral-method/" class="md-footer__link md-footer__link--prev" aria-label="Previous: External Flow: Flat Plates, Wedges, and the Integral Method">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                External Flow: Flat Plates, Wedges, and the Integral Method
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../04-natural-convection/" class="md-footer__link md-footer__link--next" aria-label="Next: Natural Convection">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Natural Convection
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Written by Aiden Azarnoush · <a href="https://aiden-azarnoush.github.io">aiden-azarnoush.github.io</a> · <a href="https://github.com/aiden-azarnoush">all repositories</a> · Found this useful? <a href="https://paypal.me/azarnoush">☕ Buy me a coffee</a> · <a href="https://paypal.me/azarnoush/3">$3</a> · <a href="https://paypal.me/azarnoush/5">$5</a> · <a href="https://paypal.me/azarnoush">other</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "navigation.top", "navigation.footer", "toc.integrate", "toc.follow", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1679 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Lecture notes on convection and thermal radiation, by Aiden Azarnoush">
+      
+      
+        <meta name="author" content="Aiden Azarnoush">
+      
+      
+        <link rel="canonical" href="https://aiden-azarnoush.github.io/intermediate-heat-transfer/convection/05-boiling-and-condensation/">
+      
+      
+        <link rel="prev" href="../04-natural-convection/">
+      
+      
+        <link rel="next" href="../06-turbulent-flow-and-turbulence-models/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Boiling and Condensation - Intermediate Heat Transfer</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Serif+4:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Source Serif 4";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#boiling-and-condensation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Intermediate Heat Transfer" class="md-header__button md-logo" aria-label="Intermediate Heat Transfer" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Intermediate Heat Transfer
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Boiling and Condensation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/aiden-azarnoush/intermediate-heat-transfer" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    aiden-azarnoush/intermediate-heat-transfer
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Intermediate Heat Transfer" class="md-nav__button md-logo" aria-label="Intermediate Heat Transfer" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Intermediate Heat Transfer
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/aiden-azarnoush/intermediate-heat-transfer" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    aiden-azarnoush/intermediate-heat-transfer
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../conduction/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part I · Conduction
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part I · Conduction
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conduction/01-introduction-to-conduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to Conduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conduction/02-steady-one-dimensional-conduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Steady One-Dimensional Conduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conduction/03-transient-conduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transient Conduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part II · Convection
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part II · Convection
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-introduction-to-convection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to Convection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-external-flow-flat-plates-wedges-and-the-integral-method/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    External Flow: Flat Plates, Wedges, and the Integral Method
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-internal-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Internal Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-natural-convection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Natural Convection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Boiling and Condensation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Boiling and Condensation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-to-phase-change-heat-transfer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction to Phase Change Heat Transfer
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction to Phase Change Heat Transfer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#heat-transfer-coefficients-across-different-regimes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Heat Transfer Coefficients Across Different Regimes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boiling-heat-transfer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Boiling Heat Transfer
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Boiling Heat Transfer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#boiling-curve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Boiling Curve
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applications-of-boiling-heat-transfer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Applications of Boiling Heat Transfer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#important-physical-parameters-in-boiling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Important Physical Parameters in Boiling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classification-of-boiling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classification of Boiling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pool-boiling-regimes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pool Boiling Regimes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pool Boiling Regimes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#boiling-curve-and-regimes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Boiling Curve and Regimes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nucleate-boiling-correlation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nucleate Boiling Correlation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#critical-heat-flux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Critical Heat Flux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enhancing-boiling-heat-transfer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enhancing Boiling Heat Transfer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#condensation-heat-transfer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Condensation Heat Transfer
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Condensation Heat Transfer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#types-of-condensation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Types of Condensation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#film-condensation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Film Condensation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practical-considerations-for-film-condensation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practical Considerations for Film Condensation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#film-condensation-analysis-and-correlations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Film Condensation Analysis and Correlations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integrated-cooling-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integrated Cooling Systems
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-turbulent-flow-and-turbulence-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Turbulent Flow and Turbulence Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-case-study-thermal-management-in-formula-one/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Case Study: Thermal Management in Formula One
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../radiation/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part III · Thermal Radiation
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part III · Thermal Radiation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../radiation/01-fundamentals-of-thermal-radiation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals of Thermal Radiation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../radiation/02-radiation-intensity-surface-properties-and-blackbody-radiati/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Radiation Intensity, Surface Properties, and Blackbody Radiation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../radiation/03-kirchhoff-s-law-and-view-factors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kirchhoff's Law and View Factors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../radiation/04-radiation-exchange-between-surfaces/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Radiation Exchange Between Surfaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../radiation/05-applications-and-advanced-topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Applications and Advanced Topics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="boiling-and-condensation">Boiling and Condensation<a class="headerlink" href="#boiling-and-condensation" title="Permanent link">&para;</a></h1>
+<h2 id="introduction-to-phase-change-heat-transfer">Introduction to Phase Change Heat Transfer<a class="headerlink" href="#introduction-to-phase-change-heat-transfer" title="Permanent link">&para;</a></h2>
+<p>In previous lectures, we discussed natural convection where there is a strong coupling between buoyancy and temperature. Boiling and condensation processes demonstrate even more nonlinear behavior, not only due to temperature coupling but also because of phase changes and moving boundaries, which make numerical solutions challenging. Therefore, we will focus on correlations and identifying different modes of heat transfer to guide initial calculations.</p>
+<h3 id="heat-transfer-coefficients-across-different-regimes">Heat Transfer Coefficients Across Different Regimes<a class="headerlink" href="#heat-transfer-coefficients-across-different-regimes" title="Permanent link">&para;</a></h3>
+<p>Recall that the convection heat transfer coefficient is defined based on the heat flux and a characteristic temperature difference:</p>
+<div class="arithmatex">\[
+h = \frac{q''}{\Delta T}
+\]</div>
+<p>For different heat transfer modes, we define <span class="arithmatex">\(\Delta T\)</span> differently:</p>
+<ul>
+<li>
+<p>External forced convection: <span class="arithmatex">\(\Delta T = T_s - T_{\infty}\)</span></p>
+</li>
+<li>
+<p>Internal forced convection: <span class="arithmatex">\(\Delta T = T_s - T_m\)</span></p>
+</li>
+<li>
+<p>Boiling and condensation: <span class="arithmatex">\(\Delta T = T_s - T_{sat}\)</span></p>
+</li>
+</ul>
+<p>The typical ranges of heat transfer coefficients for different heat transfer modes are:</p>
+<ul>
+<li>
+<p>Free convection: 2-25 W/m²K (for centimeter-scale structures)</p>
+</li>
+<li>
+<p>Forced convection in gases: 25-250 W/m²K</p>
+</li>
+<li>
+<p>Forced convection in liquids: 50-1,000 W/m²K (2-20 times enhancement over free convection)</p>
+</li>
+<li>
+<p>Boiling and condensation: 2,500-100,000 W/m²K</p>
+</li>
+</ul>
+<p>It’s important to note that the heat transfer coefficient itself is not the ultimate goal; rather, it provides a convenient way to calculate heat transfer rates. The correct approach is to identify the required heat flux and temperature conditions, then determine which heat transfer method or fluid is most appropriate.</p>
+<h2 id="boiling-heat-transfer">Boiling Heat Transfer<a class="headerlink" href="#boiling-heat-transfer" title="Permanent link">&para;</a></h2>
+<h3 id="boiling-curve">Boiling Curve<a class="headerlink" href="#boiling-curve" title="Permanent link">&para;</a></h3>
+<p>Consider a small heated surface immersed in a pool of liquid at temperature <span class="arithmatex">\(T_{\infty}\)</span>. As we increase the surface temperature <span class="arithmatex">\(T_s\)</span>, the heat flux <span class="arithmatex">\(q''\)</span> changes in a characteristic manner.</p>
+<p>Initially, when <span class="arithmatex">\(T_s &lt; T_{sat}\)</span>, the heat transfer occurs through natural convection. As <span class="arithmatex">\(T_s\)</span> approaches and exceeds <span class="arithmatex">\(T_{sat}\)</span>, bubbles begin to form, and the heat flux increases dramatically. This is known as nucleate boiling.</p>
+<p>For boiling, we define the temperature difference as: </p>
+<div class="arithmatex">\[
+\Delta T_{excess} = T_s - T_{sat}
+\]</div>
+<p>This is a better reference temperature for boiling because it allows for comparison across different fluids, as the boiling point will vary between liquids but the curve shapes remain similar.</p>
+<h3 id="applications-of-boiling-heat-transfer">Applications of Boiling Heat Transfer<a class="headerlink" href="#applications-of-boiling-heat-transfer" title="Permanent link">&para;</a></h3>
+<p>Boiling heat transfer has numerous applications:</p>
+<ul>
+<li>
+<p>Refrigeration</p>
+</li>
+<li>
+<p>Power plants</p>
+</li>
+<li>
+<p>HVAC systems</p>
+</li>
+<li>
+<p>Heat exchangers</p>
+</li>
+<li>
+<p>Chemical processing</p>
+</li>
+<li>
+<p>Microelectronics cooling</p>
+</li>
+</ul>
+<p>An interesting application is found in inkjet printers. The highest quality inkjet printers use thermal bubble technology rather than piezoelectric actuators. In thermal bubble inkjet printing, a small heating element rapidly boils a tiny amount of ink, creating a vapor bubble that ejects a droplet. This allows for extremely high-resolution printing, with some professional printers capable of producing dots as small as 1.8 microliters, much smaller than a human hair.</p>
+<h3 id="important-physical-parameters-in-boiling">Important Physical Parameters in Boiling<a class="headerlink" href="#important-physical-parameters-in-boiling" title="Permanent link">&para;</a></h3>
+<p>Several key physical parameters influence boiling heat transfer:</p>
+<ul>
+<li>
+<p><strong>Latent heat of vaporization (<span class="arithmatex">\(h_{fg}\)</span>)</strong>: The energy required to convert a liquid to vapor at constant temperature.</p>
+</li>
+<li>
+<p><strong>Saturation temperature (<span class="arithmatex">\(T_{sat}\)</span>)</strong>: The temperature at which the liquid-vapor phase equilibrium exists at a given pressure. This is the point where the rate of molecules leaving the liquid equals the rate of molecules returning from the vapor.</p>
+</li>
+<li>
+<p><strong>Surface tension (<span class="arithmatex">\(\sigma\)</span>)</strong>: Forces acting along the liquid-vapor interface that tend to minimize the surface area. Surface tension significantly affects bubble formation and growth.</p>
+</li>
+<li>
+<p><strong>Buoyancy forces</strong>: Generated by density differences between the vapor and liquid phases, these forces drive the movement of bubbles.</p>
+</li>
+</ul>
+<p>Surface tension creates substantial pressure differences across curved interfaces. For example, a 10 nm diameter air bubble in water would experience an internal pressure of approximately 115 atmospheres (11.5 MPa) due to surface tension, while a 100 nm bubble would still experience about 15 atmospheres (1.5 MPa). These high pressures must be overcome for bubble nucleation to occur.</p>
+<p>Newton’s law for cooling in boiling can be written as: </p>
+<div class="arithmatex">\[
+q'' = h(T_s - T_{sat})
+\]</div>
+<p>Note that the saturation temperature <span class="arithmatex">\(T_{sat}\)</span> depends on pressure. For water at one atmosphere, <span class="arithmatex">\(T_{sat} \approx 100^\circ \mathrm{C}\)</span> and the latent heat of vaporization is approximately 2260 <span class="arithmatex">\(\mathrm{kJ/kg}\)</span>.</p>
+<h3 id="classification-of-boiling">Classification of Boiling<a class="headerlink" href="#classification-of-boiling" title="Permanent link">&para;</a></h3>
+<p>Boiling can be classified in different ways:</p>
+<ol>
+<li>
+<p>Based on fluid motion:</p>
+<ul>
+<li>
+<p><strong>Pool boiling</strong>: No external pumping, fluid motion primarily due to natural convection and bubble dynamics</p>
+</li>
+<li>
+<p><strong>Flow boiling</strong>: External pumping creates forced convection</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Based on bulk liquid temperature:</p>
+<ul>
+<li>
+<p><strong>Subcooled boiling</strong>: Bulk liquid temperature is below <span class="arithmatex">\(T_{sat}\)</span>, bubbles form at the heated surface but may collapse as they rise through the cooler liquid</p>
+</li>
+<li>
+<p><strong>Saturated boiling</strong>: Bulk liquid temperature is at or above <span class="arithmatex">\(T_{sat}\)</span>, bubbles grow and rise to the free surface</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>These classifications can be combined, resulting in saturated pool boiling, subcooled flow boiling, etc. In this course, we will focus primarily on pool boiling, as it provides a clearer foundation for understanding boiling phenomena.</p>
+<h2 id="pool-boiling-regimes">Pool Boiling Regimes<a class="headerlink" href="#pool-boiling-regimes" title="Permanent link">&para;</a></h2>
+<h3 id="boiling-curve-and-regimes">Boiling Curve and Regimes<a class="headerlink" href="#boiling-curve-and-regimes" title="Permanent link">&para;</a></h3>
+<p>The pool boiling process can be divided into several distinct regimes:</p>
+<ol>
+<li>
+<p><strong>Natural convection region</strong>: When <span class="arithmatex">\(T_s &lt; T_{sat}\)</span> or only slightly above <span class="arithmatex">\(T_{sat}\)</span>, heat transfer occurs primarily through natural convection without bubble formation.</p>
+</li>
+<li>
+<p><strong>Nucleate boiling region</strong>: As <span class="arithmatex">\(T_s - T_{sat}\)</span> increases to a few degrees, bubbles begin to form at specific nucleation sites on the surface. This region is divided into two sub-regions:</p>
+<ul>
+<li>
+<p><strong>Isolated bubbles</strong>: Individual bubbles form at discrete nucleation sites and don’t interact with each other</p>
+</li>
+<li>
+<p><strong>Jets and columns</strong>: At higher superheat, bubbles begin to merge and form vapor columns</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Critical heat flux (CHF)</strong>: The point at which the heat flux reaches a maximum value. Beyond this point, vapor begins to blanket parts of the surface, reducing heat transfer effectiveness.</p>
+</li>
+<li>
+<p><strong>Transition boiling</strong>: Above CHF, increasing surface temperature actually results in decreasing heat flux due to the formation of unstable vapor films.</p>
+</li>
+<li>
+<p><strong>Film boiling</strong>: At very high surface temperatures, a stable vapor film covers the entire surface. Heat transfer occurs through conduction and radiation across this vapor layer, which has poor thermal conductivity.</p>
+</li>
+<li>
+<p><strong>Leidenfrost point</strong>: The minimum heat flux point that marks the transition between transition boiling and film boiling.</p>
+</li>
+</ol>
+<p>For a small heated wire or element with low thermal mass, if the heat flux exceeds CHF, the temperature can jump suddenly from the nucleate boiling region to the film boiling region (thermal runaway), potentially leading to burnout. However, for objects with large thermal mass, like a metal sphere, the cooling process follows the entire boiling curve more gradually.</p>
+<figure>
+<img alt="Heat Flux Controlled Boiling Curve" src="../../assets/convection/pics/heatflux_boiling_cruve.png" width="72%" />
+
+<figcaption>Heat Flux Controlled Boiling Curve</figcaption>
+</figure>
+<h3 id="nucleate-boiling-correlation">Nucleate Boiling Correlation<a class="headerlink" href="#nucleate-boiling-correlation" title="Permanent link">&para;</a></h3>
+<div class="admonition abstract">
+<p class="admonition-title">Definition</p>
+<p>For the nucleate boiling regime, the heat flux can be calculated using the <em>Rohsenow</em> correlation:</p>
+<div class="arithmatex">\[
+q'' = \mu_l h_{fg} \left[ \frac{g(\rho_l - \rho_v)}{\sigma} \right]^{1/2} \left[ \frac{c_{p,l}(T_s - T_{sat})}{C_{sf}h_{fg}\text{Pr}_l^n} \right]^3
+\]</div>
+<p>Where:</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(\mu_l\)</span> is the liquid viscosity</p>
+</li>
+<li>
+<p><span class="arithmatex">\(h_{fg}\)</span> is the latent heat of vaporization</p>
+</li>
+<li>
+<p><span class="arithmatex">\(g\)</span> is gravitational acceleration</p>
+</li>
+<li>
+<p><span class="arithmatex">\(\rho_l\)</span> and <span class="arithmatex">\(\rho_v\)</span> are the densities of liquid and vapor</p>
+</li>
+<li>
+<p><span class="arithmatex">\(\sigma\)</span> is surface tension</p>
+</li>
+<li>
+<p><span class="arithmatex">\(c_{p,l}\)</span> is the specific heat of the liquid</p>
+</li>
+<li>
+<p><span class="arithmatex">\(\text{Pr}_l\)</span> is the Prandtl number of the liquid</p>
+</li>
+<li>
+<p><span class="arithmatex">\(C_{sf}\)</span> is a coefficient that depends on the surface-fluid combination</p>
+</li>
+<li>
+<p><span class="arithmatex">\(n\)</span> is an exponent (typically 1.0 for water, 1.7 for other fluids)</p>
+</li>
+</ul>
+</div>
+<p>Note that the heat flux is proportional to <span class="arithmatex">\((T_s - T_{sat})^3\)</span>, explaining the steep increase in the boiling curve. The factor <span class="arithmatex">\(\sqrt{(\rho_l - \rho_v)/\sigma}\)</span> relates to the buoyancy forces and surface tension effects.</p>
+<h3 id="critical-heat-flux">Critical Heat Flux<a class="headerlink" href="#critical-heat-flux" title="Permanent link">&para;</a></h3>
+<div class="admonition abstract">
+<p class="admonition-title">Definition</p>
+<p>The critical heat flux for a horizontal surface can be estimated using the following correlation: </p>
+<div class="arithmatex">\[
+q_{CHF}^{\prime \prime}=C \rho_v h_{f g}\left[\frac{\sigma g\left(\rho_l-\rho_v\right)}{\rho_v{ }^2}\right]^{1 / 4}
+\]</div>
+<ul>
+<li>
+<p><span class="arithmatex">\(C=0.131\)</span>: for horizontal cylinders, spheres and other large finite surfaces.</p>
+</li>
+<li>
+<p><span class="arithmatex">\(C=0.149\)</span>: for large horizontal plates.</p>
+</li>
+</ul>
+</div>
+<p>This represents the balance point where vapor generation begins to impede liquid return to the surface. Systems should always be designed to operate well below the CHF (typically 60-70% of CHF) for safety and stability.</p>
+<h3 id="enhancing-boiling-heat-transfer">Enhancing Boiling Heat Transfer<a class="headerlink" href="#enhancing-boiling-heat-transfer" title="Permanent link">&para;</a></h3>
+<p>Boiling heat transfer can be enhanced by modifying the surface:</p>
+<ol>
+<li>
+<p><strong>Surface roughness</strong>: Rough surfaces provide more nucleation sites where bubbles can form, enhancing nucleate boiling.</p>
+</li>
+<li>
+<p><strong>Surface features</strong>: Creating artificial cavities or crevices reduces the energy required to form the vapor-liquid interface, making bubble nucleation easier.</p>
+</li>
+<li>
+<p><strong>Sintered surfaces</strong>: Metal particles sintered onto a surface create interconnected porous structures that enhance both nucleate boiling and liquid return pathways, significantly improving performance.</p>
+</li>
+</ol>
+<h2 id="condensation-heat-transfer">Condensation Heat Transfer<a class="headerlink" href="#condensation-heat-transfer" title="Permanent link">&para;</a></h2>
+<h3 id="types-of-condensation">Types of Condensation<a class="headerlink" href="#types-of-condensation" title="Permanent link">&para;</a></h3>
+<p>Condensation is the phase change from vapor to liquid that occurs when vapor contacts a surface below the saturation temperature. It can be classified into several types:</p>
+<ol>
+<li>
+<p><strong>Surface condensation</strong>:</p>
+<ul>
+<li>
+<p><strong>Film condensation</strong>: Liquid forms a continuous film on the surface</p>
+</li>
+<li>
+<p><strong>Dropwise condensation</strong>: Liquid forms discrete droplets on the surface</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Homogeneous condensation</strong>: Occurs uniformly throughout a volume when vapor is cooled below saturation temperature, typically through expansion.</p>
+</li>
+<li>
+<p><strong>Direct contact condensation</strong>: Achieved by injecting cold liquid into saturated vapor or by injecting vapor into cold liquid.</p>
+</li>
+</ol>
+<h3 id="film-condensation">Film Condensation<a class="headerlink" href="#film-condensation" title="Permanent link">&para;</a></h3>
+<p>Film condensation generally results in lower heat transfer rates compared to dropwise condensation because the liquid film acts as a thermal resistance. However, it is more commonly encountered in practical applications and is easier to model analytically.</p>
+<p>For vertical surface film condensation, the energy balance must be considered alongside mass balance. The mass of condensate increases as it flows down the surface due to gravity:</p>
+<ul>
+<li>
+<p>Mass deposited on the surface due to condensation</p>
+</li>
+<li>
+<p>Mass supplied from above</p>
+</li>
+<li>
+<p>Mass leaving through the bottom due to gravity</p>
+</li>
+</ul>
+<p>The temperature profile within the condensate film shows a gradient from <span class="arithmatex">\(T_{sat}\)</span> at the vapor-liquid interface to <span class="arithmatex">\(T_s\)</span> at the wall surface.</p>
+<h3 id="practical-considerations-for-film-condensation">Practical Considerations for Film Condensation<a class="headerlink" href="#practical-considerations-for-film-condensation" title="Permanent link">&para;</a></h3>
+<p>For effective condensation heat transfer, the film thickness must be controlled. Consider the following example:</p>
+<p>For water with thermal conductivity <span class="arithmatex">\(k \approx 0.6\)</span> W/m·K and a film thickness of 1 mm, to achieve a heat flux of <span class="arithmatex">\(10^5\)</span> W/m², the temperature difference would need to be:</p>
+<div class="arithmatex">\[
+\Delta T = \frac{q'' \cdot \delta}{k} = \frac{10^5 \cdot 10^{-3}}{0.6} \approx 167^\circ \mathrm{C}
+\]</div>
+<p>This temperature difference is impractically large. For dielectric fluids with lower thermal conductivity (e.g., <span class="arithmatex">\(k \approx 0.05\)</span> <span class="arithmatex">\(\mathrm{W/mK}\)</span>), the situation is even worse.</p>
+<p>Therefore, for film condensation to be effective, the film thickness should be maintained at the microscale (100 <span class="arithmatex">\(\mu\)</span>m or less), especially for low-conductivity fluids.</p>
+<h2 id="film-condensation-analysis-and-correlations">Film Condensation Analysis and Correlations<a class="headerlink" href="#film-condensation-analysis-and-correlations" title="Permanent link">&para;</a></h2>
+<p>For laminar film condensation on a vertical plate with constant properties, assuming the vapor is at saturation temperature and neglecting vapor viscosity, the following relationships can be derived.</p>
+<div class="admonition abstract">
+<p class="admonition-title">Definition</p>
+<p>Minimum Heat Flux that can sustain film boiling </p>
+<div class="arithmatex">\[
+q_{m i n}^{\prime \prime}=0.09 \rho_v h_{f g}\left[\frac{\sigma g\left(\rho_l-\rho_v\right)}{\left(\rho_l+\rho_v\right)^2}\right]^{1 / 4}
+\]</div>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title">Definition</p>
+<p>The average Nusselt number for film condensation is:</p>
+<div class="arithmatex">\[
+\overline{\text{Nu}}_L = \frac{\overline{h}L}{k_v}
+\]</div>
+<p>For laminar film condensation on a vertical plate, the Nusselt number can be calculated using:</p>
+<div class="arithmatex">\[
+\overline{\text{Nu}}_L = \frac{\overline{h}L}{k_v} =  0.943\left[\frac{g\left(\rho_l-\rho_v\right) \,h_{fg}^{\prime}\, L^3}{\nu_v k_v\left(T_s-T_{\mathrm{sat}}\right)}\right]^{1 / 4}
+\]</div>
+<p>where <span class="arithmatex">\(h_{fg}'\)</span> is the modified latent heat that accounts for sensible heating of the condensate:</p>
+<div class="arithmatex">\[
+h_{f g}^{\prime}=h_{f g}\left[1+0.68 \frac{C_{p, t} \Delta T}{h_{f g}}\right]
+\]</div>
+</div>
+<p>The heat transfer coefficient is highest at the leading edge where the film is thinnest and decreases as the film thickens along the flow path. In the turbulent regime, the heat transfer coefficient slightly increases due to enhanced mixing.</p>
+<h2 id="integrated-cooling-systems">Integrated Cooling Systems<a class="headerlink" href="#integrated-cooling-systems" title="Permanent link">&para;</a></h2>
+<p>An example of a complete thermal management solution is an immersion cooling system for electronic components:</p>
+<ol>
+<li>
+<p>Heat is generated by electronic components (e.g., integrated circuits)</p>
+</li>
+<li>
+<p>The heat causes nucleate boiling of a dielectric fluid</p>
+</li>
+<li>
+<p>Vapor rises to a condenser plate at the top of the enclosure</p>
+</li>
+<li>
+<p>The vapor condenses on the cold plate</p>
+</li>
+<li>
+<p>Condensate returns to the reservoir by gravity</p>
+</li>
+<li>
+<p>The heat is ultimately rejected from the condenser plate to the ambient environment</p>
+</li>
+</ol>
+<p>When designing such systems, it’s important to:</p>
+<ul>
+<li>
+<p>Ensure the nucleate boiling operates well below the critical heat flux</p>
+</li>
+<li>
+<p>Match the evaporation and condensation rates</p>
+</li>
+<li>
+<p>Design the condenser with sufficient surface area for the required heat rejection</p>
+</li>
+<li>
+<p>Create a complete closed loop for both energy and mass circulation</p>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../04-natural-convection/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Natural Convection">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Natural Convection
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../06-turbulent-flow-and-turbulence-models/" class="md-footer__link md-footer__link--next" aria-label="Next: Turbulent Flow and Turbulence Models">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Turbulent Flow and Turbulence Models
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Written by Aiden Azarnoush · <a href="https://aiden-azarnoush.github.io">aiden-azarnoush.github.io</a> · <a href="https://github.com/aiden-azarnoush">all repositories</a> · Found this useful? <a href="https://paypal.me/azarnoush">☕ Buy me a coffee</a> · <a href="https://paypal.me/azarnoush/3">$3</a> · <a href="https://paypal.me/azarnoush/5">$5</a> · <a href="https://paypal.me/azarnoush">other</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "navigation.top", "navigation.footer", "toc.integrate", "toc.follow", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

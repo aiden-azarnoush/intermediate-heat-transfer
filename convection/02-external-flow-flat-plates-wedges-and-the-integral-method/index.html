@@ -1,0 +1,2045 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Lecture notes on convection and thermal radiation, by Aiden Azarnoush">
+      
+      
+        <meta name="author" content="Aiden Azarnoush">
+      
+      
+        <link rel="canonical" href="https://aiden-azarnoush.github.io/intermediate-heat-transfer/convection/02-external-flow-flat-plates-wedges-and-the-integral-method/">
+      
+      
+        <link rel="prev" href="../01-introduction-to-convection/">
+      
+      
+        <link rel="next" href="../03-internal-flow/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>External Flow: Flat Plates, Wedges, and the Integral Method - Intermediate Heat Transfer</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Serif+4:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Source Serif 4";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#external-flow-flat-plates-wedges-and-the-integral-method" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Intermediate Heat Transfer" class="md-header__button md-logo" aria-label="Intermediate Heat Transfer" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Intermediate Heat Transfer
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              External Flow: Flat Plates, Wedges, and the Integral Method
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/aiden-azarnoush/intermediate-heat-transfer" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    aiden-azarnoush/intermediate-heat-transfer
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Intermediate Heat Transfer" class="md-nav__button md-logo" aria-label="Intermediate Heat Transfer" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Intermediate Heat Transfer
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/aiden-azarnoush/intermediate-heat-transfer" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    aiden-azarnoush/intermediate-heat-transfer
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../conduction/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part I · Conduction
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part I · Conduction
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conduction/01-introduction-to-conduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to Conduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conduction/02-steady-one-dimensional-conduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Steady One-Dimensional Conduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conduction/03-transient-conduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transient Conduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part II · Convection
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part II · Convection
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-introduction-to-convection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to Convection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    External Flow: Flat Plates, Wedges, and the Integral Method
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    External Flow: Flat Plates, Wedges, and the Integral Method
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#nusselt-number-and-heat-transfer-coefficients-over-a-flat-plate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nusselt Number and Heat Transfer Coefficients over a Flat Plate
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mass-transfer-sherwood-number" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mass Transfer: Sherwood Number
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#heat-and-mass-transfer-analogy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Heat and Mass Transfer Analogy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#similarity-approach-for-laminar-boundary-layer-over-a-flat-plate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Similarity Approach for Laminar Boundary Layer Over a Flat Plate
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#similarity-approach-for-thermal-boundary-layer-over-a-flat-plate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Similarity Approach for Thermal Boundary Layer Over A Flat Plate
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mass-transfer-boundary-layers-solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mass Transfer Boundary Layers Solution
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#review-of-nusselt-number" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Review of Nusselt Number
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integral-method-for-boundary-layer-problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integral Method for Boundary Layer Problems
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integral Method for Boundary Layer Problems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#derivation-using-control-volume-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Derivation Using Control Volume Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integral-analysis-of-thermal-boundary-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integral Analysis of Thermal Boundary Layer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wedge-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wedge Flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-internal-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Internal Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-natural-convection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Natural Convection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-boiling-and-condensation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Boiling and Condensation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-turbulent-flow-and-turbulence-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Turbulent Flow and Turbulence Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-case-study-thermal-management-in-formula-one/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Case Study: Thermal Management in Formula One
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../radiation/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part III · Thermal Radiation
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part III · Thermal Radiation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../radiation/01-fundamentals-of-thermal-radiation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals of Thermal Radiation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../radiation/02-radiation-intensity-surface-properties-and-blackbody-radiati/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Radiation Intensity, Surface Properties, and Blackbody Radiation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../radiation/03-kirchhoff-s-law-and-view-factors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kirchhoff's Law and View Factors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../radiation/04-radiation-exchange-between-surfaces/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Radiation Exchange Between Surfaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../radiation/05-applications-and-advanced-topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Applications and Advanced Topics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="external-flow-flat-plates-wedges-and-the-integral-method">External Flow: Flat Plates, Wedges, and the Integral Method<a class="headerlink" href="#external-flow-flat-plates-wedges-and-the-integral-method" title="Permanent link">&para;</a></h1>
+<h3 id="nusselt-number-and-heat-transfer-coefficients-over-a-flat-plate">Nusselt Number and Heat Transfer Coefficients over a Flat Plate<a class="headerlink" href="#nusselt-number-and-heat-transfer-coefficients-over-a-flat-plate" title="Permanent link">&para;</a></h3>
+<p>For a flow over a flat plate, the local heat transfer can be determined by examining the solution at the surface. Since the fluid velocity at the wall is zero (no-slip condition), heat transfer at the surface reduces to conduction:</p>
+<div class="arithmatex">\[
+q_s'' = -k\left.\frac{\partial T}{\partial y}\right|_{y=0} = h_x (T_s - T_\infty)
+\]</div>
+<div class="admonition abstract">
+<p class="admonition-title">Definition</p>
+<div class="arithmatex">\[
+h_x = \frac{-k\left.\frac{\partial T}{\partial y}\right|_{y=0}}{T_s - T_\infty}\ \qquad \textit{,flow over a flat surface}
+\]</div>
+</div>
+<p>The Nusselt number is defined as:</p>
+<div class="admonition abstract">
+<p class="admonition-title">Definition</p>
+<div class="arithmatex">\[
+\text{Nu}_x =  \frac{h_x \cdot x}{k_f} = f(x^*,\operatorname{Re_L}, \operatorname{Pr}) = \frac{\text{convective heat transfer}}{\text{conductive heat transfer}}
+\]</div>
+</div>
+<p>Where:</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(h\)</span> is the local heat transfer coefficient</p>
+</li>
+<li>
+<p><span class="arithmatex">\(x\)</span> is the distance from the leading edge</p>
+</li>
+<li>
+<p><span class="arithmatex">\(k_f\)</span> is the thermal conductivity of the fluid</p>
+</li>
+</ul>
+<p><em>Physical meaning:</em> The Nusselt number represents the ratio of convective heat transfer to conductive heat transfer. It indicates the enhancement of heat transfer due to convection relative to conduction across the same fluid layer.</p>
+<h4 id="average-nusselt-number">Average Nusselt Number<a class="headerlink" href="#average-nusselt-number" title="Permanent link">&para;</a></h4>
+<p>The average Nusselt number over a length <span class="arithmatex">\(L\)</span> is defined as:</p>
+<div class="admonition abstract">
+<p class="admonition-title">Definition</p>
+<div class="arithmatex">\[
+\overline{\text{Nu}} = \frac{\bar{h}\cdot L}{k_f} = f(\operatorname{Re_L}, \operatorname{Pr})
+\]</div>
+</div>
+<p>where</p>
+<div class="admonition abstract">
+<p class="admonition-title">Definition</p>
+<div class="arithmatex">\[
+\overline{h} = \frac{1}{L}\int_0^L \,h_x\,dx
+\]</div>
+</div>
+<p><em>Note:</em> If we know Nu, we can find <span class="arithmatex">\(h\)</span>. All relationships can be found in table 7.7 and 8.4 of textbook.<br />
+<em>Warning:</em> It’s important to note that the average Nusselt number is not the average of local Nusselt numbers. Rather, it’s defined using the average heat transfer coefficient: </p>
+<div class="arithmatex">\[
+\overline{\text{Nu}} \neq \frac{1}{L}\int_0^L\operatorname{Nu}_x \,dx
+\]</div>
+<h3 id="mass-transfer-sherwood-number">Mass Transfer: Sherwood Number<a class="headerlink" href="#mass-transfer-sherwood-number" title="Permanent link">&para;</a></h3>
+<p>We can define a similar dimensionless parameter called the Sherwood number: </p>
+<div class="arithmatex">\[
+\text{Sh}_x = \frac{h_m\cdot x}{D_{AB}} = \frac{\partial C^*_A}{\partial y^*} \Bigl \vert_{y^* =0} = \frac{\text{Convective mass transfer}}{\text{Diffusive mass transfer}}
+\]</div>
+<p>Where:</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(h_m\)</span> is the mass transfer coefficient [m/s]</p>
+</li>
+<li>
+<p><span class="arithmatex">\(D_{AB}\)</span> is the binary diffusion coefficient [m²/s]</p>
+</li>
+</ul>
+<p>The average Sherwood number is defined as: </p>
+<div class="arithmatex">\[
+\overline{\text{Sh}} = \frac{\bar{h}_m L}{D_{AB}}
+\]</div>
+<h3 id="heat-and-mass-transfer-analogy">Heat and Mass Transfer Analogy<a class="headerlink" href="#heat-and-mass-transfer-analogy" title="Permanent link">&para;</a></h3>
+<p>Thermal boundary layers and concentration boundary layers have identical forms by replacing</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(\text{Pr} \rightarrow \text{Sc}\)</span></p>
+</li>
+<li>
+<p><span class="arithmatex">\(\text{Nu} \rightarrow \text{Sh}\)</span></p>
+</li>
+</ul>
+<p><em>Example:</em> For laminar flow over a flat plate with <span class="arithmatex">\(\operatorname{Pr} \ge 0.6\)</span>, we have </p>
+<div class="arithmatex">\[
+\operatorname{Nu_x} = 0.332 \, \operatorname{Re_x}^{1/2}\,\operatorname{Pr}^{1/3}
+\]</div>
+<p>for the same type flow, we can say </p>
+<div class="arithmatex">\[
+\operatorname{Sh_x} = 0.332 \, \operatorname{Re_x}^{1/2}\,\operatorname{Sc}^{1/3}
+\]</div>
+<p>In general, for boundary <em>laminar</em> layer flows, Nusselt and Sherwood numbers follow the form: </p>
+<div class="arithmatex">\[
+\text{Nu} \sim f(x^*, \operatorname{Re_L})\,\text{Pr}^n \sim \operatorname{Re_L}^m\, \operatorname{Pr}^n
+\]</div>
+<div class="arithmatex">\[
+\text{Sh} \sim f(x^*, \operatorname{Re_L})\, \text{Sc}^n \sim  \operatorname{Re_L}^m\, \operatorname{Sc}^n
+\]</div>
+<p>This leads to the relationship: </p>
+<div class="arithmatex">\[
+\frac{\text{Nu}}{\text{Sh}} \approx \left(\frac{\text{Pr}}{\text{Sc}}\right)^n \approx Le^{-n}
+\]</div>
+<p>The ratio <span class="arithmatex">\(\frac{\text{Sc}}{\text{Pr}}\)</span> is known as the Lewis number (<span class="arithmatex">\(\text{Le}\)</span>): </p>
+<div class="arithmatex">\[
+\text{Le} = \frac{\text{Sc}}{\text{Pr}} = \frac{\nu/D_{AB}}{\nu/\alpha} = \frac{\alpha}{D_{AB}}
+\]</div>
+<p>For most boundary layer flows, <span class="arithmatex">\(n \approx 1/3\)</span>, which leads to: </p>
+<div class="arithmatex">\[
+\frac{\text{Nu}}{\text{Sh}} \approx \left(\frac{\text{Pr}}{\text{Sc}}\right)^{1/3} = \text{Le}^{-1/3}
+\]</div>
+<p>Similarly, the ratio of boundary layer thicknesses follows: </p>
+<div class="arithmatex">\[
+\frac{\delta_t}{\delta_C} \approx \left(\frac{\text{Sc}}{\text{{Pr}}}\right)^n = \text{Le}^{n}
+\]</div>
+<p>It can be shown that </p>
+<div class="arithmatex">\[
+\frac{h}{h_m}=\rho\, c_p L_e^{1-n}=\frac{k}{D_{AB}\, L_e^n}
+\]</div>
+<h3 id="similarity-approach-for-laminar-boundary-layer-over-a-flat-plate">Similarity Approach for Laminar Boundary Layer Over a Flat Plate<a class="headerlink" href="#similarity-approach-for-laminar-boundary-layer-over-a-flat-plate" title="Permanent link">&para;</a></h3>
+<p>From experimental observations, velocity profiles at different locations along a flat plate can be made to collapse into a single curve when properly scaled in the boundary-layer region. This suggests a similarity solution approach: </p>
+<div class="arithmatex">\[
+u = f(y\cdot g(x)) = f(\eta),
+\]</div>
+<p>where we define the similarity variable <span class="arithmatex">\(\eta\)</span> to capture the dependence on both <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(y\)</span>.</p>
+<p><strong>Governing Equations (Boundary Layer Approximation):</strong> </p>
+<div class="arithmatex">\[
+\begin{aligned}
+  u\frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} &amp;= \nu \frac{\partial^2 u}{\partial y^2}, \\
+  \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} &amp;= 0.
+\end{aligned}
+\]</div>
+<p><strong>Stream Function:</strong> We introduce the stream function <span class="arithmatex">\(\psi\)</span> such that: </p>
+<div class="arithmatex">\[
+u = \frac{\partial \psi}{\partial y}, \quad v = -\frac{\partial \psi}{\partial x}.
+\]</div>
+<p>This identically satisfies the continuity equation.</p>
+<p><strong>Similarity Variables:</strong> We choose: </p>
+<div class="arithmatex">\[
+\psi(x,y) = \sqrt{\nu U_\infty x}\, f(\eta), \quad\text{where}\quad \eta = y \sqrt{\frac{U_\infty}{\nu x}}.
+\]</div>
+<p>Then, </p>
+<div class="arithmatex">\[
+u = \frac{\partial \psi}{\partial y} = \left( f'(\eta)\,\sqrt{\nu U_\infty x} \right)\!\left(\sqrt{\frac{U_\infty}{\nu x}} \right) = U_\infty\, f'(\eta),
+\]</div>
+<div class="arithmatex">\[
+v = -\frac{\partial \psi}{\partial x} = -\frac{d}{dx}\Bigl(\sqrt{\nu U_\infty x}\, f(\eta)\Bigr).
+\]</div>
+<p>One can show: </p>
+<div class="arithmatex">\[
+v = \frac{1}{2}\sqrt{\frac{\nu U_\infty}{x}}\bigl(\eta f'(\eta) - f(\eta)\bigr) = U_\infty\,\sqrt{\frac{\nu}{U_\infty x}}\,\frac{\eta f' - f}{2} = Re^{-1/2}_x\,\frac{\eta f' - f}{2},
+\]</div>
+<p>where <span class="arithmatex">\(Re_x = \frac{U_\infty x}{\nu}\)</span> is the Reynolds number based on distance <span class="arithmatex">\(x\)</span>.</p>
+<h5 id="substituting-into-the-momentum-equation">Substituting into the Momentum Equation:<a class="headerlink" href="#substituting-into-the-momentum-equation" title="Permanent link">&para;</a></h5>
+<p>By carefully differentiating and substituting into </p>
+<div class="arithmatex">\[
+u \frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} = \nu \frac{\partial^2 u}{\partial y^2}
+\]</div>
+<p>one obtains the ordinary differential equation: </p>
+<div class="arithmatex">\[
+f'''+\frac{1}{2} f f'' = 0 \quad\text{or equivalently}\quad f f'' + 2f'''=0.
+\]</div>
+<p>This is a nonlinear ODE with boundary conditions: </p>
+<div class="arithmatex">\[
+f(0)=0,\quad f'(0)=0,\quad f'(\infty)=1.
+\]</div>
+<p>Because it is nonlinear, a classic approach is the “shooting method” :</p>
+<ol>
+<li>
+<p>Guess <span class="arithmatex">\(f''(0)\)</span> at <span class="arithmatex">\(\eta=0\)</span>.</p>
+</li>
+<li>
+<p>Integrate numerically in <span class="arithmatex">\(\eta\)</span> from 0 to some large value.</p>
+</li>
+<li>
+<p>Check if <span class="arithmatex">\(f'(\infty)=1\)</span>. If not, adjust <span class="arithmatex">\(f''(0)\)</span> and repeat.</p>
+</li>
+</ol>
+<h5 id="solutions-and-key-results">Solutions and Key Results:<a class="headerlink" href="#solutions-and-key-results" title="Permanent link">&para;</a></h5>
+<ul>
+<li>At <span class="arithmatex">\(\eta\approx 5.0\)</span>, the velocity <span class="arithmatex">\(u\approx 0.99\,U_\infty\)</span>. This defines the boundary-layer thickness: </li>
+</ul>
+<div class="arithmatex">\[
+\delta \approx 5\sqrt{\frac{\nu x}{U_\infty}}\quad\Rightarrow\quad \frac{\delta}{x} = \frac{5}{\sqrt{Re_x}}.
+\]</div>
+<ul>
+<li>The local friction coefficient <span class="arithmatex">\(C_{f,x}\)</span> is given by: </li>
+</ul>
+<div class="arithmatex">\[
+C_{f,x} = \frac{\tau_{w}}{\frac{1}{2}\rho U_\infty^2}
+\]</div>
+<p>where </p>
+<div class="arithmatex">\[
+\tau_w = \mu\frac{\partial u}{\partial y}\Bigr\rvert_{y=0} = \mu\left[ U_\infty f''(0)\sqrt{\frac{U_\infty}{\nu x}}\right]
+\]</div>
+<p>Numerically, <span class="arithmatex">\(f''(0)\approx 0.332\)</span>, so: </p>
+<div class="arithmatex">\[
+C_{f,x} = \frac{0.664}{\sqrt{Re_x}}
+\]</div>
+<ul>
+<li>
+<p>The average friction coefficient over a plate of length <span class="arithmatex">\(L\)</span> is <span class="arithmatex">\(\overline{C}_{f} = 2\,C_{f,x}\bigl|_{x=L}\)</span></p>
+</li>
+<li>
+<p><span class="arithmatex">\(\operatorname{Re} \uparrow\, \Leftrightarrow \, \delta \downarrow \,\Leftrightarrow \, u_\infty \uparrow\)</span></p>
+</li>
+</ul>
+<figure>
+<img alt="Belasius solution." src="../../assets/convection/pics/Belasisus_sol.png" width="72%" />
+
+<figcaption>Belasius solution.</figcaption>
+</figure>
+<p>The figure is computed, not copied; the whole solution is a shooting problem on <span class="arithmatex">\(f''(0)\)</span>:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">solve_ivp</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">brentq</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">blasius</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>                       <span class="c1"># integrate f''' = -f f''/2 from a guess s = f''(0)</span>
+    <span class="n">rhs</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">eta</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="p">[</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
+    <span class="k">return</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">rhs</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">s</span><span class="p">],</span> <span class="n">rtol</span><span class="o">=</span><span class="mf">1e-9</span><span class="p">)</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">brentq</span><span class="p">(</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">blasius</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>   <span class="c1"># choose s so that f'(inf) = 1</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"f''(0) = </span><span class="si">{</span><span class="n">s</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>                                 <span class="c1"># 0.3321</span>
+</code></pre></div>
+<h3 id="similarity-approach-for-thermal-boundary-layer-over-a-flat-plate">Similarity Approach for Thermal Boundary Layer Over A Flat Plate<a class="headerlink" href="#similarity-approach-for-thermal-boundary-layer-over-a-flat-plate" title="Permanent link">&para;</a></h3>
+<p>Thermal Energy Equation for a Flat Plate is as follows: </p>
+<div class="arithmatex">\[
+\begin{aligned}
+  u\frac{\partial T}{\partial x} + v\frac{\partial T}{\partial y} = \alpha\,\frac{\partial^2 T}{\partial y^2},
+\end{aligned}
+\]</div>
+<p>where <span class="arithmatex">\(\alpha = k/(\rho c_p)\)</span> is the thermal diffusivity. Define the dimensionless temperature: </p>
+<div class="arithmatex">\[
+T^* = \theta = \frac{T - T_s}{T_\infty - T_s},\quad 0 \le \theta \le 1,
+\]</div>
+<p>with boundary conditions: </p>
+<div class="arithmatex">\[
+\begin{array}{ll}
+        y =0, &amp;  \theta = 0\\
+        y = \infty, &amp; \theta = 1\\
+        x =0,  &amp; \theta = 1
+    \end{array}
+\]</div>
+<h5 id="similarity-form-of-the-energy-equation">Similarity Form of the Energy Equation:<a class="headerlink" href="#similarity-form-of-the-energy-equation" title="Permanent link">&para;</a></h5>
+<p>Using </p>
+<div class="arithmatex">\[
+\eta = y\sqrt{\frac{U_\infty}{\nu x}}
+\]</div>
+<p>same as velocity boundary layer and the known function <span class="arithmatex">\(f(\eta)\)</span> from the velocity solution, the dimensionless energy equation becomes: </p>
+<div class="arithmatex">\[
+\theta''(\eta) + \frac{\operatorname{Pr}}{2}\,f(\eta)\,\theta'(\eta) = 0,\quad \text{where}
+  \quad 
+  \operatorname{Pr} = \frac{\nu}{\alpha}
+\]</div>
+<p>The boundary conditions are <span class="arithmatex">\(\theta(0)=0\)</span> and <span class="arithmatex">\(\theta(\infty)=1\)</span>. Unlike the velocity ODE, this is linear in <span class="arithmatex">\(\theta\)</span>, but it depends on <span class="arithmatex">\(f(\eta)\)</span> which is only known numerically.</p>
+<h5 id="integral-form-of-the-solution">Integral Form of the Solution:<a class="headerlink" href="#integral-form-of-the-solution" title="Permanent link">&para;</a></h5>
+<p>One can find the solution as follow: </p>
+<div class="arithmatex">\[
+\theta(\eta)=C_1 \int_0^\eta \exp \left(\frac{\operatorname{Pr}}{2} \int_0^{\eta^{\prime \prime}} f\left(\eta^{\prime}\right) d \eta^{\prime}\right) d \eta^{\prime} + C_2
+\]</div>
+<p>where <span class="arithmatex">\(\eta^{\prime}\)</span> and <span class="arithmatex">\(\eta^{\prime \prime}\)</span> are dummy variables. Apply BCs, we’ll get </p>
+<div class="arithmatex">\[
+\theta(\eta) = \frac{\displaystyle\int_0^{\eta} \exp\!\Bigl(-\frac{\operatorname{Pr}}{2}\int_0^{\eta''} f(\eta')\,d\eta'\Bigr) d\eta''}{\displaystyle\int_0^{\infty} \exp\!\Bigl(-\frac{\operatorname{Pr}}{2}\int_0^{\eta''} f(\eta')\,d\eta'\Bigr) d\eta''},
+\]</div>
+<p>In practice, one integrates numerically once <span class="arithmatex">\(f(\eta)\)</span> is known.</p>
+<figure>
+<img alt="Thermal profile solution" src="../../assets/convection/pics/thermal_profile_flat_plate.png" width="72%" />
+
+<figcaption>Thermal profile solution</figcaption>
+</figure>
+<h5 id="local-heat-transfer-coefficient">Local Heat Transfer Coefficient<a class="headerlink" href="#local-heat-transfer-coefficient" title="Permanent link">&para;</a></h5>
+<p>Let <span class="arithmatex">\(q''_s = -k\bigl(\partial T/\partial y\bigr)_{y=0}\)</span>. Then, </p>
+<div class="arithmatex">\[
+\begin{aligned}
+    q''_s &amp;= -k\biggl.\frac{\partial T}{\partial y}\biggr|_{y=0}\! \\\
+    &amp;= -k\,(T_\infty - T_s)\,\biggl.\frac{\partial \theta}{\partial y}\biggr|_{y=0}
+    \\
+    &amp;= k\,(T_s - T_\infty)\,\biggl.\frac{\partial \theta}{\partial \eta}\biggr|_{\eta=0}\,\frac{\partial \eta}{\partial y}\bigg|_{y=0} 
+    \\
+    &amp; = k\,(T_s - T_\infty)\,\,\sqrt{\frac{U_\infty}{\nu x}} \theta'(0)
+\end{aligned}
+\]</div>
+<div class="admonition abstract">
+<p class="admonition-title">Definition</p>
+<h5 id="nusselt-number-laminar-flow">Nusselt Number (laminar flow)<a class="headerlink" href="#nusselt-number-laminar-flow" title="Permanent link">&para;</a></h5>
+<p>Using local heat transfer coefficient, we can derive an expression for Nusselt number as follow: </p>
+<div class="arithmatex">\[
+h_x = \frac{q''_s}{T_s - T_\infty},\quad\text{and}\quad\text{Nu}_x = \frac{h_x\,x}{k} = \theta'(0)\,\sqrt{\text{Re}_x}.
+\]</div>
+<p>Numerical values of <span class="arithmatex">\(\theta'(0) = f(\operatorname{Pr})\)</span>. For typical ranges: </p>
+<div class="arithmatex">\[
+\left\{\begin{array}{rll}
+         0.6 \le \operatorname{Pr} &lt; 10: &amp;  \theta'(0)\approx 0.332\,\operatorname{Pr}^{1/3}, &amp; \text{Nu}_x = 0.332\,\text{Re}_x^{1/2}\,\operatorname{Pr}^{1/3}
+         \\[1em]
+         \operatorname{Pr} &lt; 0.05: &amp; \theta'(0)\approx 0.565\,\operatorname{Pr}^{1/2}, &amp; \text{Nu}_x = 0.565\,\text{Re}_x^{1/2}\,\operatorname{Pr}^{1/2}
+         \\[1em]
+         \operatorname{Pr} &gt; 10: &amp; \theta'(0)\approx 0.0339\,\operatorname{Pr}^{1/3}, &amp; \text{Nu}_x = 0.339\,\text{Re}_x^{1/2}\,\operatorname{Pr}^{1/3}
+    \end{array}
+    \right.
+\]</div>
+</div>
+<h5 id="average-nusselt-number_1">Average Nusselt Number:<a class="headerlink" href="#average-nusselt-number_1" title="Permanent link">&para;</a></h5>
+<p>Analogous to the friction coefficient, one obtains:</p>
+<div class="admonition abstract">
+<p class="admonition-title">Definition</p>
+<div class="arithmatex">\[
+\overline{\text{Nu}}_L = \frac{\overline{h}\cdot L}{k_f}=2\,\text{Nu}_x\Bigl|_{x=L} = 2\,\theta'(0)\,\sqrt{\text{Re}_L}
+      \qquad \overline{h} = 2 h
+\]</div>
+</div>
+<h4 id="boundary-layer-thickness-ratio">Boundary Layer Thickness Ratio<a class="headerlink" href="#boundary-layer-thickness-ratio" title="Permanent link">&para;</a></h4>
+<p>The ratio of thermal to velocity boundary layer thickness depends on the Prandtl number: </p>
+<div class="arithmatex">\[
+\frac{\delta_t}{\delta} \approx \begin{cases}
+\text{Pr}^{-1/3}, &amp; \operatorname{Pr} &gt; 0.6 
+\\[1em]
+\text{Pr}^{-1/2}, &amp; \operatorname{Pr} \ll 0.1
+\end{cases}
+\]</div>
+<p>This means:</p>
+<ul>
+<li>
+<p>For Pr &gt; 1 (e.g., water, oils): <span class="arithmatex">\(\delta_t &lt; \delta\)</span> (thermal boundary layer is thinner)</p>
+</li>
+<li>
+<p>For Pr = 1: <span class="arithmatex">\(\delta_t = \delta\)</span> (boundary layers are equal)</p>
+</li>
+<li>
+<p>For Pr &lt; 1 (e.g., liquid metals): <span class="arithmatex">\(\delta_t &gt; \delta\)</span> (thermal boundary layer extends beyond velocity boundary layer)</p>
+</li>
+</ul>
+<h3 id="mass-transfer-boundary-layers-solution">Mass Transfer Boundary Layers Solution<a class="headerlink" href="#mass-transfer-boundary-layers-solution" title="Permanent link">&para;</a></h3>
+<p>We’ll get the similar solution for mass transfer. Particularly, </p>
+<div class="arithmatex">\[
+\frac{\delta_c}{\delta} = \operatorname{Sc}^{-1/3}
+\]</div>
+<p>Unlike the Prandtl number, which spans several orders of magnitude (<span class="arithmatex">\(10^{-2}\)</span> to <span class="arithmatex">\(10^5\)</span>), the Schmidt number typically has a narrower range:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"></th>
+<th style="text-align: center;">Air</th>
+<th style="text-align: center;">Water</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(\mathrm{O}_2\)</span></td>
+<td style="text-align: center;">0.99</td>
+<td style="text-align: center;">441</td>
+</tr>
+<tr>
+<td style="text-align: center;">Mehanal</td>
+<td style="text-align: center;">1.14</td>
+<td style="text-align: center;">540</td>
+</tr>
+<tr>
+<td style="text-align: center;">Ammonia</td>
+<td style="text-align: center;">0.57</td>
+<td style="text-align: center;">360</td>
+</tr>
+</tbody>
+</table>
+<p>Schmidt number for different oxygen, methanol, and Ammonia in air or water</p>
+<p>For quick estimates:</p>
+<ul>
+<li>
+<p>Gas diffusion: <span class="arithmatex">\(Sc \approx 1\)</span></p>
+</li>
+<li>
+<p>Liquid diffusion: <span class="arithmatex">\(Sc \approx 100-500\)</span></p>
+</li>
+</ul>
+<p>This difference occurs because liquids have much higher density and smaller mean free paths between molecular collisions, significantly impeding diffusion.</p>
+<h2 id="review-of-nusselt-number">Review of Nusselt Number<a class="headerlink" href="#review-of-nusselt-number" title="Permanent link">&para;</a></h2>
+<p>The Nusselt number is a dimensionless parameter representing the solution at the boundary of the solid-liquid interface. It is defined as:</p>
+<div class="arithmatex">\[
+\left.\frac{\partial T^*}{\partial y^*}\right|_{y^*=0} = \text{Nu}_x = \frac{h \cdot x}{k_f} = f(x^*,\operatorname{Re_L},\operatorname{Pr}) = \frac{\text{conv. HT}}{\text{cond. HT}}
+\]</div>
+<p>also </p>
+<div class="arithmatex">\[
+\overline{\operatorname{Nu}} =\frac{\overline{h} \cdot L}{k_f} = f(\operatorname{Re_L}, \operatorname{Pr})
+\]</div>
+<p>If we know <span class="arithmatex">\(\operatorname{Nu}\)</span> then we can find <span class="arithmatex">\(h = \operatorname{Nu} \cdot k_f / L\)</span>. Nu is tabulated for different flows (table 7.7 and 8.4) Similarly </p>
+<div class="arithmatex">\[
+\text{friction coefficient: } C_f = \frac{2}{\operatorname{Re_L}} f(x^*,\operatorname{Re_L}) = \frac{2}{\operatorname{Re_L}}\frac{\partial u^*}{\partial y^*} \Bigl \vert_{y^*=0}
+\]</div>
+<p>It’s important to note that:</p>
+<ul>
+<li>
+<p>A larger Nusselt number does not necessarily mean higher heat transfer (for the same problem)</p>
+</li>
+<li>
+<p>The average Nusselt number is not the average of local Nusselt numbers (it’s defined using the average heat transfer coefficient)</p>
+</li>
+</ul>
+<div class="admonition abstract">
+<p class="admonition-title">Definition</p>
+<p>In general </p>
+<div class="arithmatex">\[
+\operatorname{Nu}_{x}=C \,\operatorname{Re}^m \cdot\operatorname{Pr}^n
+\]</div>
+<p>For turbulet, <span class="arithmatex">\(m=0.8\)</span> but for laminar <span class="arithmatex">\(m=0.5\)</span>. Also for small Pr, we have <span class="arithmatex">\(n=0.5\)</span> but for Pr <span class="arithmatex">\(\sim 1-1000\)</span>, we have <span class="arithmatex">\(n = 1/3\)</span>.</p>
+</div>
+<h2 id="integral-method-for-boundary-layer-problems">Integral Method for Boundary Layer Problems<a class="headerlink" href="#integral-method-for-boundary-layer-problems" title="Permanent link">&para;</a></h2>
+<p>The integral method provides an alternative approach to solve boundary layer problems:</p>
+<ul>
+<li>
+<p>Instead of solving differential equations directly, we apply conservation laws to a control volume</p>
+</li>
+<li>
+<p>We approximate the velocity and temperature profiles using polynomials</p>
+</li>
+<li>
+<p>This approach provides good physical insight and often produces remarkably accurate results at the interface</p>
+</li>
+<li>
+<p>The method is particularly valuable when exact solutions are unavailable</p>
+</li>
+</ul>
+<h3 id="derivation-using-control-volume-analysis">Derivation Using Control Volume Analysis<a class="headerlink" href="#derivation-using-control-volume-analysis" title="Permanent link">&para;</a></h3>
+<p>Consider a steady, incompressible, two-dimensional flow over a flat plate. We define a control volume that extends in the streamwise direction from <span class="arithmatex">\(x\)</span> to <span class="arithmatex">\(x+dx\)</span> and vertically from the wall (<span class="arithmatex">\(y=0\)</span>) to a height <span class="arithmatex">\(h\)</span> where <span class="arithmatex">\(h \geq \delta\)</span> (the boundary layer thickness). For <span class="arithmatex">\(y&gt;\delta\)</span> the velocity is constant at <span class="arithmatex">\(U_\infty\)</span>.</p>
+<figure>
+<img alt="Control volume within the momentum boundary layer." src="../../assets/convection/pics/integral_method.png" width="72%" />
+
+<figcaption>Control volume within the momentum boundary layer.</figcaption>
+</figure>
+<h5 id="conservation-of-mass">Conservation of Mass<a class="headerlink" href="#conservation-of-mass" title="Permanent link">&para;</a></h5>
+<p>For steady, incompressible flow, the mass entering and leaving the control volume must be balanced. The mass flow rates are:</p>
+<ul>
+<li>
+<p>At upstream face (face 1): <span class="arithmatex">\(\dot{m}_1 = \int_0^h \rho\,u(y,x)\,dy\)</span></p>
+</li>
+<li>
+<p>At downstream face (face 2): </p>
+</li>
+</ul>
+<div class="arithmatex">\[
+\dot{m}_2 = \int_0^h \rho\,u(y,x+dx)\,dy \approx \dot{m}_1 + \frac{d}{dx}\left(\int_0^h \rho\,u\,dy\right)dx
+\]</div>
+<ul>
+<li>Vertical mass flux through top surface: <span class="arithmatex">\(\dot{m}_a = \rho\,v\big|_{y=h}\,dx\)</span></li>
+</ul>
+<p>Mass conservation requires: </p>
+<div class="arithmatex">\[
+\dot{m}_2 = \dot{m}_1 + \dot{m}_a
+\]</div>
+<p>Therefore: </p>
+<div class="arithmatex">\[
+\frac{d}{dx}\left(\int_0^h \rho\,u\,dy\right) = \rho\,v\big|_{y=h}
+\]</div>
+<p>For constant density, this relation determines the entrainment velocity at the top of the control volume.</p>
+<h5 id="conservation-of-momentum">Conservation of Momentum<a class="headerlink" href="#conservation-of-momentum" title="Permanent link">&para;</a></h5>
+<p>Next, we apply momentum conservation to the same control volume.</p>
+<p>The momentum fluxes are:</p>
+<ul>
+<li>
+<p>Momentum entering at face 1: <span class="arithmatex">\(\dot{M}_1 = \int_0^h \rho\,u^2\,dy\)</span></p>
+</li>
+<li>
+<p>Momentum leaving at face 2: </p>
+</li>
+</ul>
+<div class="arithmatex">\[
+\dot{M}_2 = \int_0^h \rho\,u^2\,dy + \frac{d}{dx}\left(\int_0^h \rho\,u^2\,dy\right)dx
+\]</div>
+<ul>
+<li>Momentum carried by fluid exiting through top surface: </li>
+</ul>
+<div class="arithmatex">\[
+\dot{M}_a = U_\infty\,\dot{m}_a = U_\infty\,\rho\,v\big|_{y=h}\,dx = U_\infty\,\frac{d}{dx}\left(\int_0^h \rho\,u\,dy\right)dx
+\]</div>
+<h5 id="momentum-balance">Momentum Balance<a class="headerlink" href="#momentum-balance" title="Permanent link">&para;</a></h5>
+<p>The net change in momentum must equal the force acting on the fluid. <strong>For a flat plate with zero pressure gradient</strong>, the only significant force is the wall shear stress <span class="arithmatex">\(\tau_w\)</span> acting over the wetted surface area <span class="arithmatex">\(dx\)</span>: </p>
+<div class="arithmatex">\[
+\tau_w\,dx = \dot{M}_1 - (\dot{M}_2 - \dot{M}_a)
+\]</div>
+<p>Substituting the expressions for <span class="arithmatex">\(\dot{M}_1\)</span>, <span class="arithmatex">\(\dot{M}_2\)</span>, and <span class="arithmatex">\(\dot{M}_a\)</span>: </p>
+<div class="arithmatex">\[
+\begin{aligned}
+    &amp; -\tau_w d x=\frac{d}{d x}\left(\int_0^\delta \rho u^2 d y\right) d x-U_\infty \frac{d}{d x}\left(\int_0^\delta \rho u d y\right) d x 
+    \\[0.5em]
+    &amp; -\tau_w=\frac{d}{d x}\left(\int_0^\delta \rho u^2 d y\right)-U_\infty \frac{d}{d x}\left(\int_0^\delta \rho u d y\right)
+    \\[0.5em]
+    &amp; -\tau_w=\frac{d}{d x}\left(\int_0^\delta \rho u^2 d y\right)-\frac{d}{d x} \int_0^\delta \rho u U_\infty d y
+    \\[0.5em]
+    &amp; \tau_w=\frac{d}{d x}\left[\int_0^\delta \rho u(U_\infty-u) d y\right]
+    \\[0.5em]
+    &amp; \tau_w =\frac{d}{d x}\left[\rho U_\infty^2 \underbrace{\int_0^\delta \rho \frac{u}{U_\infty}\left(1-\frac{u}{U_\infty}\right) d y}_{\delta_M}\right]
+    \end{aligned}
+\]</div>
+<p>Thus, </p>
+<div class="arithmatex">\[
+\frac{\tau_w}{\rho}=\frac{d}{d x}\left(U_\infty^2 \delta_M\right)
+\]</div>
+<div class="admonition abstract">
+<p class="admonition-title">KMIE</p>
+<p>Kármán Momentum Integral Equation (KMIE) for a flat plate defined as follows: </p>
+<div class="arithmatex">\[
+\frac{\tau_w}{\rho}=\frac{d}{d x}\left(U_\infty^2 \delta_M\right)
+\]</div>
+<p>where the momentum thickness <span class="arithmatex">\(\delta_M\)</span> is defined as: </p>
+<div class="arithmatex">\[
+\delta_M = \int_0^{\delta} \frac{u}{U_\infty}\left(1-\frac{u}{U_\infty}\right)dy
+\]</div>
+</div>
+<p><em>Note:</em> we assumed the pressure to be constant, so <span class="arithmatex">\(dp/dx = dU_\infty/x = 0\)</span>. This represents the loss of momentum flux in the boundary layer due to viscous effects.</p>
+<h5 id="alternative-form-using-wall-shear-stress">Alternative Form Using Wall Shear Stress<a class="headerlink" href="#alternative-form-using-wall-shear-stress" title="Permanent link">&para;</a></h5>
+<p>For a Newtonian fluid, the wall shear stress is: </p>
+<div class="arithmatex">\[
+\tau_w = \mu\left.\frac{\partial u}{\partial y}\right|_{y=0}
+\]</div>
+<p>Therefore, the von Kármán momentum integral equation can also be written as: </p>
+<div class="arithmatex">\[
+\mu\left.\frac{\partial u}{\partial y}\right|_{y=0} = \rho U_\infty^2 \frac{d\delta_M}{dx} = \rho \frac{d}{d x} \int_0^\delta u\left(U_{\infty}-u\right)\;dy
+\]</div>
+<p>This form explicitly connects the local velocity gradient at the wall to the rate of change of momentum thickness along the plate.</p>
+<h4 id="typical-methodology-using-kmie">Typical Methodology using KMIE<a class="headerlink" href="#typical-methodology-using-kmie" title="Permanent link">&para;</a></h4>
+<p>Typical Methodology using KMIE The typical methodology for using the KMIE is as follows:</p>
+<ol>
+<li>
+<p>Obtain an approximate expression for <span class="arithmatex">\(U_\infty=U_\infty(x)\)</span> from inviscid flow theory, e.g., potential flow theory. Recall that Bernoulli’s equation can be used to relate the pressure and <span class="arithmatex">\(U_\infty\)</span>.</p>
+</li>
+<li>
+<p>Assume a velocity profile in the boundary layer subject to the appropriate boundary conditions, i.e., assume a form for, </p>
+</li>
+</ol>
+<div class="arithmatex">\[
+\frac{u}{U_\infty}=f\left(\frac{y}{\delta}\right)
+\]</div>
+<p>subject to the boundary conditions, </p>
+<div class="arithmatex">\[
+\frac{u}{U_\infty}\left(\frac{y}{\delta}=0\right)=0 \quad \text { and } \quad \frac{u}{U_\infty}\left(\frac{y}{\delta}=1\right)=1
+\]</div>
+<p>The form of the approximate velocity profile is typically found based on curve fits to experimental measurements of the boundary layer velocity profile. Higher order profiles will have additional boundary conditions. For example, a cubic curve fit will also have a boundary condition that matches the slope of the velocity profile at the free stream boundary.</p>
+<ol>
+<li>The shear stress at the wall for a laminar flow can also be determined from the Newtonian stress-strain rate constitutive relations to be, </li>
+</ol>
+<div class="arithmatex">\[
+\tau_w=\left.\mu\left(\frac{U_\infty}{\delta}\right) \frac{d(u / U_\infty)}{d(y / \delta)}\right|_{\frac{y}{\delta}=0}
+\]</div>
+<h4 id="velocity-profile-approximation">Velocity Profile Approximation<a class="headerlink" href="#velocity-profile-approximation" title="Permanent link">&para;</a></h4>
+<p>To solve the momentum integral equation, we approximate the velocity profile within the boundary layer using a third-order polynomial:</p>
+<div class="arithmatex">\[
+\frac{u}{U_\infty} = a_0 + a_1\frac{y}{\delta} + a_2\left(\frac{y}{\delta}\right)^2 + a_3\left(\frac{y}{\delta}\right)^3
+\]</div>
+<p>The boundary conditions are:</p>
+<ol>
+<li>
+<p><strong>No-slip at the wall:</strong> <span class="arithmatex">\(u = 0\)</span> at <span class="arithmatex">\(y = 0\)</span></p>
+</li>
+<li>
+<p><strong>Matching the free stream:</strong> <span class="arithmatex">\(u = U_\infty\)</span> at <span class="arithmatex">\(y = \delta\)</span></p>
+</li>
+<li>
+<p><strong>Zero velocity gradient at the edge:</strong> <span class="arithmatex">\(\frac{\partial u}{\partial y} = 0\)</span> at <span class="arithmatex">\(y = \delta\)</span></p>
+</li>
+<li>
+<p><strong>Zero curvature at the edge:</strong> <span class="arithmatex">\(\frac{\partial^2 u}{\partial y^2} = 0\)</span> at <span class="arithmatex">\(y = \delta\)</span></p>
+</li>
+</ol>
+<p>Solving for the Coefficients, </p>
+<div class="arithmatex">\[
+\boxed{
+    \frac{u}{U_\infty} = \frac{3}{2}\left(\frac{y}{\delta}\right) - \frac{1}{2}\left(\frac{y}{\delta}\right)^3
+    }
+\]</div>
+<h4 id="momentum-integral-analysis">Momentum Integral Analysis<a class="headerlink" href="#momentum-integral-analysis" title="Permanent link">&para;</a></h4>
+<p>The momentum thickness <span class="arithmatex">\(\delta_M\)</span> is: </p>
+<div class="arithmatex">\[
+\delta_M = \int_0^\delta \frac{u}{U_\infty}\left(1-\frac{u}{U_\infty}\right)dy = \frac{39}{280}\delta
+\]</div>
+<p>Using KMIE: </p>
+<div class="arithmatex">\[
+\frac{d}{d x}\left(\frac{39}{280} \rho U_{\infty}^2 \delta\right)= \left.\mu \frac{\partial u}{\partial y}\right|_{y=0}
+\]</div>
+<p>using our approximate solution for <span class="arithmatex">\(u/U_\infty\)</span>: </p>
+<div class="arithmatex">\[
+\left.\mu \frac{\partial u}{\partial y}\right|_{y=0} = \frac{3}{2} \mu \frac{U_{\infty}}{\delta}
+\]</div>
+<p>Therefore, </p>
+<div class="arithmatex">\[
+\begin{aligned}
+        &amp; \frac{d}{d x}\left(\frac{39}{280} \rho U_{\infty}^2 \delta\right) = \frac{3}{2} \mu \frac{U_{\infty}}{\delta}
+        \\[.5em]
+        &amp;\delta \cdot d \delta  =\frac{140}{13} \frac{\mu}{\rho U_\infty} d x
+        \\[0.5em]
+        &amp;\frac{\delta^2}{2} =\frac{140}{13} \frac{\nu \cdot x}{U_\infty}+ \cancelto{0}{const.}
+        \\[0.5em]
+        &amp; \boxed{
+        \delta  =4.64 \sqrt{\frac{\nu x}{U_{\infty}}}
+        } 
+    \end{aligned}
+\]</div>
+<p>In dimensionless form, using the Reynolds number <span class="arithmatex">\(\text{Re}_x = \frac{U_\infty x}{\nu}\)</span>: </p>
+<div class="arithmatex">\[
+\boxed{
+        \frac{\delta}{x} = \frac{4.64}{\sqrt{\text{Re}_x}}
+        }
+\]</div>
+<p>This compares well with the exact solution from the similarity method, which gives: </p>
+<div class="arithmatex">\[
+\frac{\delta}{x} = \frac{5.0}{\sqrt{\text{Re}_x}}
+\]</div>
+<p>showing that the integral method is remarkably accurate (within  7%).</p>
+<h5 id="skin-friction-coefficient">Skin Friction Coefficient<a class="headerlink" href="#skin-friction-coefficient" title="Permanent link">&para;</a></h5>
+<p>Substituting <span class="arithmatex">\(\tau_w\)</span> and <span class="arithmatex">\(\delta\)</span> into local skin friction coefficient: </p>
+<div class="arithmatex">\[
+C_f = \frac{\tau_w}{\frac{1}{2}\rho U_\infty^2}  = \frac{0.646}{\sqrt{\text{Re}_x}}
+\]</div>
+<p>This compares well with the exact Blasius solution: </p>
+<div class="arithmatex">\[
+C_f = \frac{0.664}{\sqrt{\text{Re}_x}}
+\]</div>
+<p>demonstrating that our approximation is within  3% of the exact value.</p>
+<h3 id="integral-analysis-of-thermal-boundary-layer">Integral Analysis of Thermal Boundary Layer<a class="headerlink" href="#integral-analysis-of-thermal-boundary-layer" title="Permanent link">&para;</a></h3>
+<h5 id="thermal-boundary-layer-thickness">Thermal Boundary Layer Thickness<a class="headerlink" href="#thermal-boundary-layer-thickness" title="Permanent link">&para;</a></h5>
+<p>The thermal boundary layer thickness <span class="arithmatex">\(\delta_t\)</span> is defined as the distance from the surface at which the temperature reaches approximately 99% of the free stream temperature: </p>
+<div class="arithmatex">\[
+\frac{T - T_\infty}{T_s - T_\infty} = 0.99
+\]</div>
+<p>Two main scenarios exist: either the thermal boundary layer is thicker (<span class="arithmatex">\(\delta_t &gt; \delta\)</span>), typical for low Prandtl number fluids (e.g., liquid metals), or thinner (<span class="arithmatex">\(\delta_t &lt; \delta\)</span>), common for fluids like water and oils (<span class="arithmatex">\(\mathrm{Pr} &gt; 1\)</span>). Here, we focus on the second scenario, <span class="arithmatex">\(\delta &gt; \delta_t\)</span>.</p>
+<figure>
+<img alt="Schematic of the control volume showing conduction and convection terms." src="../../assets/convection/gen/convection4-tikz-1-a1dfe2.png" width="72%" />
+
+<figcaption>Schematic of the control volume showing conduction and convection terms.</figcaption>
+</figure>
+<h5 id="integral-energy-equation">Integral Energy Equation<a class="headerlink" href="#integral-energy-equation" title="Permanent link">&para;</a></h5>
+<p>Applying energy conservation to a control volume within the thermal boundary layer, we have: </p>
+<div class="arithmatex">\[
+\begin{aligned}
+        \cancel{\rho c_p \int_0^H u T \,dy} - k\left.\frac{\partial T}{\partial y}\right|_{y=0}dx = \rho c_p\left[\cancel{\int_0^H u T \,dy} + \frac{d}{dx}\left(\int_0^H u T \,dy\right)dx\right]
+        \\[0.5em]
+        - \rho c_p  \frac{d}{dx}\left(\int_0^H u\, T_\infty\,dy\right)dx        
+    \end{aligned}
+\]</div>
+<p>For <span class="arithmatex">\(y&gt;\delta_t\)</span>, our integral become 0 since <span class="arithmatex">\(T=T_\infty\)</span>. Rearranging, we obtain the simplified energy integral equation:</p>
+<div class="admonition abstract">
+<p class="admonition-title">KMIE for temperature profile</p>
+<div class="arithmatex">\[
+\frac{d}{dx}\left[\int_0^{\textcolor{red}{\delta_t}} (T_\infty - T) u \,dy\right] = \alpha \left.\frac{\partial T}{\partial y}\right|_{y=0}
+\]</div>
+</div>
+<h5 id="polynomial-temperature-profile-approximation">Polynomial Temperature Profile Approximation<a class="headerlink" href="#polynomial-temperature-profile-approximation" title="Permanent link">&para;</a></h5>
+<p>We approximate the temperature distribution using a cubic polynomial: </p>
+<div class="arithmatex">\[
+\theta^* = \frac{\theta}{\theta_\infty} = \frac{T - T_s}{T_\infty - T_s} = C_1 + C_2 y + C_3 y^2 + C_4 y^3
+\]</div>
+<p>The boundary conditions are: </p>
+<div class="arithmatex">\[
+\begin{aligned}
+    &amp; y=0, \quad T=T_s \quad \Rightarrow \quad \theta^* = 0 \\
+    &amp; y=\delta_t, \quad T=T_\infty \quad \Rightarrow \quad \theta^* = 1 \\
+    &amp; \left.\frac{\partial^2 T}{\partial y^2}\right|_{y=0}=0 \\
+    &amp; \left.\frac{\partial T}{\partial y}\right|_{y=\delta_t}=0
+    \end{aligned}
+\]</div>
+<p>Applying these conditions and solving for coefficients, we get the temperature profile as given in the professor’s notes: </p>
+<div class="arithmatex">\[
+\theta^* =  \frac{T - T_s}{T_\infty - T_s} = \frac{3}{2}\frac{y}{\delta_t} - \frac{1}{2}\left(\frac{y}{\delta_t}\right)^3
+\]</div>
+<h5 id="solving-the-integral-equation">Solving the Integral Equation<a class="headerlink" href="#solving-the-integral-equation" title="Permanent link">&para;</a></h5>
+<p>Substituting the velocity profile <span class="arithmatex">\(u/U_\infty = \frac{3}{2} \frac{y}{\delta}-\frac{1}{2}\left(\frac{y}{\delta}\right)^3\)</span> and temperature profile into the integral energy equation, and defining the thickness ratio <span class="arithmatex">\(\zeta = \delta_t/\delta\)</span>, leads to the differential equation (from class notes): </p>
+<div class="arithmatex">\[
+\frac{3}{20} U_\infty \theta_\infty\frac{d}{dx}(\delta \zeta^2) = \frac{3}{2}\alpha\frac{\theta_\infty}{\zeta \delta}
+\]</div>
+<p>After simplifications, we have the linear ODE: </p>
+<div class="arithmatex">\[
+\begin{aligned}
+            &amp; \zeta^3+ 4 x \zeta^2 \frac{d \zeta}{d x}=\frac{13}{14} \frac{\alpha}{\nu}
+            \\[0.5em]
+            &amp;\zeta^3 + \frac{4}{3} x \frac{d \zeta^3}{dx} = \frac{13}{14}\frac{\alpha}{\nu}
+    \end{aligned}
+\]</div>
+<p>Solving the ODE, we obtain: </p>
+<div class="arithmatex">\[
+\zeta^3 = C x^{-3/4} + \frac{13}{14}\frac{\alpha}{\nu}
+\]</div>
+<p>Applying the boundary condition <span class="arithmatex">\(\zeta(x_0)=0\)</span> at the starting heating point <span class="arithmatex">\(x=x_0\)</span>, gives: </p>
+<div class="arithmatex">\[
+C = -\frac{13}{14}\frac{x_0^{3/4}}{\mathrm{Pr}}
+\]</div>
+<p>Thus, the final thickness ratio expression is:</p>
+<div class="admonition abstract">
+<p class="admonition-title">Definition</p>
+<div class="arithmatex">\[
+\zeta = \frac{\delta_t}{\delta} = \frac{1}{1.026}\mathrm{Pr}^{-1/3}\left[1-\left(\frac{x_0}{x}\right)^{3/4}\right]^{1/3}
+\]</div>
+</div>
+<h5 id="unheated-source">Unheated source<a class="headerlink" href="#unheated-source" title="Permanent link">&para;</a></h5>
+<p>If velocity boundary layer growth begins at <span class="arithmatex">\(x=0\)</span>, while thermal boundary layer development begins at <span class="arithmatex">\(x=x_0\)</span> (in textbook instead of <span class="arithmatex">\(x_0\)</span> they used <span class="arithmatex">\(\xi\)</span> notation). Hence there is no heat transfer for <span class="arithmatex">\(0 \leq x \leq x_0\)</span>:</p>
+<figure>
+<img alt="Flat plate in parallel flow with unheated starting length." src="../../assets/convection/pics/unheated_source.png" width="72%" />
+
+<figcaption>Flat plate in parallel flow with unheated starting length.</figcaption>
+</figure>
+<div class="admonition abstract">
+<p class="admonition-title">Definition</p>
+<div class="arithmatex">\[
+\zeta = \frac{\delta_t}{\delta} = \frac{1}{1.026}\mathrm{Pr}^{-1/3}\left[1-\left(\frac{x_0}{x}\right)^{3/4}\right]^{1/3}H(x - x_0)
+\]</div>
+</div>
+<p>where <span class="arithmatex">\(H(x - x_0)\)</span> is the Heaviside function: </p>
+<div class="arithmatex">\[
+H(x - x_0) = \begin{cases}
+0 &amp; x &lt; x_0\\
+1 &amp; x \geq x_0
+\end{cases}
+\]</div>
+<p>When heating begins at the leading edge (<span class="arithmatex">\(x_0=0\)</span>), this simplifies to:</p>
+<div class="admonition abstract">
+<p class="admonition-title">Definition</p>
+<div class="arithmatex">\[
+\frac{\delta_t}{\delta} = \frac{1}{1.026}\mathrm{Pr}^{-1/3}
+\]</div>
+</div>
+<h5 id="local-heat-transfer-coefficient-and-nusselt-number">Local Heat Transfer Coefficient and Nusselt Number<a class="headerlink" href="#local-heat-transfer-coefficient-and-nusselt-number" title="Permanent link">&para;</a></h5>
+<p>The wall heat flux <span class="arithmatex">\(q''_s\)</span> from Fourier’s law is: </p>
+<div class="arithmatex">\[
+q''_s = -k\left.\frac{\partial T}{\partial y}\right|_{y=0} = \frac{3}{2}\frac{k(T_s - T_\infty)}{\delta_t}
+\]</div>
+<div class="admonition abstract">
+<p class="admonition-title">Definition</p>
+<p>The local heat transfer coefficient is: </p>
+<div class="arithmatex">\[
+h_x = \frac{q''_s}{T_s - T_\infty} = \frac{3k}{2\delta_t}
+\]</div>
+<p>Substituting <span class="arithmatex">\(\delta_t\)</span> into this expression, the local Nusselt number <span class="arithmatex">\(\mathrm{Nu}_x\)</span> is:</p>
+<div class="arithmatex">\[
+\mathrm{Nu}_x = \frac{h_x x}{k} = 0.332 \mathrm{Pr}^{1/3}\mathrm{Re}_x^{1/2}\left[1-\left(\frac{x_0}{x}\right)^{3/4}\right]^{-1/3} \ \ (x&gt;x_0)
+\]</div>
+<div class="arithmatex">\[
+\mathrm{Nu}_x = 0.332\,\mathrm{Pr}^{1/3}\,\mathrm{Re}_x^{1/2}
+\]</div>
+</div>
+<p><em>Note 1:</em> For <span class="arithmatex">\(h_x\)</span> we can not use Heaviside function because if <span class="arithmatex">\(x&lt;x_0\)</span> then <span class="arithmatex">\(h_x\)</span> is not defined not zero. But <span class="arithmatex">\(\delta_t\)</span> is zero so using Heaviside there is appropriate.<br />
+<em>Note 2:</em> This integral method result matches the exact solution.</p>
+<h2 id="wedge-flow">Wedge Flow<a class="headerlink" href="#wedge-flow" title="Permanent link">&para;</a></h2>
+<p><strong>Conduction shape factors</strong> <span class="arithmatex">\(q = S\,k\,(T_1 - T_2)\)</span> for selected two- and three-dimensional systems (after the standard tabulation in heat-transfer textbooks):</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>System</strong></th>
+<th style="text-align: left;"><strong>Restrictions</strong></th>
+<th style="text-align: left;"><strong>Shape factor <span class="arithmatex">\(S\)</span></strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Isothermal sphere of diameter <span class="arithmatex">\(D\)</span> buried at depth <span class="arithmatex">\(z\)</span> (to centre) in a semi-infinite medium</td>
+<td style="text-align: left;"><span class="arithmatex">\(z &gt; D/2\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(\dfrac{2\pi D}{1 - D/4z}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">Horizontal isothermal cylinder of length <span class="arithmatex">\(L\)</span> and diameter <span class="arithmatex">\(D\)</span> buried at depth <span class="arithmatex">\(z\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(L \gg D\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(\dfrac{2\pi L}{\cosh^{-1}(2z/D)}\)</span>; <span class="arithmatex">\(\dfrac{2\pi L}{\ln(4z/D)}\)</span> for <span class="arithmatex">\(z &gt; 3D/2\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">Vertical cylinder of length <span class="arithmatex">\(L\)</span> in a semi-infinite medium</td>
+<td style="text-align: left;"><span class="arithmatex">\(L \gg D\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(\dfrac{2\pi L}{\ln(4L/D)}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">Two parallel cylinders of length <span class="arithmatex">\(L\)</span>, diameters <span class="arithmatex">\(D_1\)</span>, <span class="arithmatex">\(D_2\)</span>, centres <span class="arithmatex">\(w\)</span> apart, in an infinite medium</td>
+<td style="text-align: left;"><span class="arithmatex">\(L \gg D_1, D_2, w\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(\dfrac{2\pi L}{\cosh^{-1}\!\left[\dfrac{4w^2 - D_1^2 - D_2^2}{2D_1D_2}\right]}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">Circular cylinder of length <span class="arithmatex">\(L\)</span> midway between parallel planes a distance <span class="arithmatex">\(2z\)</span> apart</td>
+<td style="text-align: left;"><span class="arithmatex">\(z \gg D/2\)</span>, <span class="arithmatex">\(L \gg z\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(\dfrac{2\pi L}{\ln(8z/\pi D)}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">Circular cylinder of length <span class="arithmatex">\(L\)</span> centred in a square solid of side <span class="arithmatex">\(w\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(w &gt; D\)</span>, <span class="arithmatex">\(L \gg w\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(\dfrac{2\pi L}{\ln(1.08\,w/D)}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">Disk of diameter <span class="arithmatex">\(D\)</span> on the surface of a semi-infinite medium</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;"><span class="arithmatex">\(2D\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">Edge of two adjoining walls of thickness <span class="arithmatex">\(L\)</span>, depth <span class="arithmatex">\(D\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(D &gt; L/5\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(0.54\,D\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">Corner of three walls of thickness <span class="arithmatex">\(L\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(L \ll\)</span> wall lengths</td>
+<td style="text-align: left;"><span class="arithmatex">\(0.15\,L\)</span></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../01-introduction-to-convection/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Introduction to Convection">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Introduction to Convection
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../03-internal-flow/" class="md-footer__link md-footer__link--next" aria-label="Next: Internal Flow">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Internal Flow
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Written by Aiden Azarnoush · <a href="https://aiden-azarnoush.github.io">aiden-azarnoush.github.io</a> · <a href="https://github.com/aiden-azarnoush">all repositories</a> · Found this useful? <a href="https://paypal.me/azarnoush">☕ Buy me a coffee</a> · <a href="https://paypal.me/azarnoush/3">$3</a> · <a href="https://paypal.me/azarnoush/5">$5</a> · <a href="https://paypal.me/azarnoush">other</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "navigation.top", "navigation.footer", "toc.integrate", "toc.follow", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

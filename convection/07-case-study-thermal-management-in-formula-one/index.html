@@ -1,0 +1,2594 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Lecture notes on convection and thermal radiation, by Aiden Azarnoush">
+      
+      
+        <meta name="author" content="Aiden Azarnoush">
+      
+      
+        <link rel="canonical" href="https://aiden-azarnoush.github.io/intermediate-heat-transfer/convection/07-case-study-thermal-management-in-formula-one/">
+      
+      
+        <link rel="prev" href="../06-turbulent-flow-and-turbulence-models/">
+      
+      
+        <link rel="next" href="../../radiation/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Case Study: Thermal Management in Formula One - Intermediate Heat Transfer</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Serif+4:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Source Serif 4";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#case-study-thermal-management-in-formula-one" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Intermediate Heat Transfer" class="md-header__button md-logo" aria-label="Intermediate Heat Transfer" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Intermediate Heat Transfer
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Case Study: Thermal Management in Formula One
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/aiden-azarnoush/intermediate-heat-transfer" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    aiden-azarnoush/intermediate-heat-transfer
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Intermediate Heat Transfer" class="md-nav__button md-logo" aria-label="Intermediate Heat Transfer" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Intermediate Heat Transfer
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/aiden-azarnoush/intermediate-heat-transfer" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    aiden-azarnoush/intermediate-heat-transfer
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../conduction/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part I · Conduction
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part I · Conduction
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conduction/01-introduction-to-conduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to Conduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conduction/02-steady-one-dimensional-conduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Steady One-Dimensional Conduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conduction/03-transient-conduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transient Conduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part II · Convection
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part II · Convection
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-introduction-to-convection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to Convection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-external-flow-flat-plates-wedges-and-the-integral-method/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    External Flow: Flat Plates, Wedges, and the Integral Method
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-internal-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Internal Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-natural-convection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Natural Convection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-boiling-and-condensation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Boiling and Condensation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-turbulent-flow-and-turbulence-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Turbulent Flow and Turbulence Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Case Study: Thermal Management in Formula One
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Case Study: Thermal Management in Formula One
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-to-thermal-management-in-racing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction to Thermal Management in Racing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#role-of-thermal-engineers-in-formula-one" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Role of Thermal Engineers in Formula One
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#case-study-pressure-sensor-thermal-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Case Study: Pressure Sensor Thermal Management
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Case Study: Pressure Sensor Thermal Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#problem-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problem Definition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project Requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sensor-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sensor Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#temperature-measurement-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Temperature Measurement Challenges
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Temperature Measurement Challenges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#measurement-technologies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Measurement Technologies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sensor-response-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sensor Response Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#convection-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Convection Analysis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Convection Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#forced-convection-assessment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Forced Convection Assessment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flow-regime-identification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flow Regime Identification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cfd-vs-correlations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CFD vs. Correlations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#radiation-heat-transfer-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Radiation Heat Transfer Analysis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Radiation Heat Transfer Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#radiation-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Radiation Considerations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#material-emissivity-characterization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Material Emissivity Characterization
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#component-temperature-distribution-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Component Temperature Distribution Analysis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Component Temperature Distribution Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#thermal-imaging-assessment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Thermal Imaging Assessment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#infrared-thermography-techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Infrared Thermography Techniques
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#thermal-conductivity-measurement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Thermal Conductivity Measurement
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Thermal Conductivity Measurement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#custom-testing-apparatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom Testing Apparatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thermal-interface-resistance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Thermal Interface Resistance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#material-thermal-property-characterization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Material Thermal Property Characterization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Material Thermal Property Characterization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#composite-materials-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Composite Materials Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thermal-conductivity-range-of-materials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Thermal Conductivity Range of Materials
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solution-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution Implementation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Solution Implementation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#thermal-resistance-network-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Thermal Resistance Network Approach
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#final-solution-and-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final Solution and Results
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#brake-system-thermal-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Brake System Thermal Management
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Brake System Thermal Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#evolution-of-brake-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evolution of Brake Design
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brake-system-thermal-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Brake System Thermal Characteristics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#carbon-carbon-material-characterization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Carbon-Carbon Material Characterization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brake-thermal-properties-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Brake Thermal Properties Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validation-and-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validation and Implementation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#general-insights-on-thermal-engineering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        General Insights on Thermal Engineering
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="General Insights on Thermal Engineering">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#measurement-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Measurement Challenges
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thermal-engineering-career-perspective" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Thermal Engineering Career Perspective
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#racing-dynamics-insights" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Racing Dynamics Insights
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Racing Dynamics Insights">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vehicle-performance-factors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vehicle Performance Factors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aerodynamics-and-thermal-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aerodynamics and Thermal Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../radiation/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part III · Thermal Radiation
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part III · Thermal Radiation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../radiation/01-fundamentals-of-thermal-radiation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals of Thermal Radiation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../radiation/02-radiation-intensity-surface-properties-and-blackbody-radiati/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Radiation Intensity, Surface Properties, and Blackbody Radiation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../radiation/03-kirchhoff-s-law-and-view-factors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kirchhoff's Law and View Factors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../radiation/04-radiation-exchange-between-surfaces/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Radiation Exchange Between Surfaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../radiation/05-applications-and-advanced-topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Applications and Advanced Topics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="case-study-thermal-management-in-formula-one">Case Study: Thermal Management in Formula One<a class="headerlink" href="#case-study-thermal-management-in-formula-one" title="Permanent link">&para;</a></h1>
+<h2 id="introduction-to-thermal-management-in-racing">Introduction to Thermal Management in Racing<a class="headerlink" href="#introduction-to-thermal-management-in-racing" title="Permanent link">&para;</a></h2>
+<p>Thermal management is a critical aspect of Formula One car design and performance. This lecture covers how thermal engineers at Red Bull Racing approach thermal challenges, solve complex problems under strict time constraints, and apply fundamental heat transfer principles in high-performance environments.</p>
+<h2 id="role-of-thermal-engineers-in-formula-one">Role of Thermal Engineers in Formula One<a class="headerlink" href="#role-of-thermal-engineers-in-formula-one" title="Permanent link">&para;</a></h2>
+<p>The principal thermal systems engineer at Red Bull Racing is responsible for thermal management of the entire car, which is built from scratch every year. Key responsibilities include:</p>
+<ul>
+<li>
+<p>Managing thermal aspects of all car components</p>
+</li>
+<li>
+<p>Handling 50-100 different thermal tasks annually</p>
+</li>
+<li>
+<p>Solving problems within tight timeframes (same race weekend to several months)</p>
+</li>
+<li>
+<p>Designing cooling solutions for critical systems:</p>
+<ul>
+<li>
+<p>Braking systems</p>
+</li>
+<li>
+<p>Radiator systems</p>
+</li>
+<li>
+<p>Gearboxes</p>
+</li>
+<li>
+<p>Tire management</p>
+</li>
+<li>
+<p>Sensors and electronics</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Formula One braking systems generate extreme thermal loads:</p>
+<ul>
+<li>
+<p>Peak power of approximately 1 megawatt during braking events</p>
+</li>
+<li>
+<p>Requires advanced cooling solutions to manage temperature</p>
+</li>
+</ul>
+<h2 id="case-study-pressure-sensor-thermal-management">Case Study: Pressure Sensor Thermal Management<a class="headerlink" href="#case-study-pressure-sensor-thermal-management" title="Permanent link">&para;</a></h2>
+<h3 id="problem-definition">Problem Definition<a class="headerlink" href="#problem-definition" title="Permanent link">&para;</a></h3>
+<p>A pressure sensor on the car exceeded its thermal operating requirements:</p>
+<ul>
+<li>
+<p>Sensor temperature must remain below 5°C above ambient temperature</p>
+</li>
+<li>
+<p>Current sensor consistently operates above this requirement</p>
+</li>
+<li>
+<p>Incorrect temperature leads to inaccurate pressure readings</p>
+</li>
+<li>
+<p>Affects understanding of car performance (e.g., downforce measurements)</p>
+</li>
+</ul>
+<h3 id="project-requirements">Project Requirements<a class="headerlink" href="#project-requirements" title="Permanent link">&para;</a></h3>
+<p>The thermal management solution needed to:</p>
+<ul>
+<li>
+<p>Match track data via simulation</p>
+</li>
+<li>
+<p>Simulate multiple potential solutions</p>
+</li>
+<li>
+<p>Be lightweight and financially viable</p>
+</li>
+<li>
+<p>Use readily available materials for immediate implementation</p>
+</li>
+<li>
+<p>If immediate solutions weren’t viable, propose R&amp;D for new cooling techniques or materials</p>
+</li>
+</ul>
+<h3 id="sensor-configuration">Sensor Configuration<a class="headerlink" href="#sensor-configuration" title="Permanent link">&para;</a></h3>
+<p>The pressure sensor assembly included:</p>
+<ul>
+<li>
+<p>Hot air flow heating the sensor from above</p>
+</li>
+<li>
+<p>Sensor mounted in a casing</p>
+</li>
+<li>
+<p>Rapid prototyping leads</p>
+</li>
+<li>
+<p>Foam insulation</p>
+</li>
+<li>
+<p>Anti-vibration mounting system</p>
+</li>
+<li>
+<p>Rubber sock to prevent vibrational damage</p>
+</li>
+<li>
+<p>Carbon fiber composite floor structure:</p>
+<ul>
+<li>
+<p>Upper carbon fiber layer</p>
+</li>
+<li>
+<p>Core sandwich structure (polymer-based Rohacell or aluminum honeycomb)</p>
+</li>
+<li>
+<p>Lower carbon fiber layer</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Airflow under the floor structure</p>
+</li>
+</ul>
+<h2 id="temperature-measurement-challenges">Temperature Measurement Challenges<a class="headerlink" href="#temperature-measurement-challenges" title="Permanent link">&para;</a></h2>
+<h3 id="measurement-technologies">Measurement Technologies<a class="headerlink" href="#measurement-technologies" title="Permanent link">&para;</a></h3>
+<p>Determining accurate air temperature around components is complex due to:</p>
+<ul>
+<li>
+<p>Various sensor types with different characteristics:</p>
+<ul>
+<li>
+<p>Thermocouples (T-type, E-type) using Seebeck effect with voltage output</p>
+</li>
+<li>
+<p>Resistance Temperature Detectors (RTDs) with excellent accuracy but requiring power</p>
+</li>
+<li>
+<p>Infrared sensors for surface temperature measurement</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Calibration requirements for all sensors</p>
+</li>
+<li>
+<p>Reaction time variations based on sensor diameter and environmental conditions</p>
+</li>
+<li>
+<p>External factors affecting readings:</p>
+<ul>
+<li>
+<p>Heat flux on the sensor</p>
+</li>
+<li>
+<p>Radiation losses/gains</p>
+</li>
+<li>
+<p>Conduction and convection effects</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="sensor-response-analysis">Sensor Response Analysis<a class="headerlink" href="#sensor-response-analysis" title="Permanent link">&para;</a></h3>
+<p>For accurate transient temperature measurements:</p>
+<ul>
+<li>
+<p>Sensor response time must be analyzed</p>
+</li>
+<li>
+<p>For thermal masses with Biot number <span class="arithmatex">\(\ll\)</span> 1, lumped capacitance model applies:</p>
+<ul>
+<li>
+<p>Sensor behavior modeled as a single thermal mass</p>
+</li>
+<li>
+<p>Response characteristics calculated</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Sensor diameter critically affects response time:</p>
+<ul>
+<li>
+<p>Larger diameter sensors miss rapid temperature fluctuations</p>
+</li>
+<li>
+<p>1mm probe significantly lags behind actual temperature changes</p>
+</li>
+<li>
+<p>Proper sensor selection vital for capturing transient thermal behavior</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="convection-analysis">Convection Analysis<a class="headerlink" href="#convection-analysis" title="Permanent link">&para;</a></h2>
+<h3 id="forced-convection-assessment">Forced Convection Assessment<a class="headerlink" href="#forced-convection-assessment" title="Permanent link">&para;</a></h3>
+<p>To understand the convective boundary conditions:</p>
+<ul>
+<li>Reynolds number analysis to determine flow regime: </li>
+</ul>
+<div class="arithmatex">\[
+Re = \frac{\text{Inertial forces}}{\text{Viscous forces}} = \frac{\rho u L}{\mu}
+\]</div>
+<ul>
+<li>Nusselt number to relate convective to conductive heat transfer: </li>
+</ul>
+<div class="arithmatex">\[
+Nu = \frac{\text{Total heat transfer}}{\text{Conductive heat transfer}} = \frac{h L}{k}
+\]</div>
+<ul>
+<li>Heat transfer coefficient can be determined from: </li>
+</ul>
+<div class="arithmatex">\[
+h = \frac{Nu \cdot k}{L}
+\]</div>
+<h3 id="flow-regime-identification">Flow Regime Identification<a class="headerlink" href="#flow-regime-identification" title="Permanent link">&para;</a></h3>
+<p>Flow characterization guided the analysis approach:</p>
+<ul>
+<li>
+<p>Laminar flow (Re &lt; 2300 in pipes)</p>
+</li>
+<li>
+<p>Transition/mixed convection (2300 &lt; Re &lt; 10,000)</p>
+</li>
+<li>
+<p>Fully turbulent flow (Re &gt; 10,000)</p>
+</li>
+<li>
+<p>Factors affecting Nusselt number:</p>
+<ul>
+<li>
+<p>Fluid properties</p>
+</li>
+<li>
+<p>Boundary layer development</p>
+</li>
+<li>
+<p>Surface roughness (Moody diagram)</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="cfd-vs-correlations">CFD vs. Correlations<a class="headerlink" href="#cfd-vs-correlations" title="Permanent link">&para;</a></h3>
+<p>Decision process for analysis method:</p>
+<ul>
+<li>
+<p>Computational Fluid Dynamics (CFD):</p>
+<ul>
+<li>
+<p>Provides detailed fluid flow and heat transfer information</p>
+</li>
+<li>
+<p>Requires significant validation</p>
+</li>
+<li>
+<p>Demands substantial computational resources</p>
+</li>
+<li>
+<p>May be excessive for simpler problems</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Standard correlations:</p>
+<ul>
+<li>
+<p>More efficient if solution is relatively insensitive to exact heat transfer coefficient</p>
+</li>
+<li>
+<p>Useful when design is robust across a range of convection conditions</p>
+</li>
+<li>
+<p>For turbulent flow, Nusselt correlation can be used</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>For the pressure sensor case, estimated heat transfer coefficients ranged from 17 to 40 W/m²K.</p>
+<h2 id="radiation-heat-transfer-analysis">Radiation Heat Transfer Analysis<a class="headerlink" href="#radiation-heat-transfer-analysis" title="Permanent link">&para;</a></h2>
+<h3 id="radiation-considerations">Radiation Considerations<a class="headerlink" href="#radiation-considerations" title="Permanent link">&para;</a></h3>
+<p>Radiation effects required evaluation due to:</p>
+<ul>
+<li>
+<p>Proximity to hot components (e.g., exhaust primaries)</p>
+</li>
+<li>
+<p>Heat rejection to environment</p>
+</li>
+<li>
+<p>Temperature-dependent effects (proportional to <span class="arithmatex">\(T^4\)</span>)</p>
+</li>
+<li>
+<p>Emissivity variations across materials and temperatures</p>
+</li>
+</ul>
+<p>Key radiation heat transfer principles:</p>
+<ul>
+<li>
+<p>Stefan-Boltzmann law for radiation heat transfer</p>
+</li>
+<li>
+<p>Dependence on temperature to the fourth power</p>
+</li>
+<li>
+<p>View factor calculations between surfaces</p>
+</li>
+<li>
+<p>Advanced methods like Monte Carlo ray tracing when necessary</p>
+</li>
+</ul>
+<h3 id="material-emissivity-characterization">Material Emissivity Characterization<a class="headerlink" href="#material-emissivity-characterization" title="Permanent link">&para;</a></h3>
+<p>Emissivity measurement is critical and complex:</p>
+<ul>
+<li>
+<p>Parameters affecting emissivity:</p>
+<ul>
+<li>
+<p>Surface finish</p>
+</li>
+<li>
+<p>Material composition</p>
+</li>
+<li>
+<p>Temperature</p>
+</li>
+<li>
+<p>Viewing angle</p>
+</li>
+<li>
+<p>Wavelength of radiation</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Specialized equipment for measurement:</p>
+<ul>
+<li>
+<p>FTIR (Fourier Transform Infrared) spectroscopy</p>
+</li>
+<li>
+<p>Emissometers (handheld and laboratory grade)</p>
+</li>
+<li>
+<p>Colorimeters for total hemispheric emissivity</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Characterization across spectral ranges and temperatures</p>
+</li>
+<li>
+<p>Materials with specialized emissivity properties:</p>
+<ul>
+<li>
+<p>Carbon composites (low reflectance)</p>
+</li>
+<li>
+<p>Aerogels (insulation materials)</p>
+</li>
+<li>
+<p>Anodized aluminum</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="component-temperature-distribution-analysis">Component Temperature Distribution Analysis<a class="headerlink" href="#component-temperature-distribution-analysis" title="Permanent link">&para;</a></h2>
+<h3 id="thermal-imaging-assessment">Thermal Imaging Assessment<a class="headerlink" href="#thermal-imaging-assessment" title="Permanent link">&para;</a></h3>
+<p>Infrared thermography was used to:</p>
+<ul>
+<li>
+<p>Identify internal heating patterns within the sensor</p>
+</li>
+<li>
+<p>Determine temperature distribution uniformity</p>
+</li>
+<li>
+<p>Guide thermal management strategy (uniform insulation vs. targeted cooling)</p>
+</li>
+</ul>
+<p>Results showed:</p>
+<ul>
+<li>
+<p>Aluminum casing provided even heat distribution</p>
+</li>
+<li>
+<p>Small temperature variation (20.85°C to 29.3°C)</p>
+</li>
+<li>
+<p>No significant hot spots requiring targeted cooling</p>
+</li>
+<li>
+<p>In-plane temperature distribution more important than through-thickness behavior</p>
+</li>
+</ul>
+<h3 id="infrared-thermography-techniques">Infrared Thermography Techniques<a class="headerlink" href="#infrared-thermography-techniques" title="Permanent link">&para;</a></h3>
+<p>Proper thermography application required attention to:</p>
+<ul>
+<li>
+<p>Technology selection:</p>
+<ul>
+<li>
+<p>Thermal cameras</p>
+</li>
+<li>
+<p>Infrared single-point sensors</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Wavelength ranges:</p>
+<ul>
+<li>
+<p>Short wave (0.7-3 <span class="arithmatex">\(\mu\)</span>m)</p>
+</li>
+<li>
+<p>Medium wave (3-6 <span class="arithmatex">\(\mu\)</span>m)</p>
+</li>
+<li>
+<p>Long wave (8-14 <span class="arithmatex">\(\mu\)</span>m)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Measurement challenges:</p>
+<ul>
+<li>
+<p>Surface coating limitations (to preserve thermal performance)</p>
+</li>
+<li>
+<p>Viewing through windows or hot gases</p>
+</li>
+<li>
+<p>Material-specific emissivity variations across wavelengths</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Window materials for specific applications:</p>
+<ul>
+<li>
+<p>Calcium fluoride</p>
+</li>
+<li>
+<p>Potassium bromide</p>
+</li>
+<li>
+<p>Selection based on transmission in target wavelength range</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="thermal-conductivity-measurement">Thermal Conductivity Measurement<a class="headerlink" href="#thermal-conductivity-measurement" title="Permanent link">&para;</a></h2>
+<h3 id="custom-testing-apparatus">Custom Testing Apparatus<a class="headerlink" href="#custom-testing-apparatus" title="Permanent link">&para;</a></h3>
+<p>For non-standard components like the pressure sensor:</p>
+<ul>
+<li>
+<p>Custom testing rigs were developed</p>
+</li>
+<li>
+<p>Hooke’s law approach for thermal conductivity measurement:</p>
+<ul>
+<li>
+<p>Heating element applied controlled heat flux</p>
+</li>
+<li>
+<p>Specimen placed between hot and cold plates</p>
+</li>
+<li>
+<p>Hot guards ensured one-dimensional heat flow</p>
+</li>
+<li>
+<p>Temperature differential measured across specimen</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Thermal conductivity calculated based on heat flux and temperature gradient: </p>
+</li>
+</ul>
+<div class="arithmatex">\[
+k = \frac{q'' \cdot \Delta x}{\Delta T}
+\]</div>
+<p>Testing revealed the sensor had:</p>
+<ul>
+<li>
+<p>Direction-dependent thermal conductivity</p>
+</li>
+<li>
+<p>Approximately 5 W/mK thermal conductivity in the measured direction</p>
+</li>
+</ul>
+<h3 id="thermal-interface-resistance">Thermal Interface Resistance<a class="headerlink" href="#thermal-interface-resistance" title="Permanent link">&para;</a></h3>
+<p>Thermal contact resistance analysis:</p>
+<ul>
+<li>
+<p>Gaps between sensor and composite create thermal resistance</p>
+</li>
+<li>
+<p>Temperature drop occurs at interfaces</p>
+</li>
+<li>
+<p>Methods to minimize thermal contact resistance:</p>
+<ul>
+<li>
+<p>Thermal interface materials</p>
+</li>
+<li>
+<p>Liquid metals</p>
+</li>
+<li>
+<p>Nano-engineered interface surfaces</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Analysis determined whether thermal interface material was necessary</p>
+</li>
+</ul>
+<h2 id="material-thermal-property-characterization">Material Thermal Property Characterization<a class="headerlink" href="#material-thermal-property-characterization" title="Permanent link">&para;</a></h2>
+<h3 id="composite-materials-analysis">Composite Materials Analysis<a class="headerlink" href="#composite-materials-analysis" title="Permanent link">&para;</a></h3>
+<p>Carbon fiber reinforced polymers require special consideration:</p>
+<ul>
+<li>
+<p>Orthotropic thermal properties:</p>
+<ul>
+<li>
+<p>Different thermal conductivity in-plane vs. through-thickness</p>
+</li>
+<li>
+<p>Potential anisotropy within the plane (x vs. y direction)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Measurement techniques:</p>
+<ul>
+<li>
+<p>Laser Flash Analyzer (LFA) for thermal diffusivity</p>
+</li>
+<li>
+<p>Differential Scanning Calorimeter (DSC) for heat capacity</p>
+</li>
+<li>
+<p>Combined to calculate thermal conductivity: </p>
+</li>
+</ul>
+</li>
+</ul>
+<div class="arithmatex">\[
+k = \alpha \cdot \rho \cdot c_p
+\]</div>
+<p>where <span class="arithmatex">\(\alpha\)</span> is thermal diffusivity, <span class="arithmatex">\(\rho\)</span> is density, and <span class="arithmatex">\(c_p\)</span> is specific heat</p>
+<p>Typical thermal conductivity values:</p>
+<ul>
+<li>
+<p>In-plane (x-y): approximately 3 W/mK</p>
+</li>
+<li>
+<p>Through-thickness (z): approximately 0.5 W/mK</p>
+</li>
+</ul>
+<h3 id="thermal-conductivity-range-of-materials">Thermal Conductivity Range of Materials<a class="headerlink" href="#thermal-conductivity-range-of-materials" title="Permanent link">&para;</a></h3>
+<p>Materials used in F1 cover a wide spectrum of thermal conductivities:</p>
+<ul>
+<li>
+<p>Insulators:</p>
+<ul>
+<li>
+<p>Multi-layer insulation (space exploration): near-zero conductivity</p>
+</li>
+<li>
+<p>Aerogels: 0.015 W/mK</p>
+</li>
+<li>
+<p>Home insulation (fiberglass): 0.03 W/mK</p>
+</li>
+<li>
+<p>Polymeric foams: 0.02-0.04 W/mK</p>
+</li>
+<li>
+<p>High-temperature insulators: 0.04-0.2 W/mK</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Conductors:</p>
+<ul>
+<li>
+<p>Polymers: 0.25 W/mK</p>
+</li>
+<li>
+<p>Copper: 400 W/mK</p>
+</li>
+<li>
+<p>Advanced materials (diamond, graphene, pyrolytic graphite): extremely high conductivity</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="solution-implementation">Solution Implementation<a class="headerlink" href="#solution-implementation" title="Permanent link">&para;</a></h2>
+<h3 id="thermal-resistance-network-approach">Thermal Resistance Network Approach<a class="headerlink" href="#thermal-resistance-network-approach" title="Permanent link">&para;</a></h3>
+<p>For the pressure sensor thermal management:</p>
+<ul>
+<li>
+<p>Thermal resistance network model developed as an alternative to full CFD</p>
+</li>
+<li>
+<p>Model incorporated all measured parameters:</p>
+<ul>
+<li>
+<p>Convection coefficients</p>
+</li>
+<li>
+<p>Radiation properties</p>
+</li>
+<li>
+<p>Material thermal conductivities</p>
+</li>
+<li>
+<p>Interface resistances</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Solution methods:</p>
+<ul>
+<li>
+<p>Hand calculations</p>
+</li>
+<li>
+<p>Excel spreadsheets</p>
+</li>
+<li>
+<p>MATLAB and Simscape simulation</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Model validated against car data</p>
+</li>
+</ul>
+<h3 id="final-solution-and-results">Final Solution and Results<a class="headerlink" href="#final-solution-and-results" title="Permanent link">&para;</a></h3>
+<p>After testing multiple configurations:</p>
+<ul>
+<li>
+<p>Encapsulated aerogel insulation implemented</p>
+</li>
+<li>
+<p>Temperature increase reduced from 31°C to 7°C above ambient</p>
+</li>
+<li>
+<p>Further improvements targeting 1°C above ambient:</p>
+<ul>
+<li>
+<p>Space constraints present challenges</p>
+</li>
+<li>
+<p>Heat spreaders and heat pipes being considered</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>This case study represents one of 20-30 similar thermal management tasks addressed annually.</p>
+<h2 id="brake-system-thermal-management">Brake System Thermal Management<a class="headerlink" href="#brake-system-thermal-management" title="Permanent link">&para;</a></h2>
+<h3 id="evolution-of-brake-design">Evolution of Brake Design<a class="headerlink" href="#evolution-of-brake-design" title="Permanent link">&para;</a></h3>
+<p>Formula One brake designs have evolved substantially:</p>
+<ul>
+<li>
+<p>Earlier designs (2002): approximately 72 cooling drillings</p>
+</li>
+<li>
+<p>Current designs (2023): over 1,000 drillings of 2.5-3mm diameter</p>
+</li>
+<li>
+<p>Changes driven by:</p>
+<ul>
+<li>
+<p>Increased vehicle speeds</p>
+</li>
+<li>
+<p>More demanding braking requirements</p>
+</li>
+<li>
+<p>Higher thermal loads</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="brake-system-thermal-characteristics">Brake System Thermal Characteristics<a class="headerlink" href="#brake-system-thermal-characteristics" title="Permanent link">&para;</a></h3>
+<p>Extreme thermal conditions in F1 braking systems:</p>
+<ul>
+<li>
+<p>Heat loads up to 5 MW/m² during peak braking</p>
+</li>
+<li>
+<p>Carbon-carbon composite materials similar to aerospace applications</p>
+</li>
+<li>
+<p>Oxidation-limited materials:</p>
+<ul>
+<li>
+<p>Higher temperatures increase wear rate</p>
+</li>
+<li>
+<p>Carbon converts to <span class="arithmatex">\(\mathrm{CO}\)</span> and <span class="arithmatex">\(\mathrm{CO}_2\)</span> at high temperatures</p>
+</li>
+<li>
+<p>Requires careful temperature management</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Track-specific cooling requirements:</p>
+<ul>
+<li>
+<p>Monaco vs. Austin vs. Indianapolis require different solutions</p>
+</li>
+<li>
+<p>Cooling must be optimized for specific energy profiles</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Airflow minimization critical for aerodynamic performance</p>
+</li>
+<li>
+<p>Highly transient thermal behavior during race conditions</p>
+</li>
+</ul>
+<h3 id="carbon-carbon-material-characterization">Carbon-Carbon Material Characterization<a class="headerlink" href="#carbon-carbon-material-characterization" title="Permanent link">&para;</a></h3>
+<p>Understanding brake disc material behavior:</p>
+<ul>
+<li>
+<p>Oxidation dependent on:</p>
+<ul>
+<li>
+<p>Temperature</p>
+</li>
+<li>
+<p>Oxygen availability</p>
+</li>
+<li>
+<p>Gas flow velocity over surfaces</p>
+</li>
+<li>
+<p>Diffusion into porous material</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Characterization techniques:</p>
+<ul>
+<li>
+<p>Thermogravimetric Analysis (TGA)</p>
+</li>
+<li>
+<p>Thermomechanical Analysis (TMA)</p>
+</li>
+<li>
+<p>CT scanning for porosity analysis</p>
+</li>
+<li>
+<p>Custom test rigs for race-specific conditions</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Material porosity:</p>
+<ul>
+<li>
+<p>Typically 5-20% porosity</p>
+</li>
+<li>
+<p>Increases with oxidation</p>
+</li>
+<li>
+<p>Affects structural integrity and thermal performance</p>
+</li>
+<li>
+<p>Varies through thickness and between discs</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="brake-thermal-properties-analysis">Brake Thermal Properties Analysis<a class="headerlink" href="#brake-thermal-properties-analysis" title="Permanent link">&para;</a></h3>
+<p>Full thermal characterization requires:</p>
+<ul>
+<li>
+<p>Density and porosity determination (CT scanning)</p>
+</li>
+<li>
+<p>Heat capacity measurement (DSC - independent of porosity)</p>
+</li>
+<li>
+<p>Thermal diffusivity testing:</p>
+<ul>
+<li>
+<p>Laser Flash Analyzer (LFA)</p>
+</li>
+<li>
+<p>Challenges with porous materials and thickness measurement</p>
+</li>
+<li>
+<p>Location-dependent properties within the same disc</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Emissivity characterization across temperature and wavelength ranges</p>
+</li>
+<li>
+<p>Combined properties for thermal simulations:</p>
+<ul>
+<li>
+<p>1D thermal transient simulations</p>
+</li>
+<li>
+<p>3D steady-state CFD</p>
+</li>
+<li>
+<p>Oxidation and wear simulations</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="validation-and-implementation">Validation and Implementation<a class="headerlink" href="#validation-and-implementation" title="Permanent link">&para;</a></h3>
+<p>Comprehensive testing and simulation:</p>
+<ul>
+<li>
+<p>Dynamometer testing to validate models</p>
+</li>
+<li>
+<p>Temperature measurements at multiple disc locations</p>
+</li>
+<li>
+<p>Oxidation rate correlation with temperature and flow speed</p>
+</li>
+<li>
+<p>Pre-event simulations to determine optimal cooling configuration</p>
+</li>
+<li>
+<p>Wear prediction based on temperature profiles and oxidation rates</p>
+</li>
+<li>
+<p>Temperature limits established (e.g., avoiding 1100°C at high speeds to prevent excessive wear)</p>
+</li>
+</ul>
+<h2 id="general-insights-on-thermal-engineering">General Insights on Thermal Engineering<a class="headerlink" href="#general-insights-on-thermal-engineering" title="Permanent link">&para;</a></h2>
+<h3 id="measurement-challenges">Measurement Challenges<a class="headerlink" href="#measurement-challenges" title="Permanent link">&para;</a></h3>
+<p>Key insights from Formula One thermal engineering:</p>
+<ul>
+<li>
+<p>Measurements are inherently difficult in thermal engineering</p>
+</li>
+<li>
+<p>Engineers often search for new physics to explain incorrect measurements</p>
+</li>
+<li>
+<p>Important to verify measurements before developing complex theories</p>
+</li>
+<li>
+<p>CFD provides answers but requires careful validation against reality</p>
+</li>
+<li>
+<p>Return to fundamentals (Reynolds number, heat transfer correlations) when results seem unreasonable</p>
+</li>
+</ul>
+<h3 id="thermal-engineering-career-perspective">Thermal Engineering Career Perspective<a class="headerlink" href="#thermal-engineering-career-perspective" title="Permanent link">&para;</a></h3>
+<p>Thermal engineering as a career field:</p>
+<ul>
+<li>
+<p>Offers diverse and exciting problem-solving opportunities</p>
+</li>
+<li>
+<p>Required across virtually all engineering industries</p>
+</li>
+<li>
+<p>Provides career flexibility and mobility</p>
+</li>
+<li>
+<p>Involves continuous learning and adaptation</p>
+</li>
+<li>
+<p>Presents new challenges regularly, preventing monotony</p>
+</li>
+</ul>
+<h2 id="racing-dynamics-insights">Racing Dynamics Insights<a class="headerlink" href="#racing-dynamics-insights" title="Permanent link">&para;</a></h2>
+<h3 id="vehicle-performance-factors">Vehicle Performance Factors<a class="headerlink" href="#vehicle-performance-factors" title="Permanent link">&para;</a></h3>
+<p>Relationship between car handling and driver performance:</p>
+<ul>
+<li>
+<p>Fast cars typically operate at the edge of stability</p>
+</li>
+<li>
+<p>Slower cars are generally easier to drive</p>
+</li>
+<li>
+<p>Superior drivers can handle challenging car dynamics</p>
+</li>
+<li>
+<p>Less experienced drivers may overdrive difficult cars:</p>
+<ul>
+<li>
+<p>Braking too late</p>
+</li>
+<li>
+<p>Overheating tires</p>
+</li>
+<li>
+<p>Locking brakes</p>
+</li>
+<li>
+<p>Forcing turns beyond capability</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Driver adaptability critical to extracting maximum performance</p>
+</li>
+</ul>
+<h3 id="aerodynamics-and-thermal-integration">Aerodynamics and Thermal Integration<a class="headerlink" href="#aerodynamics-and-thermal-integration" title="Permanent link">&para;</a></h3>
+<p>Cross-functional collaboration in Formula One:</p>
+<ul>
+<li>
+<p>Thermal engineers provide cooling requirements</p>
+</li>
+<li>
+<p>Specific requirements for different components:</p>
+<ul>
+<li>
+<p>Mass flow rates for clutch cooling</p>
+</li>
+<li>
+<p>Electronic component cooling needs</p>
+</li>
+<li>
+<p>Target temperatures for brake systems</p>
+</li>
+</ul>
+</li>
+<li>
+<p>CFD specialists run simulations to achieve required cooling</p>
+</li>
+<li>
+<p>Compromise between thermal and aerodynamic performance</p>
+</li>
+<li>
+<p>Design must account for "traffic margin":</p>
+<ul>
+<li>
+<p>Cars rarely run in completely clean air</p>
+</li>
+<li>
+<p>Following other cars impacts cooling efficiency</p>
+</li>
+<li>
+<p>Managed through design or driver technique (temporary lift-off)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Track-specific optimizations performed for each race weekend</p>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../06-turbulent-flow-and-turbulence-models/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Turbulent Flow and Turbulence Models">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Turbulent Flow and Turbulence Models
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../radiation/" class="md-footer__link md-footer__link--next" aria-label="Next: Part III · Thermal Radiation">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Part III · Thermal Radiation
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Written by Aiden Azarnoush · <a href="https://aiden-azarnoush.github.io">aiden-azarnoush.github.io</a> · <a href="https://github.com/aiden-azarnoush">all repositories</a> · Found this useful? <a href="https://paypal.me/azarnoush">☕ Buy me a coffee</a> · <a href="https://paypal.me/azarnoush/3">$3</a> · <a href="https://paypal.me/azarnoush/5">$5</a> · <a href="https://paypal.me/azarnoush">other</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "navigation.top", "navigation.footer", "toc.integrate", "toc.follow", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1549 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Lecture notes on convection and thermal radiation, by Aiden Azarnoush">
+      
+      
+        <meta name="author" content="Aiden Azarnoush">
+      
+      
+        <link rel="canonical" href="https://aiden-azarnoush.github.io/intermediate-heat-transfer/radiation/04-radiation-exchange-between-surfaces/">
+      
+      
+        <link rel="prev" href="../03-kirchhoff-s-law-and-view-factors/">
+      
+      
+        <link rel="next" href="../05-applications-and-advanced-topics/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Radiation Exchange Between Surfaces - Intermediate Heat Transfer</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Serif+4:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Source Serif 4";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#radiation-exchange-between-surfaces" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Intermediate Heat Transfer" class="md-header__button md-logo" aria-label="Intermediate Heat Transfer" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Intermediate Heat Transfer
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Radiation Exchange Between Surfaces
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/aiden-azarnoush/intermediate-heat-transfer" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    aiden-azarnoush/intermediate-heat-transfer
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Intermediate Heat Transfer" class="md-nav__button md-logo" aria-label="Intermediate Heat Transfer" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Intermediate Heat Transfer
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/aiden-azarnoush/intermediate-heat-transfer" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    aiden-azarnoush/intermediate-heat-transfer
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../conduction/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part I · Conduction
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part I · Conduction
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conduction/01-introduction-to-conduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to Conduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conduction/02-steady-one-dimensional-conduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Steady One-Dimensional Conduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conduction/03-transient-conduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transient Conduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../convection/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part II · Convection
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part II · Convection
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../convection/01-introduction-to-convection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to Convection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../convection/02-external-flow-flat-plates-wedges-and-the-integral-method/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    External Flow: Flat Plates, Wedges, and the Integral Method
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../convection/03-internal-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Internal Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../convection/04-natural-convection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Natural Convection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../convection/05-boiling-and-condensation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Boiling and Condensation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../convection/06-turbulent-flow-and-turbulence-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Turbulent Flow and Turbulence Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../convection/07-case-study-thermal-management-in-formula-one/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Case Study: Thermal Management in Formula One
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part III · Thermal Radiation
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part III · Thermal Radiation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-fundamentals-of-thermal-radiation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals of Thermal Radiation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-radiation-intensity-surface-properties-and-blackbody-radiati/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Radiation Intensity, Surface Properties, and Blackbody Radiation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-kirchhoff-s-law-and-view-factors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kirchhoff's Law and View Factors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Radiation Exchange Between Surfaces
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Radiation Exchange Between Surfaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#net-radiation-exchange-between-two-surfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Net Radiation Exchange Between Two Surfaces
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Net Radiation Exchange Between Two Surfaces">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sign-convention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sign Convention
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-construction-two-surfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Network Construction - Two Surfaces
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-construction-three-surfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Network Construction - Three Surfaces
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network-analysis-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Network Analysis Method
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#re-radiating-surfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Re-radiating Surfaces
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#important-considerations-for-radiation-resistance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Important Considerations for Radiation Resistance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-mode-heat-transfer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Mode Heat Transfer
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Multi-Mode Heat Transfer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#solution-strategy-for-multi-mode-problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution Strategy for Multi-Mode Problems
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-applications-and-advanced-topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Applications and Advanced Topics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="radiation-exchange-between-surfaces">Radiation Exchange Between Surfaces<a class="headerlink" href="#radiation-exchange-between-surfaces" title="Permanent link">&para;</a></h1>
+<h2 id="net-radiation-exchange-between-two-surfaces">Net Radiation Exchange Between Two Surfaces<a class="headerlink" href="#net-radiation-exchange-between-two-surfaces" title="Permanent link">&para;</a></h2>
+<figure>
+<img alt="Radiation between surface 1 and 2" src="../../assets/radiation/pics/ratitation_btw_two_surfaces.png" width="72%" />
+
+<figcaption>Radiation between surface 1 and 2</figcaption>
+</figure>
+<p>The net exchange of radiation between two surfaces is:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+        q_{12} &amp;= q_{1\to 2} - q_{2 \to 1}
+        \\[1em ]
+        q_{12} &amp; =A_1 F_{12} J_1-A_2 F_{21} J_2
+    \end{aligned}
+\]</div>
+<p>Using reciprocity <span class="arithmatex">\(\left(A_1 F_{12}=A_2 F_{21}\right)\)</span> :</p>
+<div class="arithmatex">\[
+q_{12} = \frac{(J_1-J_2)}{1/A_1 F_{12}}
+\]</div>
+<h3 id="sign-convention">Sign Convention<a class="headerlink" href="#sign-convention" title="Permanent link">&para;</a></h3>
+<p>It’s critical to maintain consistent sign conventions when working with radiation networks:</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(q_i\)</span> is positive when heat leaves surface <span class="arithmatex">\(i\)</span> (cooling)</p>
+</li>
+<li>
+<p><span class="arithmatex">\(q_{i \rightarrow j}\)</span> represents the directional radiation from surface <span class="arithmatex">\(i\)</span> to surface <span class="arithmatex">\(j\)</span></p>
+</li>
+<li>
+<p><span class="arithmatex">\(q_{ij}\)</span> represents the net radiation exchange between surfaces <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span>, with <span class="arithmatex">\(q_{ij} = -q_{ji}\)</span></p>
+</li>
+</ul>
+<div class="admonition abstract">
+<p class="admonition-title">Space Resistance</p>
+<h5 id="formula">Formula<a class="headerlink" href="#formula" title="Permanent link">&para;</a></h5>
+<div class="arithmatex">\[
+q_{12} = \frac{(J_1-J_2)}{1/A_1 F_{12}}
+\]</div>
+<h5 id="circuit-form">Circuit form<a class="headerlink" href="#circuit-form" title="Permanent link">&para;</a></h5>
+<p><figure markdown="span">
+<img alt="" src="../../assets/radiation/gen/radiation4-tikz-1-05988b.png" width="72%" />
+</figure></p>
+</div>
+<p>Space Resistance: Only involves geometry measure of how easily two surfaces exchange thermal radiation.</p>
+<h3 id="network-construction-two-surfaces">Network Construction - Two Surfaces<a class="headerlink" href="#network-construction-two-surfaces" title="Permanent link">&para;</a></h3>
+<p>For a two-surface enclosure:</p>
+<figure>
+<img alt="" src="../../assets/radiation/gen/radiation4-tikz-2-bc9500.png" width="72%" />
+</figure>
+<h3 id="network-construction-three-surfaces">Network Construction - Three Surfaces<a class="headerlink" href="#network-construction-three-surfaces" title="Permanent link">&para;</a></h3>
+<p>For a three-surface enclosure:</p>
+<figure>
+<img alt="" src="../../assets/radiation/gen/radiation4-tikz-3-153246.png" width="72%" />
+</figure>
+<p>For each additional surface, we add:</p>
+<ul>
+<li>
+<p>A new <span class="arithmatex">\(E_{bi}\)</span> and <span class="arithmatex">\(J_i\)</span> node pair</p>
+</li>
+<li>
+<p>A surface resistance connecting <span class="arithmatex">\(E_{bi}\)</span> to <span class="arithmatex">\(J_i\)</span></p>
+</li>
+<li>
+<p>Space resistances connecting <span class="arithmatex">\(J_i\)</span> to all other <span class="arithmatex">\(J\)</span> nodes</p>
+</li>
+</ul>
+<h2 id="network-analysis-method">Network Analysis Method<a class="headerlink" href="#network-analysis-method" title="Permanent link">&para;</a></h2>
+<p>To solve a radiation network:</p>
+<ol>
+<li>
+<p>Identify the number of unknowns (typically one per surface - either <span class="arithmatex">\(T_i\)</span> or <span class="arithmatex">\(q_i\)</span>)</p>
+</li>
+<li>
+<p>Write energy balance equations at each <span class="arithmatex">\(J\)</span> node using Kirchhoff’s current law</p>
+</li>
+<li>
+<p>For each <span class="arithmatex">\(J\)</span> node: <span class="arithmatex">\(q_i = \sum_{j \neq i} q_{ij}\)</span> (what leaves a surface must distribute to all other surfaces)</p>
+</li>
+<li>
+<p>Express these in terms of potentials and resistances: </p>
+</li>
+</ol>
+<div class="arithmatex">\[
+\frac{E_{b, i}-J_i}{\frac{1-\varepsilon_i}{\varepsilon_i A_i}}= \sum_{j \neq i} \frac{J_i - J_j}{\frac{1}{A_i F_{i j}}}
+\]</div>
+<ol>
+<li>Solve the resulting system of equations</li>
+</ol>
+<p>For an <span class="arithmatex">\(N\)</span>-surface enclosure, you’ll need to solve a system of <span class="arithmatex">\(N\)</span> equations with <span class="arithmatex">\(N\)</span> unknowns.</p>
+<ul>
+<li>
+<p>For a known temperature distribution, solve for heat transfer rates</p>
+</li>
+<li>
+<p>For a known heat transfer distribution, solve for surface temperatures</p>
+</li>
+</ul>
+<h4 id="key-points">Key Points:<a class="headerlink" href="#key-points" title="Permanent link">&para;</a></h4>
+<div class="arithmatex">\[
+\left\{\begin{array}{lccl}
+            q_{i \to j} = A_{i}J_{i}F_{ij} &amp;  &amp;&amp;\text {Ratio of radiation ($J=E_b + \rho G$ leaves $i$ and falls on $j$} 
+            \\[1em]
+            q_{ij} = q_{i \to j} - q_{j \to i}&amp;&amp;&amp; \text{Net radiation exchange between $i$ and $j$ (Leaving $i$ is positive)}
+            \\[1em]
+            q_i=\sum_{j=1}^N q_{i j} &amp;&amp;&amp; \text {Total net radiation loss for $i$}
+        \end{array}
+        \right.
+\]</div>
+<p>Therefore, </p>
+<div class="arithmatex">\[
+\boxed{
+    \begin{aligned}
+        &amp;q_{ij} = - q_{ji}
+        \\[1em]
+        &amp;q_{i \to j} \neq q_{j \to i} \qquad(\textit{unless $J_i = J_j$})
+        \\[1em]
+        &amp;\sum_{i=1}^N q_i = \sum_{i=1}^N\sum_{j=1}^N q_{ij}= 0 \qquad \text{good for checking after solving}
+    \end{aligned}
+    }
+\]</div>
+<h2 id="re-radiating-surfaces">Re-radiating Surfaces<a class="headerlink" href="#re-radiating-surfaces" title="Permanent link">&para;</a></h2>
+<p>A reradiating surface is one that:</p>
+<ul>
+<li>
+<p>Is thermally insulated from conduction and convection</p>
+</li>
+<li>
+<p>Has no internal heat generation</p>
+</li>
+<li>
+<p>Participates only in radiation heat transfer</p>
+</li>
+<li>
+<p>Must achieve a temperature where the net radiation exchange equals zero</p>
+</li>
+</ul>
+<p>For a reradiating surface <span class="arithmatex">\(i\)</span>, we have:</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(q_i = 0\)</span> (no net heat transfer to/from the surface)</p>
+</li>
+<li>
+<p><span class="arithmatex">\(E_{bi} = J_i\)</span> (the radiosity equals the blackbody emission)</p>
+</li>
+</ul>
+<p>This significantly simplifies the network, as we can eliminate the <span class="arithmatex">\(E_{bi}\)</span> node and directly work with the <span class="arithmatex">\(J_i\)</span> node. The surface resistance becomes irrelevant since there is no potential difference across it.</p>
+<figure>
+<img alt="Schematic of a three-surface enclosure with one surface reradiating" src="../../assets/radiation/pics/re_radiation_surface.png" width="72%" />
+
+<figcaption>Schematic of a three-surface enclosure with one surface reradiating</figcaption>
+</figure>
+<figure>
+<img alt="" src="../../assets/radiation/gen/radiation4-tikz-4-23fc23.png" width="72%" />
+</figure>
+<p>Considering the entire circuit, we can simply find heat transfer as follow: </p>
+<div class="arithmatex">\[
+q_1 = - q_2 = \frac{E_{b1}-E_{b2}}{R_{s1} + [R_{13}+R_{23}]\parallel R_{12} + R_{s2}}
+\]</div>
+<p>where </p>
+<div class="arithmatex">\[
+\begin{aligned}
+        R_{s1} &amp;= \frac{1-\varepsilon_1}{\varepsilon_1 A_1}
+        \\[1em]
+        R_{s2} &amp;= \frac{1-\varepsilon_2}{\varepsilon_2 A_2}
+        \\[1em]
+        [R_{13}+R_{23}]\parallel  R_{12} &amp;= \frac{1}{A_1 F_{12}+\left[\left(1 / A_1 F_{1 R}\right)+\left(1 / A_2 F_{2 R}\right)\right]^{-1}}
+    \end{aligned}
+\]</div>
+<h2 id="important-considerations-for-radiation-resistance">Important Considerations for Radiation Resistance<a class="headerlink" href="#important-considerations-for-radiation-resistance" title="Permanent link">&para;</a></h2>
+<p>When working with radiation resistances, several important considerations must be kept in mind:</p>
+<ol>
+<li>
+<p><strong>Units:</strong> Radiation resistances have units of <span class="arithmatex">\(\text{m}^{-2}\)</span>, which is different from conduction or convection resistances. This means they cannot be directly combined in a single network without proper conversion.</p>
+</li>
+<li>
+<p><strong>Temperature potential:</strong> Radiation networks use <span class="arithmatex">\(\sigma T^4\)</span> as the potential rather than <span class="arithmatex">\(T\)</span>, making them fundamentally different from conduction/convection networks.</p>
+</li>
+<li>
+<p><strong>Dimensional consistency:</strong> When solving networks, ensure all terms maintain proper dimensional consistency.</p>
+</li>
+<li>
+<p><strong>Network reduction:</strong> While circuit reduction techniques (series, parallel) can sometimes be applied, it’s only valid for specific cases where the heat flow path is effectively one-dimensional.</p>
+</li>
+<li>
+<p><strong>Mixing modes:</strong> Never directly connect radiation resistances to conduction/convection resistances in a single network without proper conversion - this would be like "adding apples and oranges."</p>
+</li>
+</ol>
+<h2 id="multi-mode-heat-transfer">Multi-Mode Heat Transfer<a class="headerlink" href="#multi-mode-heat-transfer" title="Permanent link">&para;</a></h2>
+<p>Many practical problems involve multiple heat transfer modes (conduction, convection, and radiation) simultaneously. To handle such problems:</p>
+<ol>
+<li>
+<p>Draw a control volume that captures all relevant heat transfer mechanisms</p>
+</li>
+<li>
+<p>Apply energy conservation to this control volume</p>
+</li>
+<li>
+<p>Use consistent sign conventions across all modes (e.g., positive for heat leaving the surface)</p>
+</li>
+<li>
+<p>Consider appropriate boundary conditions for each mode</p>
+</li>
+</ol>
+<figure>
+<img alt="Surface energy balance" src="../../assets/radiation/pics/multimode_heat_transfer.png" width="72%" />
+
+<figcaption>Surface energy balance</figcaption>
+</figure>
+<p>For a steady-state surface energy balance with consistent sign convention (positive for heat leaving): </p>
+<div class="arithmatex">\[
+\begin{aligned}
+    &amp; \cancelto{0}{\dot{E}_{\text{in}}}-\dot{E}_{\text {out }}+\dot{E}_{\text {gen }}= \cancelto{0}{\dot{\dot{E}}_{s t}}
+    \\[0.5em]
+    &amp; \dot{q}_{i, \text { ext}}=q_{i, \text { rad }}+q_{i, \text { conv. }}+q_{i, \text { cond. }}
+    \end{aligned}
+\]</div>
+<p><em>Note:</em></p>
+<ul>
+<li>
+<p>for <span class="arithmatex">\(q_{i, \text { rad }}, q_{i, \text { conv }}\)</span> and <span class="arithmatex">\(q_{i, \text { cond, }}\)</span>, positive mean surface losses energy.</p>
+</li>
+<li>
+<p><span class="arithmatex">\(q_{i \text {, rad }}\)</span> is the <span class="arithmatex">\(q_i\)</span> in previous radiation network.</p>
+</li>
+<li>
+<p><span class="arithmatex">\(q_{i, \text { ext }}=q_{i, \text { rad }}+q_{i, \text { conv }}+q_{i, \text { cond }}\)</span> holds at any time, ie., transient and steady state..</p>
+</li>
+</ul>
+<h3 id="solution-strategy-for-multi-mode-problems">Solution Strategy for Multi-Mode Problems<a class="headerlink" href="#solution-strategy-for-multi-mode-problems" title="Permanent link">&para;</a></h3>
+<p>When solving problems with multiple heat transfer modes:</p>
+<ol>
+<li>
+<p>Solve the radiation network first (radiation responds essentially instantaneously)</p>
+</li>
+<li>
+<p>Use the resulting heat fluxes as boundary conditions for conduction/convection</p>
+</li>
+<li>
+<p>Apply energy conservation at each surface</p>
+</li>
+<li>
+<p>For complex geometries, numerical methods may be required</p>
+</li>
+</ol>
+<p>The instructor emphasized that radiation is effectively a "rigid" constraint that responds at the speed of light, making it appropriate to solve first and then use as a boundary condition for slower processes.</p>
+<h4 id="example">Example:<a class="headerlink" href="#example" title="Permanent link">&para;</a></h4>
+<p>Consider a very long enclosure with a uniform square cross section as shown below. One of the view factors is known as <span class="arithmatex">\(\boldsymbol{F}_{13} \approx 0.4\)</span>. Find the rest of the view factors.</p>
+<p><em>solution:</em> We have</p>
+<ul>
+<li>
+<p>Due to the flat surfaces, all self-view factors are zero: <span class="arithmatex">\(F_{11} = F_{22} = F_{33} = F_{44} = 0\)</span></p>
+</li>
+<li>
+<p>Due to symmetry in the square enclosure:</p>
+<ul>
+<li>
+<p>Opposite surfaces: <span class="arithmatex">\(F_{13} = F_{31} = F_{24} = F_{42} = 0.4\)</span></p>
+</li>
+<li>
+<p>Adjacent surfaces: <span class="arithmatex">\(F_{12} = F_{21} = F_{23} = F_{32} = F_{34} = F_{43} = F_{41} = F_{14} = 0.3\)</span></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Verification: For each surface, the sum of view factors equals 1 </p>
+</li>
+</ul>
+<div class="arithmatex">\[
+F_{i1} + F_{i2} + F_{i3} + F_{i4} = 0 + 0.3 + 0.4 + 0.3 = 1
+\]</div>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><span class="arithmatex">\(F_{i j}\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(i=1\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(i=2\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(i=3\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(i = 4\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(j=1\)</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0.3</td>
+<td style="text-align: center;">0.4</td>
+<td style="text-align: center;">0.3</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(j=2\)</span></td>
+<td style="text-align: center;">0.3</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0.3</td>
+<td style="text-align: center;">0.4</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(j=3\)</span></td>
+<td style="text-align: center;">0.4</td>
+<td style="text-align: center;">0.3</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0.3</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(j=4\)</span></td>
+<td style="text-align: center;">0.3</td>
+<td style="text-align: center;">0.4</td>
+<td style="text-align: center;">0.3</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../03-kirchhoff-s-law-and-view-factors/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Kirchhoff&#39;s Law and View Factors">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Kirchhoff's Law and View Factors
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../05-applications-and-advanced-topics/" class="md-footer__link md-footer__link--next" aria-label="Next: Applications and Advanced Topics">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Applications and Advanced Topics
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Written by Aiden Azarnoush · <a href="https://aiden-azarnoush.github.io">aiden-azarnoush.github.io</a> · <a href="https://github.com/aiden-azarnoush">all repositories</a> · Found this useful? <a href="https://paypal.me/azarnoush">☕ Buy me a coffee</a> · <a href="https://paypal.me/azarnoush/3">$3</a> · <a href="https://paypal.me/azarnoush/5">$5</a> · <a href="https://paypal.me/azarnoush">other</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "navigation.top", "navigation.footer", "toc.integrate", "toc.follow", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
