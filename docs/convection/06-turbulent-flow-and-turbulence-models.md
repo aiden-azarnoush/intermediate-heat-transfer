@@ -1,0 +1,385 @@
+# Turbulent Flow and Turbulence Models
+
+## Introduction to Turbulence Models
+
+### Review and Introduction
+
+In the previous lecture, we began discussing turbulence, noting that it is a highly complex phenomenon containing numerous microscopic features that make it nearly impossible to capture all details accurately. Instead of attempting to model every detail, we focus on capturing the major trends in both fluid dynamics behavior and conjugate heat transfer aspects. In this lecture, we will not provide a comprehensive study of turbulent flow models for conjugate heat transfer but rather examine cases where turbulent flow does not deviate significantly from laminar flow—essentially laminar flow with some transitional fluctuations.
+
+It’s important to note that for most structures we deal with, the thermal time constant is typically very high—often minutes to hours depending on the size of the object. This means that high-frequency perturbations will not significantly affect the thermal behavior at the interface. For most heat transfer applications, capturing the magnitude of fluctuations and the mean velocity is sufficient. However, if your problem involves extremely transient phenomena with very small particles having millisecond time constants, you may need a more detailed understanding of the fluctuations around the transient state.
+
+### Turbulent Boundary Layer Analysis
+
+Our focus will be on the boundary layer where turbulence begins to form just after the laminar regime. We are particularly interested in how heat is transferred through the boundary layer that has developed some turbulent components.
+
+In laminar flow, there is no advection across surfaces parallel to the streamline. However, in turbulent flow, fluid movement occurs in and out of these surfaces. Since this movement transports fluid at different temperatures, it contributes to heat deposition or removal due to turbulence effects. This represents an additional term we need to consider in our energy transport equations.
+
+The solution procedure follows the same approach as for laminar boundary layers:
+
+1.  Solve the Navier-Stokes equations to find the velocity field
+
+2.  Assume the velocity field is known and use it to write the thermal energy equation
+
+3.  Solve for the temperature field
+
+Our assumption is that the fluctuations occur so rapidly that we don’t need to focus on the temporal response but rather on the magnitude of fluctuations and their time-integrated effects.
+
+### Time-Averaged Equations
+
+#### Continuity Equation
+
+Let’s begin with the continuity equation:
+
+$$
+\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} = 0
+$$
+
+We can decompose velocities into mean and fluctuating components: 
+
+$$
+u = \bar{u} + u'
+$$
+
+ 
+
+$$
+v = \bar{v} + v'
+$$
+
+Substituting into the continuity equation: 
+
+$$
+\frac{\partial \bar{u}}{\partial x} + \frac{\partial u'}{\partial x} + \frac{\partial \bar{v}}{\partial y} + \frac{\partial v'}{\partial y} = 0
+$$
+
+Taking the time average, and noting that the average of fluctuations is zero: 
+
+$$
+\frac{\partial \bar{u}}{\partial x} + \frac{\partial \bar{v}}{\partial y} = 0
+$$
+
+This means the continuity equation for the average flow field remains the same as for laminar flow.
+
+#### Momentum Equation
+
+For the x-component of the Navier-Stokes equation:
+
+$$
+\rho \left(\frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y}\right) = -\frac{\partial p}{\partial x} + \mu \nabla^2 u
+$$
+
+Substituting the velocity decomposition and taking the time average, we obtain:
+
+$$
+\rho \left(\bar{u}\frac{\partial \bar{u}}{\partial x} + \bar{v}\frac{\partial \bar{u}}{\partial y}\right) = -\frac{\partial \bar{p}}{\partial x} + \mu \nabla^2 \bar{u} - \rho\frac{\partial \overline{u'^2}}{\partial x} - \rho\frac{\partial \overline{u'v'}}{\partial y}
+$$
+
+The last two terms represent additional stresses due to velocity fluctuations. We can rewrite them as:
+
+$$
+\rho \left(\bar{u}\frac{\partial \bar{u}}{\partial x} + \bar{v}\frac{\partial \bar{u}}{\partial y}\right) = -\frac{\partial \bar{p}}{\partial x} + \frac{\partial}{\partial y}\left(\mu\frac{\partial \bar{u}}{\partial y} - \rho\overline{u'v'}\right)
+$$
+
+This equation introduces a new term $-\rho\overline{u'v'}$, which represents the turbulent shear stress or Reynolds stress. It can be useful to think of this as a transport mechanism: the molecular viscosity transports momentum through diffusion, while turbulence transports momentum through mixing.
+
+For flows where turbulence is significant, the turbulent transport term often becomes more important than the molecular viscosity term. We can define:
+
+$$
+\tau_t = -\rho\overline{u'v'}
+$$
+
+This is the turbulent shear stress. By analogy with the molecular shear stress, we can model it as:
+
+$$
+\tau_t = \rho \varepsilon_m \frac{\partial \bar{u}}{\partial y}
+$$
+
+where $\varepsilon_m$ is the eddy diffusivity of momentum (also called turbulent diffusivity). The corresponding eddy viscosity is:
+
+$$
+\mu_t = \rho \varepsilon_m
+$$
+
+With these definitions, the momentum equation becomes:
+
+$$
+\rho \left(\bar{u}\frac{\partial \bar{u}}{\partial x} + \bar{v}\frac{\partial \bar{u}}{\partial y}\right) = -\frac{\partial \bar{p}}{\partial x} + \frac{\partial}{\partial y}\left[(\mu + \mu_t)\frac{\partial \bar{u}}{\partial y}\right]
+$$
+
+This looks similar to the laminar flow equation, except the viscosity is replaced by the sum of molecular and turbulent viscosities.
+
+#### Generalized Reynolds-Averaged Navier-Stokes Equation
+
+For a general three-dimensional flow, the Reynolds-Averaged Navier-Stokes (RANS) equation can be written as:
+
+$$
+\rho\frac{\partial \bar{u}_i}{\partial t} + \rho\bar{u}_j\frac{\partial \bar{u}_i}{\partial x_j} = -\frac{\partial \bar{p}}{\partial x_i} + \mu\frac{\partial^2 \bar{u}_i}{\partial x_j \partial x_j} - \frac{\partial}{\partial x_j}(\rho\overline{u'_i u'_j})
+$$
+
+Here, Einstein notation is used where repeated indices imply summation. For instance, $f_{ij}g_i$ means $\sum_{i=1}^3 f_{ij}g_i$.
+
+The term $\rho\overline{u'_i u'_j}$ is known as the Reynolds stress tensor, which is a 3×3 tensor with 9 components.
+
+### Energy Equation for Turbulent Flow
+
+We can apply a similar approach to the energy equation. Decomposing the temperature into mean and fluctuating components:
+
+$$
+T = \bar{T} + T'
+$$
+
+The time-averaged energy equation becomes:
+
+$$
+\bar{u}\frac{\partial \bar{T}}{\partial x} + \bar{v}\frac{\partial \bar{T}}{\partial y} = \alpha\frac{\partial^2 \bar{T}}{\partial y^2} - \frac{\partial \overline{v'T'}}{\partial y}
+$$
+
+The last term represents the turbulent heat flux. Similar to the momentum equation, we can model this as:
+
+$$
+-\rho c_p \overline{v'T'} = q_t = \rho c_p \varepsilon_h \frac{\partial \bar{T}}{\partial y}
+$$
+
+where $\varepsilon_h$ is the eddy diffusivity of heat. We can also define a turbulent thermal conductivity:
+
+$$
+k_t = \rho c_p \varepsilon_h
+$$
+
+With this, the energy equation becomes:
+
+$$
+\bar{u}\frac{\partial \bar{T}}{\partial x} + \bar{v}\frac{\partial \bar{T}}{\partial y} = \frac{\partial}{\partial y}\left[(k + k_t)\frac{\partial \bar{T}}{\partial y}\right]
+$$
+
+This is similar to the laminar energy equation, but with the thermal conductivity replaced by the sum of molecular and turbulent contributions.
+
+### Turbulent Prandtl Number
+
+Just as we have the Prandtl number to relate molecular momentum and thermal diffusivities, we can define a turbulent Prandtl number:
+
+$$
+\text{Pr}_t = \frac{\varepsilon_m}{\varepsilon_h}
+$$
+
+Unlike the molecular Prandtl number, the turbulent Prandtl number is not a material property but depends on the flow characteristics. However, for many flows, $\text{Pr}_t$ is often approximately 1.0, which simplifies calculations considerably.
+
+### Mixing Length Model
+
+To close our system of equations, we need to determine $\varepsilon_m$ and $\varepsilon_h$. One of the simplest approaches is Prandtl’s mixing length model. The key idea is that turbulent fluctuations result from fluid parcels moving a characteristic distance (the mixing length) and exchanging properties.
+
+If we consider the velocity at two points separated by a distance $l$ (the mixing length): 
+
+$$
+u(y+l) - u(y) \approx u'
+$$
+
+For small $l$, we can approximate: 
+
+$$
+u' \approx l\frac{\partial \bar{u}}{\partial y}
+$$
+
+Similarly, assuming the vertical velocity fluctuation is proportional to the horizontal one: 
+
+$$
+v' \approx kl\frac{\partial \bar{u}}{\partial y}
+$$
+
+where $k$ is a constant.
+
+The Reynolds stress then becomes: 
+
+$$
+-\rho\overline{u'v'} \approx \rho k l^2 \left(\frac{\partial \bar{u}}{\partial y}\right)^2
+$$
+
+Comparing with our earlier definition: 
+
+$$
+\varepsilon_m = kl^2 \left|\frac{\partial \bar{u}}{\partial y}\right|
+$$
+
+The question becomes: what is the mixing length $l$? Near a wall, experiments show that $l$ is proportional to the distance from the wall: 
+
+$$
+l = \kappa y
+$$
+
+where $\kappa$ is the von Kármán constant, approximately 0.41.
+
+This simple model works reasonably well for the region of the boundary layer away from the immediate vicinity of the wall but tends to be less accurate very close to the wall.
+
+### Wall Functions and Coordinates
+
+For the region very close to the wall, more accurate models like the Law of the Wall can be used. This involves defining dimensionless wall coordinates:
+
+$$
+y^+ = \frac{y u_\tau}{\nu}
+$$
+
+where $u_\tau = \sqrt{\tau_w/\rho}$ is the friction velocity.
+
+The velocity profile in these coordinates follows:
+
+-   $y^+ < 5$: Linear sublayer where $u^+ = y^+$
+
+-   $5 < y^+ < 30$: Buffer layer
+
+-   $y^+ > 30$: Logarithmic layer where $u^+ = \frac{1}{\kappa}\ln(y^+) + B$
+
+where $u^+ = \bar{u}/u_\tau$, $\kappa \approx 0.41$, and $B \approx 5.0$.
+
+### Heat Transfer Correlations from Turbulence Models
+
+For a flat plate with turbulent flow, the wall shear stress can be approximated as: 
+
+$$
+\tau_w = \rho u_\infty^2 \frac{C_f}{2}
+$$
+
+where $C_f \approx 0.0287 \text{Re}_x^{-1/5}$ for turbulent flow over a flat plate.
+
+If we assume a turbulent Prandtl number of approximately 1.0, the Nusselt number for turbulent flow over a flat plate becomes: 
+
+$$
+\text{Nu}_x = 0.0287 \text{Re}_x^{4/5} \text{Pr}^{1/3}
+$$
+
+This is valid for $0.6 < \text{Pr} < 60$ and Reynolds numbers in the turbulent regime. Integrating over the entire plate length, we get the average Nusselt number: 
+
+$$
+\overline{\text{Nu}}_L = 0.037 \text{Re}_L^{4/5} \text{Pr}^{1/3}
+$$
+
+### Practical Guidelines for CFD Turbulence Model Selection
+
+When solving conjugate heat transfer problems through computational fluid dynamics (CFD), the choice of turbulence model can significantly impact accuracy. Some general guidelines based on common experience in the field:
+
+1.  For transitional flows where heat transfer occurs primarily in regions with mild turbulence, zero-equation or one-equation models (like Spalart-Allmaras) can be efficient and reasonably accurate.
+
+2.  For boundary layer flows without strong separation, the $k$-$\omega$ SST (Shear Stress Transport) model often provides good accuracy for heat transfer predictions.
+
+3.  For problems with strong mixing and large eddy structures, Large Eddy Simulation (LES) approaches may be necessary, though they require significantly more computational resources.
+
+The accuracy of heat transfer predictions depends heavily on the quality of the fluid mechanics solution. If the flow field does not converge properly, the heat transfer solution is unlikely to be accurate.
+
+### Simplified Approaches for System-Level Analysis
+
+For rapid system-level analysis, it is sometimes practical to model turbulent flow effects without solving the full Navier-Stokes equations. One approach is to represent the flow as conduction with an enhanced effective thermal conductivity:
+
+$$
+k_{\text{effective}} = k + k_t
+$$
+
+For example, one might use an effective thermal conductivity of 20,000 W/m·K to represent turbulent flow in a channel. This approach can save significant computational time for 3D system-level simulations while still capturing the essential heat transfer trends.
+
+The enhancement factor can be based on the eddy diffusivity ratio. If turbulence increases heat transfer by a factor of 10 compared to laminar flow, the effective thermal conductivity would be increased accordingly.
+
+This method sacrifices detailed flow information but can provide useful thermal results for many engineering applications, especially when computational resources are limited or when only trend analysis is needed.
+
+## Summary of Internal vs. External Flow Concepts
+
+### 1. Velocity and Temperature Definitions
+
+-   **Mean velocity (internal flow)**: 
+
+$$
+u_m = \frac{1}{A} \int_A u \, dA
+$$
+
+ Used for computing mass flow rate and Reynolds number in internal flows.
+
+-   **Free-stream velocity (external flow)**: 
+
+$$
+U_\infty = \text{Uniform velocity of undisturbed fluid far from surface}
+$$
+
+-   **Bulk (mean) temperature (internal flow)**: 
+
+$$
+T_m = \frac{1}{\dot{m} c_p} \int_A \rho u T \, dA
+$$
+
+ Used for energy calculations in internal flow.
+
+-   **Free-stream temperature (external flow)**: 
+
+$$
+T_\infty = \text{Ambient fluid temperature far from the surface}
+$$
+
+### 2. Film Temperature (for Property Lookup)
+
+-   **Internal flow:** 
+
+$$
+T_f = \frac{T_s + T_m}{2}
+$$
+
+-   **External flow or Natural convection:** 
+
+$$
+T_f = \frac{T_s + T_\infty}{2}
+$$
+
+-   Use $T_f$ to evaluate fluid properties: $k, \mu, c_p, \rho$
+
+### 3. Reynolds and Nusselt Number Expressions
+
+| **Flow Type**                         | **Reynolds Number**                                          | **Nusselt Number**                                  |
+|:--------------------------------------|:-------------------------------------------------------------|:----------------------------------------------------|
+| Internal (pipe/duct)                  | $\displaystyle \mathrm{Re}_{D_h} = \frac{\rho u_m D_h}{\mu}$ | $\displaystyle \mathrm{Nu}_{D_h} = \frac{h D_h}{k}$ |
+| External (flat plate, cylinder, etc.) | $\displaystyle \mathrm{Re}_x = \frac{\rho U_\infty x}{\mu}$  | $\displaystyle \mathrm{Nu}_x = \frac{h x}{k}$       |
+
+### 4. Characteristic Lengths
+
+-   **Hydraulic diameter (for non-circular internal flow):** 
+
+$$
+D_h = \frac{4A}{P}
+        \quad \text{where } A = \text{cross-sectional area},\; P = \text{wetted perimeter}
+$$
+
+-   **Geometric lengths (external flow):**
+
+    -   Flat plate: $L$ = length in flow direction
+
+    -   Cylinder or sphere: $D$ = diameter
+
+-   **Biot number characteristic length (solid conduction):** 
+
+$$
+L_c = \frac{V}{A_s}, \quad \mathrm{Bi} = \frac{h L_c}{k_s}
+$$
+
+ where $k_s$ is the thermal conductivity of the solid.
+
+### 5. Convection Heat Flux Expressions
+
+-   **Internal flow:** $q'' = h (T_s - T_m)$
+
+-   **External flow:** $q'' = h (T_s - T_\infty)$
+
+### 6. Entry Lengths and Fully Developed Flow
+
+-   To estimate entry length: 
+
+$$
+\frac{x_{fd}}{D} \approx \text{(function of Re or Pr)}
+$$
+
+-   For circular pipes: $D$ is the actual pipe diameter.  
+    For non-circular ducts: use the hydraulic diameter: 
+
+$$
+D_h = \frac{4A}{P}
+$$
+
+-   Typical estimates (laminar flow): 
+
+$$
+\frac{x_{fd,h}}{D} \approx 0.05\,\mathrm{Re}, \quad
+        \frac{x_{fd,t}}{D} \approx 0.05\,\mathrm{Re}\,\mathrm{Pr}
+$$

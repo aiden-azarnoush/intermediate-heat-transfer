@@ -1,0 +1,27 @@
+\begin{tikzpicture}
+  % Coordinates
+  \coordinate (O) at (0,0);
+  \coordinate (J) at (4,0);
+  \coordinate (I) at ({3*cos(50)}, {3*sin(50)}); % angle alpha ≈ 50°
+
+  % Triangle edges
+  \draw[thick] (O) -- (I);
+  \draw[thick] (O) -- (J);
+
+  % Nodes
+  \filldraw[black] (O) circle (2pt);
+  \filldraw[black] (I) circle (2pt) node[above right] {$i$};
+  \filldraw[black] (J) circle (2pt) node[right] {$j$};
+
+  % Labels for lengths
+  \node at ($(O)!0.5!(I)$) [left] {$w$};
+  \node at ($(O)!0.5!(J)$) [below] {$w$};
+
+  % Angle alpha
+  \draw[<->, thick] (1,0) arc (0:50:1);
+  \node at (1.3,0.4) {$\alpha$};
+
+  % Equation on the right
+  \node at (8,1.2) {$F_{ij} = 1 - \sin\left(\frac{\alpha}{2}\right)$};
+
+\end{tikzpicture}

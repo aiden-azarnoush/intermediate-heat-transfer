@@ -1,0 +1,80 @@
+site_name: Intermediate Heat Transfer
+site_description: Lecture notes on convection and thermal radiation, by Aiden Azarnoush
+site_author: Aiden Azarnoush
+site_url: https://aiden-azarnoush.github.io/intermediate-heat-transfer/
+repo_url: https://github.com/aiden-azarnoush/intermediate-heat-transfer
+repo_name: aiden-azarnoush/intermediate-heat-transfer
+copyright: Written by Aiden Azarnoush · <a href="https://aiden-azarnoush.github.io">aiden-azarnoush.github.io</a>
+  · <a href="https://github.com/aiden-azarnoush">all repositories</a> · Found this
+  useful? <a href="https://paypal.me/azarnoush">☕ Buy me a coffee</a> · <a href="https://paypal.me/azarnoush/3">$3</a>
+  · <a href="https://paypal.me/azarnoush/5">$5</a> · <a href="https://paypal.me/azarnoush">other</a>
+theme:
+  name: material
+  features:
+  - navigation.indexes
+  - navigation.top
+  - navigation.footer
+  - toc.integrate
+  - toc.follow
+  - search.suggest
+  - search.highlight
+  - content.code.copy
+  palette:
+  - scheme: slate
+    primary: indigo
+    accent: indigo
+    toggle:
+      icon: material/brightness-4
+      name: Switch to light mode
+  - scheme: default
+    primary: indigo
+    accent: indigo
+    toggle:
+      icon: material/brightness-7
+      name: Switch to dark mode
+  font:
+    text: Source Serif 4
+    code: JetBrains Mono
+markdown_extensions:
+- admonition
+- attr_list
+- md_in_html
+- tables
+- footnotes
+- pymdownx.details
+- pymdownx.superfences
+- pymdownx.highlight
+- pymdownx.inlinehilite
+- pymdownx.arithmatex:
+    generic: true
+- toc:
+    permalink: true
+    toc_depth: 3
+extra_javascript:
+- javascripts/mathjax.js
+- https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+extra_css:
+- extra.css
+nav:
+- Home: index.md
+- Part I · Conduction:
+  - conduction/index.md
+  - Introduction to Conduction: conduction/01-introduction-to-conduction.md
+  - Steady One-Dimensional Conduction: conduction/02-steady-one-dimensional-conduction.md
+  - Transient Conduction: conduction/03-transient-conduction.md
+- Part II · Convection:
+  - convection/index.md
+  - Introduction to Convection: convection/01-introduction-to-convection.md
+  - 'External Flow: Flat Plates, Wedges, and the Integral Method': convection/02-external-flow-flat-plates-wedges-and-the-integral-method.md
+  - Internal Flow: convection/03-internal-flow.md
+  - Natural Convection: convection/04-natural-convection.md
+  - Boiling and Condensation: convection/05-boiling-and-condensation.md
+  - Turbulent Flow and Turbulence Models: convection/06-turbulent-flow-and-turbulence-models.md
+  - 'Case Study: Thermal Management in Formula One': convection/07-case-study-thermal-management-in-formula-one.md
+- Part III · Thermal Radiation:
+  - radiation/index.md
+  - Fundamentals of Thermal Radiation: radiation/01-fundamentals-of-thermal-radiation.md
+  - Radiation Intensity, Surface Properties, and Blackbody Radiation: radiation/02-radiation-intensity-surface-properties-and-blackbody-radiati.md
+  - Kirchhoff's Law and View Factors: radiation/03-kirchhoff-s-law-and-view-factors.md
+  - Radiation Exchange Between Surfaces: radiation/04-radiation-exchange-between-surfaces.md
+  - Applications and Advanced Topics: radiation/05-applications-and-advanced-topics.md

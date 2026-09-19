@@ -1,0 +1,27 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LECTURE 15
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Wedge Flow}
+\addcontentsline{toc}{section}{Wedge Flow}
+%
+\noindent\textbf{Conduction shape factors} $q = S\,k\,(T_1 - T_2)$ for selected two- and three-dimensional systems
+(after the standard tabulation in heat-transfer textbooks):
+
+\begin{center}
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{p{6.2cm} p{3.2cm} p{5cm}}
+\hline
+\textbf{System} & \textbf{Restrictions} & \textbf{Shape factor $S$} \\
+\hline
+Isothermal sphere of diameter $D$ buried at depth $z$ (to centre) in a semi-infinite medium & $z > D/2$ & $\dfrac{2\pi D}{1 - D/4z}$ \\
+Horizontal isothermal cylinder of length $L$ and diameter $D$ buried at depth $z$ & $L \gg D$ & $\dfrac{2\pi L}{\cosh^{-1}(2z/D)}$; \; $\dfrac{2\pi L}{\ln(4z/D)}$ for $z > 3D/2$ \\
+Vertical cylinder of length $L$ in a semi-infinite medium & $L \gg D$ & $\dfrac{2\pi L}{\ln(4L/D)}$ \\
+Two parallel cylinders of length $L$, diameters $D_1$, $D_2$, centres $w$ apart, in an infinite medium & $L \gg D_1, D_2, w$ & $\dfrac{2\pi L}{\cosh^{-1}\!\left[\dfrac{4w^2 - D_1^2 - D_2^2}{2D_1D_2}\right]}$ \\
+Circular cylinder of length $L$ midway between parallel planes a distance $2z$ apart & $z \gg D/2$, $L \gg z$ & $\dfrac{2\pi L}{\ln(8z/\pi D)}$ \\
+Circular cylinder of length $L$ centred in a square solid of side $w$ & $w > D$, $L \gg w$ & $\dfrac{2\pi L}{\ln(1.08\,w/D)}$ \\
+Disk of diameter $D$ on the surface of a semi-infinite medium & --- & $2D$ \\
+Edge of two adjoining walls of thickness $L$, depth $D$ & $D > L/5$ & $0.54\,D$ \\
+Corner of three walls of thickness $L$ & $L \ll$ wall lengths & $0.15\,L$ \\
+\hline
+\end{tabular}
+\end{center}

@@ -1,0 +1,32 @@
+\begin{tikzpicture}[>=Stealth,
+                      line cap=round, line join=round,
+                      font=\normalsize]
+    % -------- user‑tunable parameters --------
+    \def\Rbig{2}       % radius of upper disk (in cm)
+    \def\rbig{0.35}    % vertical semi‑axis of its ellipse (in cm)
+    \def\Rsmall{0.45}  % radius of lower disk
+    \def\rsmall{0.15}  % vertical semi‑axis of its ellipse
+    \def\gap{4}        % centre‑to‑centre vertical gap (cm)
+
+    % -------- upper disk  j  --------
+    \draw (-\Rbig,0) ellipse (\Rbig cm and \rbig cm);
+    % diameter arrow  D
+    \draw[<->] (-2*\Rbig,0) -- (0,0)
+       node[pos=.5, above=2pt] {$D$};
+    % labels
+    \node[left =4pt]  at (-2*\Rbig,0) {$A_j$};
+    \node[right=10pt] at ( 0,0) {disk $j$};
+
+    % -------- lower disk  i  --------
+    \draw (-\Rbig,-\gap) ellipse (\Rsmall cm and \rsmall cm);
+    \node[left =4pt]  at (-\Rbig-\Rsmall,-\gap) {$A_i$};
+    \node[right=10pt] at ( -\Rbig+ \rsmall,-\gap) {disk $i$};
+
+    % -------- vertical separation  L --------
+    \draw[<->] (-\Rbig,-\rbig) -- (-\Rbig,-\gap+\rsmall)
+       node[pos=.5, right=6pt] {$L$};
+  % -------- formula centred on the arrow --------
+    \node[right=2.5cm]
+         at (0,-2)
+         {$\displaystyle F_{ij}=\frac{D^{2}}{D^{2}+4L^{2}}$};
+\end{tikzpicture}

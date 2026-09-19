@@ -1,0 +1,32 @@
+\begin{tikzpicture}
+  % Radii
+  \def\rinner{1}
+  \def\router{2}
+  
+  % Draw circles
+  \draw[thick] (0,0) circle (\rinner);
+  \draw[very thick] (0,0) circle (\router);
+
+  % Points A1 and A2 at angles
+  \def\angleA{120}
+  \def\angleB{60}
+  
+  % Coordinates
+  \coordinate (A1inner) at (\angleA:\rinner);
+  \coordinate (A1outer) at (\angleA:\router);
+  \coordinate (A2inner) at (\angleB:\rinner);
+  \coordinate (A2outer) at (\angleB:\router);
+
+  % Connectors
+  \draw[very thick] (A1inner) -- ++(\angleA:0.2);
+  \draw[very thick] (A2outer) -- ++(\angleB:0.8);
+
+  % Dots
+  \filldraw (A1inner) circle (2pt);
+  \filldraw (A2outer) circle (2pt);
+
+  % Labels
+  \node at ($(A1inner) + (\angleA:0.5)$) {\large\textit{$A_1$}};
+  \node at ($(A2outer) + (\angleB:1.1)$) {\large\textit{$A_2$}};
+
+\end{tikzpicture}

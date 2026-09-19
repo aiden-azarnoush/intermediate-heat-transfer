@@ -1,0 +1,390 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LECTURE 27: RADIATION HEAT TRANSFER - APPLICATIONS AND ADVANCED TOPICS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Radiation Heat Transfer - Applications and Advanced Topics}
+\addcontentsline{toc}{section}{Radiation Heat Transfer - Applications and Advanced Topics}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{The "Seat Belt Buckle Syndrome"}
+\addcontentsline{toc}{subsection}{The "Seat Belt Buckle Syndrome"}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+An interesting practical example of radiation heat transfer is the "seat belt buckle syndrome" where metal seat belt buckles in cars can become uncomfortable or even painful to touch on hot days, even though fabric parts at the same temperature do not cause discomfort.
+
+This phenomenon involves multiple heat transfer mechanisms:
+
+\begin{enumerate}
+    \item \textbf{Greenhouse effect in the car:} Solar radiation enters through windows (glass transmits approximately 95\% of visible light) but thermal radiation (5-12 $\mu$m) from heated surfaces cannot escape easily, causing the cabin to heat up.
+    
+    \item \textbf{Spectral properties of metal buckles:} While metal buckles appear reflective to the human eye, the nickel coating on seat belt buckles:
+    \begin{itemize}
+        \item Reflects blue light significantly
+        \item Reflects some portion of red light
+        \item Absorbs most of the green light
+        \item Has high absorption in the infrared range
+        \item Has very low emissivity in the thermal wavelengths
+    \end{itemize}
+    
+    \item \textbf{Material properties affecting heat transfer:}
+    \begin{itemize}
+        \item The metal buckle has high thermal diffusivity, making it difficult to cool by touch
+        \item Fabric has low thermal diffusivity, so when touched, the surface cools quickly
+        \item Human skin has heat flux sensors (not temperature sensors), so we perceive high heat flux as "hot"
+        \item Metal requires removing significant heat to cool down, creating a high heat flux into skin
+    \end{itemize}
+\end{enumerate}
+
+This example illustrates how spectral properties, material characteristics, and biological factors all contribute to a common thermal experience.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Thermal vs. Non-Thermal Radiation}
+\addcontentsline{toc}{subsection}{Thermal vs. Non-Thermal Radiation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+There is an important distinction between thermal and non-thermal radiation:
+
+\begin{itemize}
+    \item \textbf{Thermal radiation} follows the Planck distribution, with:
+    \begin{itemize}
+        \item Maximum achievable temperature limited to the source temperature
+        \item Maximum efficiency limited by the Carnot efficiency $\eta = 1 - \frac{T_{low}}{T_{high}}$
+        \item Examples: solar radiation, incandescent bulbs, heated objects
+    \end{itemize}
+    
+    \item \textbf{Non-thermal radiation} has properties different from thermal equilibrium distribution:
+    \begin{itemize}
+        \item Can achieve much higher intensities and temperatures
+        \item Examples: lasers, LEDs, fluorescent lights
+        \item Not bound by the same thermodynamic limitations as thermal radiation
+    \end{itemize}
+\end{itemize}
+
+% \subsubsection*{Example: National Ignition Facility}
+% \addcontentsline{toc}{subsubsection}{Example: National Ignition Facility}
+
+% The National Ignition Facility (NIF) uses non-thermal radiation (lasers) to achieve temperatures of billions of degrees to trigger nuclear fusion:
+
+% \begin{itemize}
+%     \item Multiple high-power lasers are directed to a single point
+%     \item A capsule containing deuterium-tritium fuel is compressed and heated
+%     \item The energy intensity is sufficient to trigger fusion reactions
+%     \item Recent achievements include net energy gain from fusion (more energy out than laser energy in)
+%     \item However, the system is not yet practical for energy production since the overall efficiency including laser generation is still low
+% \end{itemize}
+
+% The NIF example illustrates that non-thermal radiation can achieve temperatures far beyond what is possible with thermal radiation alone.
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \subsection*{Radiation Network Analysis Review}
+% \addcontentsline{toc}{subsection}{Radiation Network Analysis Review}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% The lecture provided a brief recap of radiation network analysis:
+
+% \begin{itemize}
+%     \item Each surface has two nodes:
+%     \begin{itemize}
+%         \item A black body emission node ($E_b$) representing radiation potential
+%         \item A radiosity node ($J$) representing outgoing radiation
+%     \end{itemize}
+    
+%     \item Surface resistance: $R_{s,i} = \frac{1-\varepsilon_i}{\varepsilon_i A_i}$
+    
+%     \item Space resistance: $R_{ij} = \frac{1}{A_i F_{i-j}}$
+    
+%     \item Reradiating surface: A thermally insulated surface where $J = E_b$ (emissivity becomes irrelevant)
+    
+%     \item Governing equation: Energy balance at each radiosity node
+%     \[
+%     \frac{E_{b,i} - J_i}{R_{s,i}} = \sum_{j \neq i} \frac{J_i - J_j}{R_{ij}}
+%     \]
+% \end{itemize}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \subsection*{Complex Enclosures with Real and Fictitious Surfaces}
+% \addcontentsline{toc}{subsection}{Complex Enclosures with Real and Fictitious Surfaces}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% For complex geometries, it can be helpful to introduce fictitious (imaginary) surfaces:
+
+% \begin{itemize}
+%     \item \textbf{Real surfaces:} Physical surfaces that emit, absorb, or reflect radiation
+%     \item \textbf{Fictitious surfaces:} Non-physical surfaces (like openings or imaginary planes) that help simplify analysis
+% \end{itemize}
+
+% \subsubsection*{Example: Heater and Absorber Problem}
+% \addcontentsline{toc}{subsubsection}{Example: Heater and Absorber Problem}
+
+% Consider a system with:
+% \begin{itemize}
+%     \item A horizontal heater (surface 1)
+%     \item An absorber plate (surface 2)
+%     \item The surrounding room (surface 3)
+% \end{itemize}
+
+% Since surfaces 1 and 3 are concave (can "see themselves"), we can introduce fictitious surfaces:
+% \begin{itemize}
+%     \item Surface 2' (fictitious) representing the plane of surface 2
+%     \item Surface 3' (fictitious) representing the opening to the room
+% \end{itemize}
+
+% This approach simplifies view factor calculations:
+% \begin{itemize}
+%     \item First calculate view factors between fictitious surfaces ($F_{1-2'}$, $F_{1-3'}$, etc.)
+%     \item Then relate these to the real surface view factors
+%     \item For example: The energy passing through 2' must end up on surface 2, so $F_{1-2} = F_{1-2'}$
+% \end{itemize}
+
+% For the room (treated as a black surface), we have $\varepsilon_3 = 1$, which means $E_{b,3} = J_3$. This simplifies the network and equations.
+
+% The governing equations become:
+% \begin{align}
+% Q_1 &= \frac{E_{b,1} - J_1}{R_{s,1}} = \frac{J_1 - J_2}{R_{12}} + \frac{J_1 - J_3}{R_{13}}\\
+% Q_2 &= \frac{E_{b,2} - J_2}{R_{s,2}} = \frac{J_2 - J_1}{R_{21}} + \frac{J_2 - J_3}{R_{23}}
+% \end{align}
+
+% With the third equation $E_{b,3} = J_3$, we can solve for all unknowns and find the heat transfer rates.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Spectral Considerations in Radiation Analysis}
+\addcontentsline{toc}{subsection}{Spectral Considerations in Radiation Analysis}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+While the radiation network method assumes gray surfaces, in reality:
+
+\begin{itemize}
+    \item For wavelength-dependent properties (non-gray surfaces):
+    \begin{itemize}
+        \item The network analysis can be performed separately for each wavelength
+        \item Results can be integrated over all wavelengths
+        \item This preserves the geometry (view factors) but accounts for spectral variations
+    \end{itemize}
+    
+    \item For directional-dependent properties (non-diffuse surfaces):
+    \begin{itemize}
+        \item The radiation network analysis breaks down
+        \item Alternative methods like Monte Carlo or ray-tracing are required
+    \end{itemize}
+\end{itemize}
+
+\subsubsection*{Monte Carlo Methods}
+\addcontentsline{toc}{subsubsection}{Monte Carlo Methods}
+
+For complex radiation problems, Monte Carlo simulation offers a statistical approach:
+\begin{itemize}
+    \item Tracks the paths of simulated photon bundles
+    \item At each surface interaction, random numbers determine:
+    \begin{itemize}
+        \item Whether the photon is absorbed or reflected
+        \item Direction of reflection (for diffuse surfaces)
+    \end{itemize}
+    \item After tracking millions of photons, statistical results provide radiation distribution
+    \item Particularly useful for non-diffuse surfaces or participating media
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Radiative Transfer Equation (RTE)}
+\addcontentsline{toc}{subsection}{Radiative Transfer Equation (RTE)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The radiative transfer equation (RTE) is the fundamental governing equation for radiation in participating media (like gases or combustion products):
+
+\begin{itemize}
+    \item Accounts for absorption, emission, and scattering within the medium
+    \item Combines differential and integral terms
+    \item Much more complex than the radiation network approach
+    \item Will be covered in more detail in future lectures
+\end{itemize}
+\[
+    \begin{gathered}
+    \frac{d I}{d s}+\left(\alpha+\sigma_s\right) I=\alpha n^2 \frac{\sigma T_g^4}{\pi}+\frac{\sigma_s}{4 \pi} \int_0^{4 \pi} I\left(\Omega^{\prime}\right) \Phi\left(\Omega, \Omega^{\prime}\right) d \Omega^{\prime} \\
+    I=I(\vec{r}, \vec{s}) \quad I\left(\Omega^{\prime}\right)=I\left(\overrightarrow{\mathbf{r}}, \vec{S}^{\prime}\right)
+    \end{gathered}
+\]
+where,
+\begin{itemize}
+    \item $\vec{r}=$ Position vector $\quad \vec{S}=$ direction vector
+    \item $n=$ refractive index
+    \item $\sigma_S=$ scattering coefficient
+    \item $\Phi=$ phase function (determines isotropic/arisotropic scattering)
+    \item $\Omega=$ solid angle
+\end{itemize}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Thermal Energy Equation for Participating Medium}
+\addcontentsline{toc}{subsection}{Therrial Energy Equation for Participating Medium}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\[
+\rho C_p \frac{\partial T_g}{\partial t}+\vec{\nabla} \cdot\left(\rho c_p \vec{u} T_g\right)=\vec{\nabla} \cdot\left(\overrightarrow{\vec{k}} \vec{\nabla} T_g\right)+\iint_{4 \pi} \alpha\left(I-n^2 \frac{\sigma T_g^4}{\pi}\right) d \Omega
+\]
+where $I(\vec{r}, \vec{S})$ needs to be solved from RTE.
+
+\textbf{}
+
+Note: 
+\begin{itemize}
+    \item These equations typically solved numerically.
+    \item We assumed gases/media are gray, ie., $\alpha$ is independent of $\lambda$.
+    \item We did not include source terms for non-thermal radiations.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Knudsen Number and Continuum Approximation}
+\addcontentsline{toc}{subsection}{Knudsen Number and Continuum Approximation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The Knudsen number ($\operatorname{K_n}$) determines when continuum approximations are valid:
+
+\[
+    \operatorname{K_n} = \frac{\text{mean free path}}{\text{characteristic length}}
+\]
+
+For radiation transport:
+\begin{itemize}
+    \item $\operatorname{K_n} < 0.01$: Continuum models valid (Navier-Stokes, HDE, RTE)
+    \item $0.01 < \operatorname{K_n} < 0.1$: Continuum models with corrections such as slip BC, ballistic-diffusive model
+    \item $0.1 < \operatorname{K_n} < 10$: Boltzmann Transport Equation (BTE) required
+    \item $\operatorname{K_n} > 10$: Particle-based models (ray tracing, photon transport) i.e., collision less BTE
+\end{itemize}
+
+The Boltzmann Transport Equation (BTE) becomes necessary when the mean free path is comparable to the problem dimensions, requiring statistical treatment of particle transport.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{The Boltzmann Transport Equation (BTE)}
+\addcontentsline{toc}{subsection}{The Boltzmann Transport Equation (BTE)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\[
+    \begin{aligned}
+    & \frac{\partial f}{\partial t}=\left(\frac{\partial f}{\partial t}\right)_{\text {force }}+\left(\frac{\partial f}{\partial t}\right)_{\text {diffluison }}+\left(\frac{\partial f}{\partial t}\right)_{\text {sattering }} 
+    \\[1em]
+    & \frac{\partial f}{\partial t}+\vec{v} \cdot \vec{\nabla} f+\vec{a} \frac{\partial f}{\partial \vec{v}}=\left(\frac{\partial f}{\partial t}\right)_{\text {scattering }} 
+    \\[1em]
+    & \text { where }\left(\frac{\partial f}{\partial t}\right)_{\text {scatterina }}=\iint\left[\iint(\ldots . .) d_{p_A}^3 d_B^3\right] d \Omega \qquad {\text{Full BTE}}
+    \\[1em]
+    & \qquad \qquad \left(\frac{\partial f}{\partial t}\right)_{\text {scatterina }} \cong \nu\left(f_0-f\right) \qquad \text { gray BTE} 
+    \end{aligned}
+\]
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \subsection*{Multi-Mode Heat Transfer Applications}
+% \addcontentsline{toc}{subsection}{Multi-Mode Heat Transfer Applications}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \subsubsection*{Example 1: Solar Collector}
+% \addcontentsline{toc}{subsubsection}{Example 1: Solar Collector}
+
+% A solar collector consists of:
+% \begin{itemize}
+%     \item A cover plate with selective spectral properties:
+%     \begin{itemize}
+%         \item $\alpha_\lambda = 0$ for $\lambda < 3$ $\mu$m (allows visible light to pass)
+%         \item $\alpha_\lambda = 0.7$ for $\lambda > 3$ $\mu$m (absorbs thermal radiation)
+%     \end{itemize}
+    
+%     \item An absorber plate with:
+%     \begin{itemize}
+%         \item $\alpha_\lambda = 0.9$ for $\lambda < 3$ $\mu$m (high absorption of solar radiation)
+%         \item $\alpha_\lambda = 0.2$ for $\lambda > 3$ $\mu$m (low thermal emissivity)
+%     \end{itemize}
+% \end{itemize}
+
+% To analyze this system:
+% \begin{enumerate}
+%     \item Calculate the total absorptivity of the absorber plate for solar radiation:
+%     \[
+%     \alpha = \frac{\int_0^\infty \alpha_\lambda E_{b\lambda}(T_{sun}) d\lambda}{\int_0^\infty E_{b\lambda}(T_{sun}) d\lambda}
+%     \]
+%     For solar radiation, approximately 94\% of energy is below 3 $\mu$m, giving $\alpha \approx 0.9 \times 0.94 + 0.2 \times 0.06 \approx 0.86$
+    
+%     \item Determine heat loss mechanisms:
+%     \begin{itemize}
+%         \item Natural convection inside the collector cavity ($h \approx 3.21$ W/m²K)
+%         \item Radiation exchange between absorber and cover
+%     \end{itemize}
+    
+%     \item While not a perfect enclosure problem (due to spectral dependencies), an approximation can be made:
+%     \begin{itemize}
+%         \item The absorber is approximately gray for the wavelengths of interest at its operating temperature
+%         \item The cover has relatively constant properties in the thermal wavelength range
+%     \end{itemize}
+% \end{enumerate}
+
+% This example illustrates how spectral properties can be strategically selected to optimize solar collection and minimize thermal losses.
+
+% \subsubsection*{Example 2: Electronics Enclosure}
+% \addcontentsline{toc}{subsubsection}{Example 2: Electronics Enclosure}
+
+% An electronics enclosure problem involves:
+% \begin{itemize}
+%     \item Electronic components generating heat inside an enclosure
+%     \item One side thermally insulated
+%     \item Heat dissipation through a copper plate
+%     \item Helium gas filling the enclosure
+% \end{itemize}
+
+% Heat transfer occurs through:
+% \begin{itemize}
+%     \item Radiation between components and enclosure surfaces
+%     \item Natural convection within the helium-filled cavity
+% \end{itemize}
+
+% The total heat dissipation is:
+% \[
+% q = q_{rad} + q_{conv}
+% \]
+
+% For natural convection in enclosures, the appropriate correlation depends on:
+% \begin{itemize}
+%     \item Enclosure geometry (rectangular, etc.)
+%     \item Orientation (vertical, horizontal, inclined)
+%     \item Rayleigh number
+% \end{itemize}
+
+% \subsubsection*{Example 3: Heat Transfer Between Parallel Plates}
+% \addcontentsline{toc}{subsubsection}{Example 3: Heat Transfer Between Parallel Plates}
+
+% A problem involving heat transfer between parallel plates (heater above a flat panel) requires careful consideration of the relevant heat transfer modes:
+
+% \begin{itemize}
+%     \item Radiation exchange between the plates
+%     \item Heat transfer between the plates and surrounding air
+% \end{itemize}
+
+% A common misconception is to include both conduction and convection between the plates. In reality:
+% \begin{itemize}
+%     \item If the hot plate is on top with cold plate below, natural convection is suppressed
+%     \item Air becomes stagnant and heat transfer occurs primarily through conduction
+%     \item Including both conduction and convection would double-count the same heat transfer path
+% \end{itemize}
+
+% The correct approach:
+% \begin{itemize}
+%     \item Use conduction through air when the hot plate is above the cold plate and the gap is small
+%     \item Use convection correlations when the hot plate is below the cold plate or when the gap is large enough for flow development
+%     \item Never use both simultaneously for the same path
+% \end{itemize}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \subsection*{Preview of Advanced Radiation Topics}
+% \addcontentsline{toc}{subsection}{Preview of Advanced Radiation Topics}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Future lectures will cover more advanced radiation topics:
+% \begin{itemize}
+%     \item Radiative transfer equation (RTE) for participating media
+%     \item Advanced solution methods for complex geometries
+%     \item Non-equilibrium radiation
+%     \item Near-field radiation effects
+% \end{itemize}
+
+% These topics will be presented as informational only, providing key terminology and concepts without expectation of detailed understanding. They will not be included on the final exam.
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \subsection*{Final Exam Information}
+% \addcontentsline{toc}{subsection}{Final Exam Information}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% The instructor confirmed that:
+% \begin{itemize}
+%     \item Today's lecture represents the last material that will be covered on the final exam
+%     \item Advanced radiation topics in future lectures will not be tested
+%     \item The exam will focus on core concepts and application of techniques
+%     \item Problems will be clearly defined with reasonable computational requirements
+% \end{itemize}

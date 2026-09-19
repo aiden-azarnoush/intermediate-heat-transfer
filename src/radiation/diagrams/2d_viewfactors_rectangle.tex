@@ -1,0 +1,26 @@
+\begin{tikzpicture}
+  % Coordinates
+  \coordinate (O) at (0,0);
+  \coordinate (J) at (3,0);
+  \coordinate (I) at (0,3);
+
+  % Triangle edges
+  \draw[thick] (O) -- (I);
+  \draw[thick] (O) -- (J);
+
+  % Nodes
+  \filldraw[black] (O) circle (2pt);
+  \filldraw[black] (I) circle (2pt) node[above right] {$i$};
+  \filldraw[black] (J) circle (2pt) node[right] {$j$};
+
+  % Labels for lengths
+  \node at ($(O)!0.5!(I)$) [left] {$w_i$};
+  \node at ($(O)!0.5!(J)$) [below] {$w_j$};
+
+  % Right angle symbol
+  \draw ($(O)+(0.4,0)$) -- ++(0,0.3) -- ++(-0.3,0);
+
+  % Equation on the right
+  \node at (8,1.2) {$F_{ij} = \frac{1 + \left(\frac{w_j}{w_i}\right) - \sqrt{1 + \left(\frac{w_j}{w_i}\right)^2}}{2}$};
+
+\end{tikzpicture}

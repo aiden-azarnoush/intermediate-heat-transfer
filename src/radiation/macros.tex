@@ -1,0 +1,234 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% Picture with arrows - mathrm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\usetikzlibrary{arrows}
+
+% Define how TiKZ will draw the nodes
+\tikzset{mathterm/.style={draw=white,fill=white,rectangle,anchor=base}}
+\tikzstyle{every picture}+=[remember picture]
+\everymath{\displaystyle}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% Designate a term in a math environment to point to
+% Syntax: \mathterm[node label]{some math}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\newcommand\mathterm[2][]{%
+   \tikz [baseline] { \node [mathterm] (#1) {$#2$}; }}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% A command to draw an arrow from the current 
+% position to a labelled math term
+% Default color=black, default arrow head=stealth
+% Syntax: \indicate[color]{term to point to}[path options]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\newcommand\indicate[2][black]{%
+   \tikz [baseline] \node [inner sep=0pt,anchor=base] (i#2) {\vphantom|};
+   \@ifnextchar[{\@indicateopts{#1}{#2}}{\@indicatenoopts{#1}{#2}}}
+\def\@indicatenoopts#1#2{%
+   {\color{#1} \tikz[overlay] \path[line width=1pt,draw=#1,-stealth] (i#2) edge (#2);}}
+\def\@indicateopts#1#2[#3]{%
+   {\color{#1} \tikz[overlay] \path[line width=1pt,draw=#1,-stealth] (i#2) [#3] edge (#2);}}
+
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% Footnote for title
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\let\ACMmaketitle=\maketitle
+\renewcommand{\maketitle}{\begingroup\let\footnote=\thanks \ACMmaketitle\endgroup}
+
+\def\tang{\ThisStyle{\abovebaseline[0pt]{\scalebox{-1}{$\SavedStyle\perp$}}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%
+% Insert coding
+%
+% Example: 
+% \lstinputlisting[language=Octave, numbers=none]{code/fsine.m}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolor}{rgb}{0.95,0.95,0.92}
+\definecolor{mygreen}{RGB}{28,172,0}
+
+\lstdefinestyle{mystyle}{
+    %backgroundcolor=\color{backcolor},   
+    commentstyle=\color{mygreen},
+    keywordstyle=\color{blue},
+    numberstyle= \tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    %frame=L,
+    %frame = lines,
+    %frame = single,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,
+    %numbers=left, 
+    %numbersep=7pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    % xleftmargin=5pt,
+    % framexleftmargin=10pt,
+    % framextopmargin=4pt,
+    % framexbottommargin=4pt,
+    %emph=[1]{for,end,break},emphstyle=[1]\color{blue},
+    %emph=[2]{length,gca}, emphstyle=[2]\color{black}
+}
+ 
+\lstset{style=mystyle}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcounter{mycode}
+\colorlet{colexam}{green!75!black}
+\tcbset{
+  base/.style={
+    breakable,
+    enhanced,
+    frame engine = path,
+    sharp corners,
+    title,
+    attach boxed title to top left,
+    boxed title style={
+            size=minimal, top=0pt, left=0pt
+            },
+    coltitle=black,
+    fonttitle=\bfseries,
+  }
+}
+%
+\newtcolorbox[use counter=mycode]{code}{%
+  base,
+  boxed title style={
+  overlay={
+      \node[anchor=north east,inner ysep=0pt,align=right,text width=2in] 
+        at ([yshift=-0.55ex]frame.north west) {\hfill {In [\thetcbcounter]:}};
+  }},
+  borderline west={3pt}{0pt}{colexam},
+  borderline north={1pt}{0pt}{gray!30},
+  borderline south={1pt}{0pt}{gray!30},
+  borderline east={1pt}{0pt}{gray!30},
+  frame hidden,
+  colback = gray!5,
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% Volume in Fluid
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\makeatletter
+\DeclareRobustCommand{\volume}{\text{\volumedash}V}
+\newcommand{\volumedash}{%
+  \makebox[0pt][l]{%
+    \ooalign{\hfil\hphantom{$\m@th V$}\hfil\cr\kern0.08em\textbf{--}\hfil\cr}%
+  }%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% CREATING NICE RED BOX
+% https://tex.stackexchange.com/questions/719491/how-can-i-get-the-title-in-tcolorbox-partly-framed-and-not-framed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+% Defining counter:
+\newcounter{defcounter}
+\setcounter{defcounter}{0}
+\renewcommand{\thedefcounter}{\arabic{defcounter}}
+
+\newtcolorbox{definition}[1][]{%
+    enhanced,
+    before skip=5mm, after skip=5mm, 
+    colback=white, colframe=red, % Colors
+    rounded corners, arc=3mm,
+    drop fuzzy shadow, % Shadow
+    fonttitle=\bfseries,
+    title={#1}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Circuits
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[european,s traightvoltages, RPvoltages, americanresistor, americaninductors]{circuitikz}
+\tikzset{every picture/.style={line width=.2mm}}
+
+% Tikz Library
+\usetikzlibrary{calc}
+
+% Bipoles Specifications
+\ctikzset{bipoles/thickness=2, label distance=1mm, voltage shift = 1}
+
+% Arrows Above Compenents
+% Source: https://tex.stackexchange.com/questions/574576/circuitikz-straight-voltage-arrows-with-fixed-length
+\newcommand{\fixedvlen}[3][0.4cm]{% [semilength]{node}{label}
+    % get the center of the standard arrow
+    \coordinate (#2-Vcenter) at ($(#2-Vfrom)!0.5!(#2-Vto)$);
+    % draw an arrow of a fixed size around that center and on the same line
+    \draw[-{Triangle[round,open]}] ($(#2-Vcenter)!#1!(#2-Vfrom)$) -- ($(#2-Vcenter)!#1!(#2-Vto)$);
+    % position the label as it where if standard voltages were used
+    \node[ anchor=\ctikzgetanchor{#2}{Vlab}] at (#2-Vlab) {#3};
+}
+\newcommand{\fixedvlendashed}[3][0.75cm]{% [semilength]{node}{label}
+    % get the center of the standard arrow
+    \coordinate (#2-Vcenter) at ($(#2-Vfrom)!0.5!(#2-Vto)$);
+    % draw an arrow of a fixed size around that center and on the same line
+    \draw[dashed,-{Triangle[round,open]}] ($(#2-Vcenter)!#1!(#2-Vfrom)$) -- ($(#2-Vcenter)!#1!(#2-Vto)$);
+    % position the label as it where if standard voltages were used
+    \node[ anchor=\ctikzgetanchor{#2}{Vlab}] at (#2-Vlab) {#3};
+}
+
+
+% EXAMPLE
+% \begin{circuitikz}
+% %		%Grid
+% %		\draw[thin, dotted] (0,0) grid (8,8);
+% %		\foreach \i in {1,...,8}
+% %		{
+% %			\node at (\i,-2ex) {\i};	
+% %		}
+% %		\foreach \i in {1,...,8}
+% %		{
+% %			\node at (-2ex,\i) {\i};	
+% %		}
+% %		\node at (-2ex,-2ex) {0};
+			
+% 		%Coordinates
+% 		\coordinate (A) at (0,8);
+% 		\coordinate (B) at (0,4);
+% 		\coordinate (C) at (2.5,4);
+% 		\coordinate (D) at (7,4);
+% 		\coordinate (E) at (2.5,0);
+% 		\coordinate (Z) at (0,0);
+% 		\coordinate (Earth) at (0,-1);
+		
+% 		%Circuit
+% 		\draw (A) to[resistor, l_=$R_1$, i>=$I_{R_1}$, v^<, name=r1] (B) to[short, i>=$$] (C)
+% 				 to[resistor, l^=$R_4$, a_= {$V_{R_4}= 0 = I_{R_4}$}, name=r4, *-*] (D);
+% 		\draw (B) to[resistor, l_=$R_2$, i>=$I_{R_2}$, v^<, name=r2, *-*] (Z) to[short, i>=$$] (Earth) node[tlground]{};
+% 		\draw (C) to[resistor, l_=$R_3$, i>=$I_{R_3}$, v^<, name=r3, *-*] (E) to[short, i>=$$] (Z);
+		
+% 		%Nodes
+% 		\node[shift={(0.6,0)}] at (A) {$V_{CC}$};
+% 		\node[left] at (A) {A};
+% 		\node[left] at (B) {B};
+% 		\node[above] at (C) {C};
+% 		\node[above] at (D) {D};
+% 		\node[right] at (E) {E};
+% 		\node[left] at (Z) {F};
+		
+% 		% Voltages
+% 		\fixedvlen[0.5cm]{r1}{$V_{R_1}$}		
+% 		\fixedvlen[0.5cm]{r2}{$V_{R_2}$}	
+% 		\fixedvlen[0.5cm]{r3}{$V_{R_3}$}
+		
+% \end{circuitikz}

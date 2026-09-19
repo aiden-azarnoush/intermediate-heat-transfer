@@ -1,0 +1,81 @@
+# Introduction to Conduction
+
+Conduction is heat transfer through a medium by the random motion of its constituents: molecules colliding in a gas, lattice vibrations and free electrons in a solid. Nothing flows on the macroscopic scale; energy moves from hot to cold because more energetic particles hand energy to less energetic neighbours. Everything in this part follows from two statements: a *rate law* that says how fast heat moves at a point, and a *conservation law* that says energy is neither created nor destroyed.
+
+## Fourier’s Law
+
+!!! abstract "Fourier’s law"
+
+    The heat flux (W/m$^2$) is proportional to the temperature gradient and points down it: 
+
+    $$
+    \vec{q}'' = -k \nabla T ,
+    \qquad\text{in one dimension}\qquad
+    q''_x = -k \frac{dT}{dx}.
+    $$
+
+     The constant $k$ is the **thermal conductivity** (W/m$\cdot$K). The minus sign makes heat flow from high to low temperature.
+
+Thermal conductivity spans about five orders of magnitude at room temperature: roughly $0.026$ for air, $0.6$ for water, $1$ for glass, $16$ for stainless steel, $170$ for aluminium, $400$ for copper, all in W/m$\cdot$K. Insulators work by trapping air in small pockets so that neither conduction through the solid nor convection in the gas can carry much heat.
+
+Two related properties appear constantly:
+
+-   **Thermal diffusivity** $\alpha = k/(\rho c_p)$ (m$^2$/s): how fast a temperature change spreads. Metals have $\alpha \sim 10^{-5}$, water $\sim 10^{-7}$.
+
+-   **Volumetric heat capacity** $\rho c_p$ (J/m$^3\cdot$K): how much energy it takes to warm a unit volume by one degree.
+
+## Energy Balance and the Heat Equation
+
+Take a control volume of size $dx\,dy\,dz$ inside a solid. Conservation of energy reads 
+
+$$
+\dot E_{\text{in}} - \dot E_{\text{out}} + \dot E_{\text{gen}} = \dot E_{\text{stored}} .
+$$
+
+ The net conduction into the volume in the $x$-direction is $-\dfrac{\partial q''_x}{\partial x}\,dx\,dy\,dz$; generation is $\dot q\,dx\,dy\,dz$ with $\dot q$ in W/m$^3$; storage is $\rho c_p \dfrac{\partial T}{\partial t}\,dx\,dy\,dz$. Substituting Fourier’s law and dividing by the volume:
+
+!!! abstract "The heat diffusion equation"
+
+    $$
+    \rho c_p \frac{\partial T}{\partial t}
+    = \frac{\partial}{\partial x}\!\left(k \frac{\partial T}{\partial x}\right)
+    + \frac{\partial}{\partial y}\!\left(k \frac{\partial T}{\partial y}\right)
+    + \frac{\partial}{\partial z}\!\left(k \frac{\partial T}{\partial z}\right)
+    + \dot q .
+    $$
+
+     For constant $k$: 
+
+    $$
+    \frac{1}{\alpha}\frac{\partial T}{\partial t} = \nabla^2 T + \frac{\dot q}{k}.
+    $$
+
+In cylindrical and spherical coordinates the Laplacian carries the geometry: 
+
+$$
+\nabla^2 T = \frac{1}{r}\frac{\partial}{\partial r}\!\left(r\frac{\partial T}{\partial r}\right) + \frac{1}{r^2}\frac{\partial^2 T}{\partial \phi^2} + \frac{\partial^2 T}{\partial z^2}
+\qquad\text{(cylindrical)},
+$$
+
+ 
+
+$$
+\nabla^2 T = \frac{1}{r^2}\frac{\partial}{\partial r}\!\left(r^2\frac{\partial T}{\partial r}\right) + \cdots
+\qquad\text{(spherical, radial part)}.
+$$
+
+## Boundary and Initial Conditions
+
+The heat equation is second order in space and first order in time, so it needs two boundary conditions per coordinate and one initial condition. The three boundary conditions that cover almost every problem:
+
+1.  **Prescribed temperature (Dirichlet):** $T(0,t) = T_s$. A surface held by a phase-change process or a large thermal mass.
+
+2.  **Prescribed heat flux (Neumann):** $-k\,\partial T/\partial x|_{x=0} = q''_s$. A heater; the special case $q''_s = 0$ is an *insulated* (adiabatic) surface, which also describes a plane of symmetry.
+
+3.  **Convection (Robin):** $-k\,\partial T/\partial x|_{x=0} = h\,[T_\infty - T(0,t)]$. The surface exchanges heat with a fluid; the conduction reaching the surface from inside must equal the convection leaving it.
+
+A radiating surface adds $\varepsilon\sigma(T_s^4 - T_{\text{sur}}^4)$ to the convection term; because it is nonlinear it is usually linearized with a radiation coefficient $h_r = \varepsilon\sigma(T_s + T_{\text{sur}})(T_s^2 + T_{\text{sur}}^2)$.
+
+## A Note on Sign Conventions
+
+Most errors in conduction problems are sign errors at boundaries. A reliable habit: write every boundary condition as a balance on a thin control surface, “conduction arriving from the inside $=$ whatever leaves to the outside,” and let Fourier’s law with its minus sign supply the directions. Never guess whether a flux is positive; compute $-k\,dT/dx$ and read the sign.

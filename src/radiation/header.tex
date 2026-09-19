@@ -1,0 +1,30 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                            HEADER AND FOTER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{fancy}
+\fancyhf{}
+% Foot
+\renewcommand{\footrulewidth}{0pt}
+\lfoot{}
+\cfoot{}
+\rfoot{Page \thepage\ of \pageref{LastPage}}
+% Header
+\renewcommand{\headrulewidth}{1pt}
+\lhead{Thermal Radiation}
+\chead{ME 509}
+\rhead{Aiden Azarnoush}
+
+%
+\setlength{\headheight}{40pt}
+\setlength{\footskip}{40pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                       FIRST PAGE HEADER AND FOTER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\fancypagestyle{plain}
+	{%
+	\fancyhf{} % clear all header and footer fields
+	\fancyfoot[C]{\roman{page}}
+    \fancyhead[C]{}
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{0pt}
+	}
